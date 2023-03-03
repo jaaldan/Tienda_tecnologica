@@ -1,6 +1,6 @@
 <?php
-class Entradas
-{
+ class Entradas
+ {
     public $id_entrada;
     public $id_producto;
     public $proveedor;
@@ -17,7 +17,7 @@ class Entradas
             echo "<script> alert('El proveedor ya existe en el sistema')</script>";
         } else {
             $insertar = "insert into categorias value(
-                                                                      '$this->id_categoria',
+                                                                      '$this->id_entrada',
                                                                       '$this->id_producto',
                                                                       '$this->proveedor',
                                                                       '$this->cantidad_entrada',
@@ -39,8 +39,9 @@ class Entradas
             echo "<script> alert('La entrada ya Existe en el Sistema')</script>";
         } else {
             $update = "update entradas set id_entrada='$this->id_entrada',
-                                                        proveedor='$this->proveedor' where id_entrada='$this->id_entrada',
-                                                        cantidad_entrada='$this->cantidad_entrada' where id_entrada='$this->id_entrada',
+                                                        
+                                                        proveedor='$this->proveedor',
+                                                        cantidad_entrada='$this->cantidad_entrada',
                                                         valor_proveedor='$this->valor_proveedor' where id_entrada='$this->id_entrada'";
             echo $update;
             mysqli_query($c, $update);
@@ -70,4 +71,5 @@ class Entradas
 
     }
 
-}
+ }
+?>

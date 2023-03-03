@@ -42,7 +42,7 @@ if (isset($_POST['search'])) {
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-<div class="container shadow p-3 mb-5 bg-body rounded">
+<div class="container-fluid p-3 mb-5 bg-body rounded">
         <head>
             <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
             <br>

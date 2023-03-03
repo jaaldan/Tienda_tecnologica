@@ -7,7 +7,7 @@ if ($_POST) {
 
     $obj->id_imagen = $_POST['id_imagen'];
     $obj->id_producto = $_POST['id_producto'];
-    $obj->url = $_POST['url'];
+    $obj->imagen_producto = $_POST['imagen_producto'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
@@ -18,6 +18,16 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
 
 
 ?>
+
+
+<?php
+$conet = new Conexion();
+$c = $conet->conectando();
+$sql = "select * from productos";
+$query = mysqli_query($c, $sql);
+$r = mysqli_fetch_assoc($query);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -47,7 +57,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Código</center>
                         </th>
                         <td>
-                            <center><input type="number" name="id_imagen" id="id_imagen" value="<?php echo $arreglo2[0]?>" placeholder="El Codigo es Asignado por el Sistema" maxlength="100" size="100" readonly></center>
+                            <center><input type="number" name="id_imagen" id="id_imagen" value="<?php echo $arreglo2[0]?>" maxlength="100" size="100" readonly></center>
                         </td>
                     </tr>
                     <tr>
@@ -55,19 +65,26 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Nombre producto</center>
                         </th>
                         <td>
-                            <center><input type="number" name="id_producto" id="id_producto"  value="<?php echo $arreglo2[1]?>" placeholder="Digite el Nombre de la categoria" maxlength="100" size="100" readonly></center>
+                            <center><input type="text" name="nombre_producto" id="nombre_producto" value="<?php 
+                                        $query3="select nombre_producto from productos where id_producto = '$arreglo2[1]'";
+                                        $resultado3=mysqli_query($c,$query3);
+                                        $arreglo3 = mysqli_fetch_array($resultado3);
+                                        echo $arreglo3[0]; ?>" maxlength="50" size="50" readonly></center>
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            <center>URL</center>
+                            <center>Imagen</center>
                         </th>
                         <td>
-                            <center><input type="image" name="url" id="url"  value= <img src="<?php echo $arreglo2[2]; ?>" width="250" height="250" readonly></center>
+                            <center><input type="image" name="imagen_producto" id="imagen_producto"  value= <img src="<?php echo $arreglo2[2]; ?>" width="250" height="250" readonly></center>
                         </td>            
                     </tr>
                 </table>
-                <a href="imagenes.php" target="marco"> 
+                <a href="<?php if( $arreglo2[0]<>''){
+                                                echo 'imagenes.php?key='.urlencode($arreglo2[0]);
+                                            } 
+                                            ?>"> 
                     <P align="right"> <button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
                 </a>
                 </P>
@@ -75,4 +92,4 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
         </form>
     </div>
 </body>
-</html>
+</html>                                                                           

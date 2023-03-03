@@ -25,3 +25,4 @@ if (isset($_POST['elimina'])) {
 if (isset($_POST['limpia'])) {
     $obj->limpiar();
 }
+?>

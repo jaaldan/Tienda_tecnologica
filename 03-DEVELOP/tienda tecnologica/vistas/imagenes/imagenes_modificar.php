@@ -6,7 +6,7 @@ if($_POST){
 
     $obj->id_imagen = $_POST['id_imagen'];
     $obj->id_producto = $_POST['id_producto'];
-    $obj->url = $_FILES['url']['tmp_name'];
+    $obj->imagen_producto = $_FILES['imagen_producto']['tmp_name'];
 }
 $key = $_GET['key'];
 echo $key;
@@ -17,8 +17,17 @@ $resultado = mysqli_query($c, $query);
 $arreglo = mysqli_fetch_array($resultado); 
 $obj->id_imagen = $arreglo[0];
 $obj->id_producto = $arreglo[1];
-$obj->url = $arreglo[2];
+$obj->imagen_producto = $arreglo[2];
 ?>
+
+<?php
+$conet = new Conexion();
+$c = $conet->conectando();
+$sql = "select * from productos";
+$query = mysqli_query($c, $sql);
+$r = mysqli_fetch_assoc($query);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -53,15 +62,37 @@ $obj->url = $arreglo[2];
                                         <center>Nombre producto</center>
                                     </th>
                                     <td>
-                                        <center><input type="text" name="id_producto" id="id_producto"  value="<?php echo $obj->id_producto  ?>"></center>
-                                    </td>
-                                </tr>
+                            <center><select name="id_producto" id="id_producto" value="<?php echo $obj->id_producto ?>">
+                            <option>
+                            Seleccione el producto
+                            <?php
+                            do {
+                            $producto = $r['id_producto'];
+                            $nombre = $r['nombre_producto'];
+                            if ($producto == $obj->id_producto) {
+                            echo "<option value=$producto=>$nombre";
+                            } else {
+                            echo "<option  value=$producto>$nombre";
+                            }
+                            } while ($r = mysqli_fetch_assoc($query));
+                            $row = mysqli_num_rows($query);
+                            $rows = 0;
+                            if ($rows > 0) {
+                            mysqli_data_seek($r, 0);
+                            $r = mysqli_fetch_assoc($query);
+                            }
+                            ?>
+                            </option>
+                            </select>
+                            </center>
+                        </td>
+                    </tr>
                                 <tr>
                                     <th>
-                                        <center>URL</center>
+                                        <center>Imagen</center>
                                     </th>
                                     <td>
-                                        <center><input type="file" name="url" id="url"  value="<?php echo $obj->url ?>"></center>
+                                        <center><input type="file" name="imagen_producto" id="imagen_producto"  value="<?php echo $obj->imagen ?>"></center>
                                     </td>
                                 </tr>
                            </table>

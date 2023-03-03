@@ -52,7 +52,7 @@ if ($key > 0) {
                             <center>Código</center>
                             </th>
                             <td>
-                            <center><input type="number" name="id_pago" id="id_pago" value="<?php echo $obj->id_pago ?>" ></center>
+                            <center><input type="number" name="id_pago" id="id_pago" value="<?php echo $obj->id_pago ?>" readOnly ></center>
                             </td>
                             </tr>
                             <tr>
@@ -60,14 +60,15 @@ if ($key > 0) {
                             <center>Método de pago</center>
                             </th>
                             <td>
-                            <center><input type="text" name="metodo_pago" id="metodo_pago" value="<?php echo $obj->metodo_pago ?>" ></center>
+                            <center><input type="text" name="metodo_pago" id="metodo_pago" value="<?php echo $obj->metodo_pago ?>" readOnly ></center>
                             </td>
                             </tr>
                             <tr>
                             <th><center>Estado</center></th>
-                            <td><center><select name="estado" id="estado" value="<?php echo $obj->estado ?>">
+                            <td><center><select name="estado" id="estado" value="<?php echo $obj->estado ?>" readOnly>
                             <option value="Activo">Activo</option>
                             <option value="Inactivo">Inactivo</option>
+                            </td>
                             </tr>
                         </table>
                         <P align="right"><a href="pagos.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>

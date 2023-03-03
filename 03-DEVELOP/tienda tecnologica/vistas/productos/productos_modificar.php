@@ -56,7 +56,7 @@ $obj->cantidad_stock = $arreglo[7];
                             <center>Código</center>
                             </th>
                             <td>
-                            <center><input class="form-control form-control-sm" type="number" name="id_producto" id="id_producto" value="<?php echo $obj->id_producto  ?>" placerholder="El Codigo es Asignado por el Sistema" aria-label=".form-control-sm example" readOnly></center>
+                            <center><input class="form-control form-control-sm" type="number" name="id_producto" id="id_producto" value="<?php echo $obj->id_producto  ?>" readOnly></center>
                             </td>
                             </tr>
                             <tr>

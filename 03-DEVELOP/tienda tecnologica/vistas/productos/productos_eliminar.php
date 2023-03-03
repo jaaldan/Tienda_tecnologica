@@ -75,7 +75,7 @@ if ($key > 0) {
                             <center>Nombre producto</center>
                             </th>
                             <td>
-                            <center><input class="form-control form-control-sm" type="text" name="nombre_producto" id="nombre_producto" value="<?php echo $obj->nombre_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input class="form-control form-control-sm" type="text" name="nombre_producto" id="nombre_producto" value="<?php echo $obj->nombre_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
                             <tr>
@@ -83,7 +83,7 @@ if ($key > 0) {
                             <center>Nombre categoría</center>
                             </th>
                             <td>
-                            <center><input class="form-control form-control-sm" type="text" name="id_categoria" id="id_categoria" value="<?php echo $obj->id_categoria  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input class="form-control form-control-sm" type="text" name="id_categoria" id="id_categoria" value="<?php echo $obj->id_categoria  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
                             <tr>
@@ -91,7 +91,7 @@ if ($key > 0) {
                             <center>Marca</center>
                             </th>
                             <td>
-                            <center><input class="form-control form-control-sm" type="text" name="marca" id="marca" value="<?php echo $obj->marca  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input class="form-control form-control-sm" type="text" name="marca" id="marca" value="<?php echo $obj->marca  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
                             <tr>
@@ -99,7 +99,7 @@ if ($key > 0) {
                             <center>Color</center>
                             </th>
                             <td>
-                            <center><input class="form-control form-control-sm" type="text" name="color" id="color" value="<?php echo $obj->color  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input class="form-control form-control-sm" type="text" name="color" id="color" value="<?php echo $obj->color  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
                             <tr>
@@ -107,7 +107,7 @@ if ($key > 0) {
                             <center>PVP con IVA</center>
                             </th>
                             <td>
-                            <center><input class="form-control form-control-sm" type="text" name="pvp_con_iva" id="pvp_con_iva" value="<?php echo $obj->pvp_con_iva  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input class="form-control form-control-sm" type="text" name="pvp_con_iva" id="pvp_con_iva" value="<?php echo $obj->pvp_con_iva  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
                             <tr>
@@ -115,7 +115,7 @@ if ($key > 0) {
                             <center>Salidas</center>
                             </th>
                             <td>
-                            <center><input class="form-control form-control-sm" type="text" name="salidas" id="salidas" value="<?php echo $obj->salidas  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input class="form-control form-control-sm" type="text" name="salidas" id="salidas" value="<?php echo $obj->salidas  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
                             <tr>
@@ -123,7 +123,7 @@ if ($key > 0) {
                             <center>Cantidad(Stock)</center>
                             </th>
                             <td>
-                            <center><input class="form-control form-control-sm" type="text" name="cantidad_stock" id="cantidad_stock" value="<?php echo $obj->cantidad_stock  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input class="form-control form-control-sm" type="text" name="cantidad_stock" id="cantidad_stock" value="<?php echo $obj->cantidad_stock  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
                         </table>

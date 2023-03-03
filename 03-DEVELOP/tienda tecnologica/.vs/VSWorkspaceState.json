@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\vistas",
+    "\\vistas\\imagenes"
   ],
+  "SelectedNode": "\\vistas\\imagenes\\imagenes_ver.php",
   "PreviewInSolutionExplorer": false
 }

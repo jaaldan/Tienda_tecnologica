@@ -35,7 +35,7 @@ if ($_POST) {
                             <center>Código</center>
                             </th>
                             <td>
-                            <center><input type="number" name="id_pago" id="id_pago" placerholder="El Codigo es Asignado por el Sistema"></center>
+                            <center><input type="number" name="id_pago" id="id_pago" placerholder="El Codigo es Asignado por el Sistema" readOnly></center>
                             </td>
                             </tr>
                             <tr>

@@ -14,6 +14,15 @@ if ($_POST) {
     $obj->cantidad_stock = $_POST['cantidad_stock'];
 }
 ?>
+
+<?php
+$conet = new Conexion();
+$c = $conet->conectando();
+$sql = "select * from categorias";
+$query = mysqli_query($c, $sql);
+$r = mysqli_fetch_assoc($query);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,7 +49,7 @@ if ($_POST) {
                             <center>Código</center>
                             </th>
                             <td>
-                            <center><input type="number" name="id_producto" id="id_producto" placerholder="El Codigo es Asignado por el Sistema" aria-label=".form-control-sm example"></center>
+                            <center><input type="number" name="id_producto" id="id_producto" placerholder="El Codigo es Asignado por el Sistema" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
                             <tr>
@@ -56,9 +65,31 @@ if ($_POST) {
                             <center>Nombre categoría</center>
                             </th>
                             <td>
-                            <center><input type="text" name="id_categoria" id="id_categoria" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
-                            </td>
-                            </tr>
+                            <center><select name="id_categoria" id="id_categoria">
+                            <option>
+                            Seleccione la categoria
+                            <?php
+                            do {
+                            $categoria = $r['id_categoria'];
+                            $nombre = $r['nombre_categoria'];
+                            if ($categoria == $obj->id_categoria) {
+                            echo "<option value=$categoria=>$nombre";
+                            } else {
+                            echo "<option  value=$categoria>$nombre";
+                            }
+                            } while ($r = mysqli_fetch_assoc($query));
+                            $row = mysqli_num_rows($query);
+                            $rows = 0;
+                            if ($rows > 0) {
+                            mysqli_data_seek($r, 0);
+                            $r = mysqli_fetch_assoc($query);
+                            }
+                            ?>
+                            </option>
+                            </select>
+                            </center>
+                        </td>
+                    </tr>
                             <tr>
                             <th>
                             <center>Marca</center>

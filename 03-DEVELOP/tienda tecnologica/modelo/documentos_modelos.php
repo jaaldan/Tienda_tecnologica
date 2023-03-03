@@ -1,6 +1,6 @@
 <?php
-class Documentos
-{
+ class Documentos
+ {
     public $id_tipo_documento;
     public $nombre_documento;
     public $acronimo_documento;
@@ -67,4 +67,5 @@ class Documentos
 
     }
 
-}
+ }
+?>

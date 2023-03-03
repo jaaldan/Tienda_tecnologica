@@ -68,10 +68,10 @@ if (isset($_POST['search'])) {
             <table class="table-light table table-striped table table-bordered border-success table table-hover">
                 <tr class="table-info table table-striped table table-bordered border-success table table-hover">
                     <th>
-                        <center>Id Pedido</center>
+                        <center>Código</center>
                     </th>
                     <th>
-                        <center>Id Cliente</center>
+                        <center>Cliente</center>
                     </th>
                     <th>
                         <center>Dirección</center>
@@ -100,25 +100,35 @@ if (isset($_POST['search'])) {
                             ?>
                                     <tr>
                                         <td><?php echo $arreglo2[0] ?></td>
-                                        <td><?php echo $arreglo2[1] ?></td>
+                                        <td><?php 
+                                        $query3="select nombres from cliente where id_cliente = '$arreglo2[1]'";
+                                        $resultado3=mysqli_query($c,$query3);
+                                        $arreglo3 = mysqli_fetch_array($resultado3);
+                                        echo $arreglo3[0]; ?></td>
                                         <td><?php echo $arreglo2[2] ?></td>
                                         <td><?php echo $arreglo2[3] ?></td>
                                         <td><?php echo $arreglo2[4] ?></td>
                                         <td>
                                         <center>
-                                        <a href="<?php if( $arreglo2[0]<>""){
+                                            <a href="<?php if( $arreglo2[0]<>""){
                                                 echo 'pedidos_ver.php?key='.urlencode($arreglo2[0]);
                                             } 
                                             ?>">
-                                            <center><button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true">Ver</i></button>
+                                            <button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true">Ver</i></button>
                                             </a>
                                             <a href="<?php if( $arreglo2[0]<>""){
-                                                echo 'categorias_modificar.php?key='.urlencode($arreglo2[0]);
+                                                echo 'modificar_pedido.php?key='.urlencode($arreglo2[0]);
                                             } 
                                             ?>">                                    
-                                            <center><button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true">Modificar</i></button>
+                                            <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true">Modificar</i></button>
                                             </a>
-                                            </center>
+                                            <a href="<?php if( $arreglo2[0]<>''){
+                                                echo 'eliminar_pedido.php?key='.urlencode($arreglo2[0]);
+                                            } 
+                                            ?>">
+                                            <button name="button" class="btn btn-danger" type="button"><i class="fa fa-trash" aria-hidden="true">Eliminar</i></button>
+                                            </a>
+                                        </center>
                                         </td>
                                     </tr>
                             <?php

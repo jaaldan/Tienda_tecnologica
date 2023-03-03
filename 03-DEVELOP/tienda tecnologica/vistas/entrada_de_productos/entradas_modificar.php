@@ -1,18 +1,20 @@
 <?php
 include "../../conexion/conectar.php";
-include "../../controlador/categoriascontrolador.php";
+include "../../controlador/entradas_controlador.php";
 
-$obj = new Categorias();
+$obj = new Entradas();
 if ($_POST) {
 
-    $obj->id_categoria = $_POST['id_categoria'];
-    $obj->nombre_categoria = $_POST['nombre_categoria'];
-    $obj->estado_categoria = $_POST['estado_categoria'];
+    $obj->id_entrada = $_POST['id_entrada'];
+    $obj->id_producto = $_POST['id_producto'];
+    $obj->proveedor = $_POST['proveedor'];
+    $obj->cantidad_entrada = $_POST['cantidad_entrada'];
+    $obj->valor_proveedor = $_POST['valor_proveedor'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query2 = "select * from categorias where id_categoria = '$key' ";
+$query2 = "select * from entradas where id_entrada = '$key' ";
 $ejecuta2 = mysqli_query($c, $query2);
 $arreglo2 = mysqli_fetch_array($ejecuta2);
 ?>
@@ -36,54 +38,68 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
         <br>
           <h2 class="modal-title" id="exampleModalLabel">Modificar Entrada</h2>
         </div>
-                <div>
+        <form action="" name="entradas_modificar" method="POST">
+            <center>
+                <table class="table table-striped table table-bordered border-success table table-hover">
+                    <tr>
+                        <th>
+                            <center>Id Entrada</center>
+                        </th>
+                        <td>
+                            <center><input type="text" name="id_entrada" id="id_entrada" value="<?php echo $arreglo2[0] ?>" placeholder="El Codigo es Asignado por el Sistema" maxlength="50" size="20"readonly></center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <center>Nombre Producto</center>
+                        </th>
+                        <td>
+                            <center><input type="text" name="id_producto" id="id_producto"
+                            value="<?php 
+                                      $query = "select nombre_producto from productos where id_producto ='$arreglo2[1]'";
+                                      $resultado = mysqli_query($c, $query);
+                                      $arreglo = mysqli_fetch_array($resultado);
+                                      echo $arreglo[0]; 
+                                    ?>
+                            "placeholder="Digite el Nombre de la categoria" maxlength="50" size="20"readonly></center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <center>Proveedor</center>
+                        </th>
+                        <td>
+                            <center><input type="text" name="proveedor" id="proveedor"  value="<?php echo $arreglo2[2] ?>" placeholder="Digite el Nombre de la categoria" maxlength="50" size="20"></center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <center>Cantidad</center>
+                        </th>
+                        <td>
+                            <center><input type="text" name="cantidad_entrada" id="cantidad_entrada"  value="<?php echo $arreglo2[3] ?>" placeholder="Digite el Nombre de la categoria" maxlength="50" size="20"></center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <center>Valor Proveedor</center>
+                        </th>
+                        <td>
+                            <center><input type="text" name="valor_proveedor" id="valor_proveedor"  value="<?php echo $arreglo2[4] ?>" placeholder="Digite el Nombre de la categoria" maxlength="50" size="20"></center>
+                        </td>
+                    </tr>
+                </table>
+                <a href="entradas.php" target="marco">
+                    <P align="right"> <button type="button" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true">Cerrar</i></button>
+                </a>
 
-
-                    <center>
-                        <table
-                            class="table table-striped table table-bordered border-success table table-hover">
-                            <tr class="table-striped table table-bordered border-success table table-hover">
-                            <tr>
-                                <th>
-                                    <center>Id transportadora</center>
-                                </th>
-                                <td>
-                                    <center><input type="text" maxlength="50" size="20"></center>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                     <center>Id envio</center>
-                                 </th>
-                                 <td>
-                                     <center><input type="number" maxlength="50" size="20"></center>
-                                </td>
-                            <tr>
-                                 <th>
-                                     <center>Nombre empresa transportadora</center>
-                                 </th>
-                                 <td>
-                                     <center><input type="text" maxlength="50" size="20"></center>
-                                 </td>
-                            </tr>
-                            <tr>
-                                 <th>
-                                     <center>Telefono</center>
-                                 </th>
-                                  <td>
-                                     <center><input type="tel" maxlength="50" size="20"></center>
-                                 </td>
-                            </tr>
-                            </tr>
-                        </table>
-                            <P align="right"><button type="button" class="btn btn-secondary"
-                                            ><i class="fa fa-times"
-                                                aria-hidden="true">Cerrar</i></button>
-                                        <button type="button" class="btn btn-success"><i class="fa fa-pencil"
-                                                aria-hidden="true">Modificar</i></button>
-                            </P>
-                    </center>
-                </div>
+                <button type="submit" class="btn btn-primary" name="modifica"><i class="fa fa-check" aria-hidden="true">Modificar</i></button>
+                </P>
+            </center>
+        </form>
+                
     </div>
 </body>
 </html>
+
+

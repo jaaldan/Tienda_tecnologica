@@ -3,7 +3,7 @@
     
                          public $id_imagen;
                          public $id_producto;
-                         public $url;
+                         public $imagen_producto;
 
                          function agregar(){
                                              $conet = new conexion();
@@ -13,8 +13,8 @@
                                              if(mysqli_fetch_array($ejecuta)){
                                                  echo "<script> alert('El codigo de la imagen ya existe en el sistema')</script>";
                                              }else{
-                                                 $ruta = '../../imagenes/'.$_FILES['url']['name'];
-                                                 move_uploaded_file($_FILES['url']['tmp_name'],$ruta);
+                                                 $ruta = '../../imagenes/'.$_FILES['imagen_producto']['name'];
+                                                 move_uploaded_file($_FILES['imagen_producto']['tmp_name'],$ruta);
                                                  $insertar = "insert into imagenes values(
                                                                                          '$this->id_imagen',
                                                                                          '$this->id_producto',
@@ -28,16 +28,16 @@
                         function modificar(){
                                            $conet = new conexion();
                                            $c = $conet->conectando();
-                                           $query = "select * from imagenes where id_producto = '$this->id_producto' and url = '$this->url'";
+                                           $query = "select * from imagenes where id_producto = '$this->id_producto' and imagen_producto = '$this->imagen_producto'";
                                            $ejecuta = mysqli_query($c, $query);
                                            if(mysqli_fetch_array($ejecuta)){
                                               echo "<script> alert('No se ha realizado ninguna modificación en el sistema')</script>";
                                             }else{
-                                               $ruta = '../imagenes/'.$_FILES['url']['name'];
-                                               move_uploaded_file($_FILES['url']['tmp_name'],$ruta);
+                                               $ruta = '../../imagenes/'.$_FILES['imagen_producto']['name'];
+                                               move_uploaded_file($_FILES['imagen_producto']['tmp_name'],$ruta);
                                                $update = "update imagenes set id_imagen='$this->id_imagen',
                                                           id_producto='$this->id_producto',
-                                                          url='$ruta'where id_imagen='$this->id_imagen'";
+                                                          imagen_producto='$ruta'where id_imagen='$this->id_imagen'";
                                                echo $update;
                                                mysqli_query($c,$update);
                                                echo "<script> alert('La imagen fue modificada en el sistema')</script>";

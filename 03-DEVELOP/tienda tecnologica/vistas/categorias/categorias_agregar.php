@@ -1,14 +1,14 @@
 <?php
-include("../../conexion/conectar.php");
-include("../../controlador/categoriascontrolador.php");
+ include("../../conexion/conectar.php");
+ include("../../controlador/categoriascontrolador.php");
 
-$obj = new Categorias();
-if ($_POST) {
+ $obj = new Categorias();
+ if ($_POST) {
 
     $obj->id_categoria = $_POST['id_categoria'];
     $obj->nombre_categoria = $_POST['nombre_categoria'];
     $obj->estado_categoria = $_POST['estado_categoria'];
-}
+ }
 
 ?>
 <!DOCTYPE html>

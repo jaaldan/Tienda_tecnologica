@@ -63,7 +63,7 @@ if (isset($_POST['buscar'])) {
                         <table class="table-light table table-striped table table-bordered border-success table table-hover">
                             <tr class="table-info table table-striped table table-bordered border-success table table-hover">
                                 <th>
-                                    <center>Id Documento</center>
+                                    <center> Codigo Documento</center>
                                 </th>
                                 <th>
                                     <center>Nombre Documento</center>

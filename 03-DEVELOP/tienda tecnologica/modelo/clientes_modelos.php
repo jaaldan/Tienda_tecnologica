@@ -1,6 +1,6 @@
 <?php
-class Clientes
-{
+ class Clientes
+ {
     public $id_cliente;
     public $id_rol;
     public $nombres;
@@ -14,19 +14,18 @@ class Clientes
     public $estado;
     public $imagen_cliente;
 
-    public function agregar()
+ function agregar()
     {
         $conet = new conexion();
         $c = $conet->conectando();
         $query = "select * from  cliente where numero_documento = '$this->numero_documento'";
         $ejecuta = mysqli_query($c, $query);
-        if (mysqli_fetch_array($ejecuta)) {
+        if(mysqli_fetch_array($ejecuta)) {
             echo "<script> alert('El documento ya existe en el sistema')</script>";
-        } else {
-            $ruta = '../../imagenes/' . $_FILES['imagen_cliente']['name'];
-            move_uploaded_file($_FILES['imagen_cliente']['tmp_name'], $ruta);
-
-            $insertar = "insert into cliente value(
+        }else{
+            $ruta ='../../imagenes/'.$_FILES['imagen_cliente']['name'];
+            move_uploaded_file($_FILES['imagen_cliente']['tmp_name'],$ruta);
+            $insertar = "insert into cliente values(
                                                     '$this->id_cliente',
                                                     '$this->id_rol',
                                                     '$this->nombres',
@@ -95,4 +94,5 @@ class Clientes
 
     }
 
-}
+ }
+?>

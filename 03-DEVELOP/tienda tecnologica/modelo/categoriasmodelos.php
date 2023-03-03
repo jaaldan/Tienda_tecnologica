@@ -1,6 +1,6 @@
 <?php
-class Categorias
-{
+ class Categorias
+ {
     public $id_categoria;
     public $nombre_categoria;
     public $estado_categoria;
@@ -46,16 +46,21 @@ class Categorias
     }
 
     public function eliminar()
-    {
+    {   
+        try {
         $conet = new conexion();
         $c = $conet->conectando();
         $delete = "delete from categorias where id_categoria='$this->id_categoria'";
         $d = mysqli_query($c, $delete);
-
-        if (mysqli_errno() == 1451) {
+       
+        /*if (mysqli_errno() == 1451) {
             echo "<script> alert('La Categoria No fue Eliminada en el Sistema porque tiene Registros Asociados')</script>";
         } else {
             echo "<script> alert('La Categoria fue Eliminada en el Sistema')</script>";
+        }*/
+        echo "<script> alert('La Categoria fue Eliminada en el Sistema')</script>";
+        } catch (\Throwable $d) {
+         echo "<script> alert('La Categoria No fue Eliminada en el Sistema porque tiene Registros Asociados')</script>";  
         }
 
     }
@@ -65,4 +70,5 @@ class Categorias
 
     }
 
-}
+ }
+?>

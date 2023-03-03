@@ -20,7 +20,7 @@ $desde = ($pagina - 1) * $maximoRegistros;
 $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
 if (isset($_POST['search'])) {
-    $query2 = "select * from imagenes inner join productos on imagenes = productos.id_producto where nombre_producto like '%$obj->nombre_producto%' limit $desde, $maximoRegistros";
+    $query2 = "select * from imagenes where id_imagen like '%$obj->id_imagen%' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 } else {
@@ -28,6 +28,11 @@ if (isset($_POST['search'])) {
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 }
+$key = $_GET['key'];
+$query2 = "select * from imagenes where id_producto = '$key' ";
+$ejecuta2 = mysqli_query($c, $query2);
+$arreglo2 = mysqli_fetch_array($ejecuta2);
+
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +77,7 @@ if (isset($_POST['search'])) {
                         <center>Nombre producto</center>
                     </th>
                     <th>
-                        <center>URL</center>
+                        <center>Imagen</center>
                     </th>
                     <th>
                         <center>Acciones</center>
@@ -97,7 +102,14 @@ if (isset($_POST['search'])) {
                                         $resultado3=mysqli_query($c,$query3);
                                         $arreglo3 = mysqli_fetch_array($resultado3);
                                         echo $arreglo3[0]; ?></td>
-                                        <td><?php echo $arreglo2[2] ?></td>
+                                        <td><?php
+                                        $query4="select imagen_producto from imagenes where id_imagen = '$arreglo2[2]'";
+                                        $resultado4=mysqli_query($c,$query4);
+                                        $arreglo4 = mysqli_fetch_array($resultado4);
+                                        
+                                        ?>
+                                        <center><img src="<?php echo $arreglo2[2]; ?>" width ="105" height="105"></center>
+                                        </td>
                                         <td>
                                         <center>
                                         <a href="<?php if( $arreglo2[0]<>''){

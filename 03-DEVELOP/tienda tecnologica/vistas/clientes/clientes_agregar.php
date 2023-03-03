@@ -12,12 +12,11 @@ if ($_POST) {
     $obj->id_tipo_documento = $_POST['id_tipo_documento'];
     $obj->numero_documento = $_POST['numero_documento'];
     $obj->correo = $_POST['correo'];
-    $obj->numero_celulaar = $_POST['numero_celular'];
+    $obj->numero_celular = $_POST['numero_celular'];
     $obj->direccion = $_POST['direccion'];
     $obj->clave = $_POST['clave'];
     $obj->estado = $_POST['estado'];
-    $obj->imagen_cliente = $_FILES['imagen_cliente']['tmp_name'];
-
+    $obj->imagen_cliente  = $_FILES['imagen_cliente']['tmp_name'];
 }
 ?>
 <?php
@@ -29,6 +28,7 @@ $r = mysqli_fetch_assoc($query);
 ?>
 
 <?php
+
 echo '<pre>';
 print_r($_FILES);
 echo '</pre>';

@@ -6,7 +6,7 @@ if ($_POST) {
 
     $obj->id_imagen = $_POST['id_imagen'];
     $obj->id_producto = $_POST['id_producto'];
-    $obj->url = $_FILES['url']['tmp_name'];
+    $obj->imagen_producto = $_FILES['imagen_producto']['tmp_name'];
 }
 $key = $_GET['key'];
 if ($key > 0) {
@@ -18,12 +18,12 @@ if ($key > 0) {
     $arreglo = mysqli_fetch_array($resultado);
     $obj->id_imagen = $arreglo[0];
     $obj->id_producto = $arreglo[1];
-    $obj->url = $arreglo[2];
+    $obj->imagen_producto = $arreglo[2];
 
 } else {
     $obj->id_imagen = "";
     $obj->id_producto = "";
-    $obj->url = "";
+    $obj->imagen_producto = "";
 }
 ?>
 <!DOCTYPE html>
@@ -65,10 +65,10 @@ if ($key > 0) {
                                 </tr>
                                 <tr>
                                     <th>
-                                        <center>URL</center>
+                                        <center>Imagen</center>
                                     </th>
                                     <td>
-                                    <center><input type="image" name="url" id="url" value= <img src="<?php echo $obj->url; ?>" width="250" height="250" readOnly></center>
+                                    <center><input type="image" name="imagen_producto" id="imagen_producto" value= <img src="<?php echo $obj->imagen; ?>" width="250" height="250" readOnly></center>
                                     </td>
                                 </tr>
                            </table>

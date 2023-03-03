@@ -5,7 +5,7 @@ if($_POST){
 
     $obj->id_imagen = $_POST['id_imagen'];
     $obj->id_producto = $_POST['id_producto'];
-    $obj->url = $_FILES['url']['tmp_name'];
+    $obj->imagen_producto = $_FILES['imagen_producto']['tmp_name'];
 }
 
 if(isset($_POST['guarda'])){

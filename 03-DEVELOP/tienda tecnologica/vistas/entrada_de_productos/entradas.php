@@ -71,7 +71,7 @@ if (isset($_POST['buscar'])) {
                                   <center>Id Entrada</center>
                                 </th>
                                 <th>
-                                  <center>Id Producto</center>
+                                  <center>Nombre Producto</center>
                                 </th>
                                 <th>
                                   <center>Proveedor</center>
@@ -94,7 +94,14 @@ if ($arreglo2 == 0) {
         ?>
                                     <tr>
                                         <td><?php echo $arreglo2[0] ?></td>
-                                        <td><?php echo $arreglo2[1] ?></td>
+                                        <td>
+                                        <?php
+                                         $query = "select nombre_producto from productos where id_producto ='$arreglo2[1]'";
+                                         $resultado = mysqli_query($c, $query);
+                                         $arreglo = mysqli_fetch_array($resultado);
+                                         echo $arreglo[0];
+                                         ?>
+                                        </td>
                                         <td><?php echo $arreglo2[2] ?></td>
                                         <td><?php echo $arreglo2[3] ?></td>
                                         <td><?php echo $arreglo2[4] ?></td>
@@ -125,7 +132,7 @@ if ($arreglo2 == 0) {
                         <br>
                         <P align="right"><a href="../../framework.php" target="marco" class="full-width"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
                             <a href="entradas_agregar.php" target="marco">
-                                <button name="agregar" class="btn btn-success" type="button"><i class="fa fa-address-book-o" aria-hidden="true">Agregar Categoria</i></button>
+                                <button name="agregar" class="btn btn-success" type="button"><i class="fa fa-address-book-o" aria-hidden="true">Crear Entrada</i></button>
                             </a>
                         </P>
                         <br>

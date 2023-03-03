@@ -31,16 +31,21 @@
                         function modificar(){
                                            $conet = new conexion();
                                            $c = $conet->conectando();
-                                           $query = "select * from pago where metodo_pago = '$this->metodo_pago' and estado = '$this->estado'";
+                                           $query = "select * from pedido where id_cliente = '$this->id_cliente' and
+                                           direccion = '$this->direccion' and fecha = '$this->fecha' and estado = '$this->estado'";
                                            $ejecuta = mysqli_query($c, $query);
                                            if(mysqli_fetch_array($ejecuta)){
-                                              echo "<script> alert('El metodo de pago ya Existe en el Sistema')</script>";
+                                              echo "<script> alert('El pedido ya existe en el sistema')</script>";
                                             }else{
-                                               $update = "update pago set id_pago='$this->id_pago',
-                                                          metodo_pago='$this->metodo_pago', estado='$this->estado' where id_pago='$this->id_pago'";
-                                               echo $update;
-                                               mysqli_query($c,$update);
-                                               echo "<script> alert('El metodo de pago fue Modificado en el Sistema')</script>";
+                                              $update = "update pedido set id_pedido='$this->id_pedido',
+                                              id_cliente='$this->id_cliente', 
+                                              direccion ='$this->direccion',
+                                              fecha ='$this->fecha', 
+                                              estado ='$this->estado'  
+                                              where id_pedido ='$this->id_pedido'";
+                                              echo $update;
+                                              mysqli_query($c,$update);
+                                              echo "<script> alert('El pedido fue modificado en el sistema')</script>";
                                           
                                             }
 
@@ -48,15 +53,12 @@
                         function eliminar(){
                                            $conet = new conexion();
                                            $c = $conet->conectando();
-                                           $delete = "delete from categorias where id_categoria='$this->id_categoria'";
+                                           $delete = "delete from pedido where id_pedido='$this->id_pedido'";
                                            $d=mysqli_query($c,$delete);
-                                        
-                                       
-                                        
                                            if(mysqli_errno()==1451){
-                                              echo "<script> alert('La Categoria No fue Eliminada en el Sistema porque tiene Registros Asociados')</script>";
+                                              echo "<script> alert('El pedido no fue eliminado en el sistema porque tiene registros asociados')</script>";
                                             }else{
-                                               echo "<script> alert('La Categoria fue Eliminada en el Sistema')</script>";
+                                               echo "<script> alert('El pedido fue eliminado exitosamente del sistema')</script>";
                                             }
 
                         }

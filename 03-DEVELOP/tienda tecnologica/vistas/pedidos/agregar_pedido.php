@@ -11,6 +11,15 @@ if ($_POST) {
     $obj->estado = $_POST['estado'];
 }
 ?>
+
+<?php
+$conet = new Conexion();
+$c = $conet->conectando();
+$sql = "select * from cliente";
+$query = mysqli_query($c, $sql);
+$r = mysqli_fetch_assoc($query);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,7 +46,7 @@ if ($_POST) {
             <center>Id Pedido</center>
             </th>
             <td>
-            <center><input class="form-control form-control-sm" type="number" name="id_pedido" id="id_pedido" placerholder="El Codigo es Asignado por el Sistema" aria-label=".form-control-sm example"></center>
+            <center><input class="form-control form-control-sm" type="number" name="id_pedido" id="id_pedido" placerholder="El Codigo es Asignado por el Sistema" aria-label=".form-control-sm example" readOnly></center>
             </td>
             </tr>
             <tr>
@@ -45,9 +54,31 @@ if ($_POST) {
             <center>Id Cliente</center>
             </th>
             <td>
-            <center><input class="form-control form-control-sm" type="number" name="id_cliente" id="id_cliente" placerholder="Digite el id del cliente" aria-label=".form-control-sm example"></center>
-            </td>
-            </tr>
+                            <center><select name="id_cliente" id="id_cliente">
+                            <option>
+                            Seleccione el cliente
+                            <?php
+                            do {
+                            $cliente = $r['id_cliente'];
+                            $nombre = $r['nombres'];
+                            if ($cliente == $obj->id_cliente) {
+                            echo "<option value=$cliente=>$nombre";
+                            } else {
+                            echo "<option  value=$cliente>$nombre";
+                            }
+                            } while ($r = mysqli_fetch_assoc($query));
+                            $row = mysqli_num_rows($query);
+                            $rows = 0;
+                            if ($rows > 0) {
+                            mysqli_data_seek($r, 0);
+                            $r = mysqli_fetch_assoc($query);
+                            }
+                            ?>
+                            </option>
+                            </select>
+                            </center>
+                        </td>
+                    </tr>
             <tr>
             <th>
              <center>Direccion</center>
@@ -71,7 +102,7 @@ if ($_POST) {
              <option value="Inactivo">Inactivo</option>
              </tr>
              </table>
-        <P align="right"><a href="pedidos.php"><button type="button" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true">Cerrar</i></button></a>
+        <P align="right"><a href="pedidos.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
         <button type="submit" class="btn btn-success" name="guarda"><i class="fa fa-check" aria-hidden="true">Guardar</i></button></P>
         </form>
     </div>

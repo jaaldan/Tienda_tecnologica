@@ -1,20 +1,20 @@
 <?php
-include "../../conexion/conectar.php";
-include "../../controlador/categoriascontrolador.php";
+ include "../../conexion/conectar.php";
+ include "../../controlador/categoriascontrolador.php";
 
-$obj = new Categorias();
-if ($_POST) {
+ $obj = new Categorias();
+ if ($_POST) {
 
     $obj->id_categoria = $_POST['id_categoria'];
     $obj->nombre_categoria = $_POST['nombre_categoria'];
     $obj->estado_categoria = $_POST['estado_categoria'];
-}
-$key = $_GET['key'];
-$cone = new conexion();
-$c = $cone->conectando();
-$query2 = "select * from categorias where id_categoria = '$key'";
-$ejecuta2 = mysqli_query($c, $query2);
-$arreglo2 = mysqli_fetch_array($ejecuta2);
+ }
+ $key = $_GET['key'];
+ $cone = new conexion();
+ $c = $cone->conectando();
+ $query2 = "select * from categorias where id_categoria = '$key'";
+ $ejecuta2 = mysqli_query($c, $query2);
+ $arreglo2 = mysqli_fetch_array($ejecuta2);
 
 ?>
 <!DOCTYPE html>
