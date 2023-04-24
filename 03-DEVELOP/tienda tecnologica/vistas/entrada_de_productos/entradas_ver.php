@@ -5,16 +5,16 @@ include "../../controlador/entradas_controlador.php";
 $obj = new Entradas();
 if ($_POST) {
 
-    $obj->id_entrada = $_POST['id_entrada'];
-    $obj->id_producto = $_POST['id_producto'];
-    $obj->proveedor = $_POST['proveedor'];
-    $obj->cantidad_entrada = $_POST['cantidad_entrada'];
-    $obj->valor_proveedor = $_POST['valor_proveedor'];
+    $obj->id_entrada_producto = $_POST['id_entrada_producto'];
+    $obj->id_producto_entrada = $_POST['id_producto_entrada'];
+    $obj->proveedor_producto_entrada = $_POST['proveedor_producto_entrada'];
+    $obj->cantidad_entrada_producto = $_POST['cantidad_entrada_producto'];
+    $obj->valor_proveedor_entrada_producto = $_POST['valor_proveedor_entrada_producto'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query2 = "select * from entradas where id_entrada = '$key' ";
+$query2 = "select * from entradas_productos where id_entrada_producto = '$key' ";
 $ejecuta2 = mysqli_query($c, $query2);
 $arreglo2 = mysqli_fetch_array($ejecuta2);
 ?>
@@ -61,7 +61,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                                          $arreglo = mysqli_fetch_array($resultado);
                                          echo $arreglo[0];
                                     ?>
-                            "placeholder="Digite el Nombre de la categoria" readonly maxlength="50" size="20"></center>
+                            "placeholder="Digite el Nombre del producto" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>

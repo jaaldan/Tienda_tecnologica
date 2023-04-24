@@ -5,7 +5,7 @@ if ($_POST) {
 }
 $cone = new conexion();
 $c = $cone->conectando();
-$query5 = "select count(*) as totalRegistros from categorias";
+$query5 = "select count(*) as totalRegistros from tipo_documentos";
 $ejecuta5 = mysqli_query($c, $query5);
 $arreglo5 = mysqli_fetch_array($ejecuta5);
 $totalRegistros = $arreglo5['totalRegistros'];
@@ -21,11 +21,11 @@ $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
 
 if (isset($_POST['buscar'])) {
-    $query6 = "select * from tipo_documento where nombre_documento like '%$obj->nombre_documento%' limit $desde, $maximoRegistros";
+    $query6 = "select * from tipo_documentos where nombre_documento like '%$obj->nombre_documento%' limit $desde, $maximoRegistros";
     $ejecuta6 = mysqli_query($c, $query6);
     $arreglo6 = mysqli_fetch_array($ejecuta6);
 } else {
-    $query6 = "select * from tipo_documento limit $desde, $maximoRegistros";
+    $query6 = "select * from tipo_documentos limit $desde, $maximoRegistros";
     $ejecuta6 = mysqli_query($c, $query6);
     $arreglo6 = mysqli_fetch_array($ejecuta6);
 }

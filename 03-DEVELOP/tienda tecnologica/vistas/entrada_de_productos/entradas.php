@@ -1,11 +1,11 @@
 <?php
 include "../../conexion/conectar.php";
 if ($_POST) {
-    $obj->proveedor = $_POST['proveedor'];
+    $obj->proveedor_producto_entrada = $_POST['proveedor_producto_entrada'];
 }
 $cone = new conexion();
 $c = $cone->conectando();
-$query = "select count(*) as totalRegistros from entradas";
+$query = "select count(*) as totalRegistros from entradas_productos";
 $ejecuta = mysqli_query($c, $query);
 $arreglo = mysqli_fetch_array($ejecuta);
 $totalRegistros = $arreglo['totalRegistros'];
@@ -21,11 +21,11 @@ $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
 
 if (isset($_POST['buscar'])) {
-    $query2 = "select * from entradas where proveedor like '%$obj->proveedor%' limit $desde, $maximoRegistros";
+    $query2 = "select * from entradas_productos where proveedor_producto_entrada like '%$obj->proveedor_producto_entrada%' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 } else {
-    $query2 = "select * from entradas limit $desde, $maximoRegistros";
+    $query2 = "select * from entradas_productos limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 }

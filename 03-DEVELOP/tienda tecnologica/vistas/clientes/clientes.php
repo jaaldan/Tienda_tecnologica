@@ -1,11 +1,11 @@
 <?php
 include "../../conexion/conectar.php";
 if ($_POST) {
-    $obj->numero_documento = $_POST['numero_documento'];
+    $obj->numero_documento = $_POST['numero_documento_cliente'];
 }
 $cone = new conexion();
 $c = $cone->conectando();
-$query_a = "select count(*) as totalRegistros from cliente";
+$query_a = "select count(*) as totalRegistros from clientes";
 $ejecuta_a = mysqli_query($c, $query_a);
 $arreglo_a = mysqli_fetch_array($ejecuta_a);
 $totalRegistros = $arreglo_a['totalRegistros'];
@@ -21,11 +21,11 @@ $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
 
 if (isset($_POST['buscar'])) {
-    $query3 = "select * from cliente where numero_documento like '%$obj->numero_documento%' limit $desde, $maximoRegistros";
+    $query3 = "select * from clientes where numero_documento_cliente like '%$obj->numero_documento%' limit $desde, $maximoRegistros";
     $ejecuta3 = mysqli_query($c, $query3);
     $arreglo3 = mysqli_fetch_array($ejecuta3);
 } else {
-    $query3 = "select * from cliente limit $desde, $maximoRegistros";
+    $query3 = "select * from clientes limit $desde, $maximoRegistros";
     $ejecuta3 = mysqli_query($c, $query3);
     $arreglo3 = mysqli_fetch_array($ejecuta3);
 }
@@ -52,7 +52,7 @@ if (isset($_POST['buscar'])) {
             <br>
             <br>
         </head>
-        <form action="" name="cliente" method="POST">
+        <form action="" name="clientes" method="POST">
                 <div class="campo" id="filtropro">
                     <form class="d-flex" id="buscar" role="search">
                         <input  class="form-control me-2" type="search" name="numero_documento" id="numero_documento" placeholder="Digite el Numero del documento" aria-label="Search"/>
@@ -113,7 +113,7 @@ if ($arreglo3 == 0) {
                                     <tr>
                                         <td><?php echo $arreglo3[0] ?></td>
                                         <td><?php
-$query = "select nombre_rol from rol where id_rol ='$arreglo3[1]'";
+$query = "select nombre_rol from roles where id_rol ='$arreglo3[1]'";
         $resultado = mysqli_query($c, $query);
         $arreglo = mysqli_fetch_array($resultado);
         echo $arreglo[0];
@@ -121,7 +121,7 @@ $query = "select nombre_rol from rol where id_rol ='$arreglo3[1]'";
                                         <td><?php echo $arreglo3[2] ?></td>
                                         <td><?php echo $arreglo3[3] ?></td>
                                         <td><?php
-$query1 = "select nombre_documento from tipo_documento where id_tipo_documento ='$arreglo3[4]'";
+$query1 = "select nombre_documento from tipo_documentos where id_tipo_documento ='$arreglo3[4]'";
         $resultado1 = mysqli_query($c, $query1);
         $arreglo1 = mysqli_fetch_array($resultado1);
         echo $arreglo1[0];

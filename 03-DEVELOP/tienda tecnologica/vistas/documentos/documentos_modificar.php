@@ -8,12 +8,12 @@ if ($_POST) {
     $obj->id_tipo_documento = $_POST['id_tipo_documento'];
     $obj->nombre_documento = $_POST['nombre_documento'];
     $obj->acronimo_documento = $_POST['acronimo_documento'];
-    $obj->estado = $_POST['estado'];
+    $obj->estado_documento = $_POST['estado_documento'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query6 = "select * from tipo_documento where id_tipo_documento = '$key' ";
+$query6 = "select * from tipo_documentos where id_tipo_documento = '$key' ";
 $ejecuta6 = mysqli_query($c, $query6);
 $arreglo6 = mysqli_fetch_array($ejecuta6);
 ?>
@@ -27,7 +27,7 @@ $arreglo6 = mysqli_fetch_array($ejecuta6);
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
-    <title>documentos modificar</title>
+    <title>Documentos modificar</title>
 </head>
 <body>
     <div class="container shadow p-3 mb-5 bg-body rounded">
@@ -71,7 +71,7 @@ $arreglo6 = mysqli_fetch_array($ejecuta6);
                         <td>
                             <center><select name="estado" id="estado">
                                     <?php
-$query7 = "select * from tipo_documento where id_tipo_documento = '$arreglo6[3]' ";
+$query7 = "select * from tipo_documentos where id_tipo_documento = '$arreglo6[3]' ";
 $ejecuta7 = mysqli_query($c, $query7);
 $arreglo7 = mysqli_fetch_array($ejecuta7);
 echo $arreglo7[0];

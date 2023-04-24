@@ -4,17 +4,17 @@ $obj = new Clientes();
 if ($_POST) {
 
     $obj->id_cliente = $_POST['id_cliente'];
-    $obj->id_rol = $_POST['id_rol'];
-    $obj->nombres = $_POST['nombres'];
-    $obj->apellidos = $_POST['apellidos'];
-    $obj->id_tipo_documento = $_POST['id_tipo_documento'];
-    $obj->numero_documento = $_POST['numero_documento'];
-    $obj->correo = $_POST['correo'];
-    $obj->numero_celular = $_POST['numero_celular'];
-    $obj->direccion = $_POST['direccion'];
-    $obj->clave = $_POST['clave'];
-    $obj->estado = $_POST['estado'];
-    $obj->imagen_cliente = $_FILES['imagen_cliente']['tmp_name'];
+    $obj->id_rol_cliente = $_POST['id_rol_cliente'];
+    $obj->nombres_cliente = $_POST['nombres_cliente'];
+    $obj->apellidos_cliente = $_POST['apellidos_cliente'];
+    $obj->id_tipo_documento_cliente = $_POST['id_tipo_documento_cliente'];
+    $obj->numero_documento_cliente = $_POST['numero_documento_cliente'];
+    $obj->correo_cliente = $_POST['correo_cliente'];
+    $obj->numero_celular_cliente = $_POST['numero_celular_cliente'];
+    $obj->direccion_cliente = $_POST['direccion'];
+    $obj->clave_cliente = $_POST['clave_cliente'];
+    $obj->estado_cliente = $_POST['estado_cliente'];
+    $obj->imagen_cliente = $_POST['imagen_cliente'];
 
 }
 

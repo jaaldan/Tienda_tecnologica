@@ -8,7 +8,7 @@ if ($_POST) {
     $obj->id_tipo_documento = $_POST['id_tipo_documento'];
     $obj->nombre_documento = $_POST['nombre_documento'];
     $obj->acronimo_documento = $_POST['acronimo_documento'];
-    $obj->estado = $_POST['estado'];
+    $obj->estado_documento = $_POST['estado_documento'];
 }
 ?>
 
@@ -21,7 +21,7 @@ if ($_POST) {
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
-    <title>documentos agregar</title>
+    <title>Documentos agregar</title>
 </head>
 <body>
   <div class="container shadow p-3 mb-5 bg-body rounded">

@@ -8,13 +8,13 @@ if ($_POST) {
     $obj->id_tipo_documento = $_POST['id_tipo_documento'];
     $obj->nombre_documento = $_POST['nombre_documento'];
     $obj->acronimo_documento = $_POST['acronimo_documento'];
-    $obj->estado = $_POST['estado'];
+    $obj->estado_documento = $_POST['estado_documento'];
 
 }
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query6 = "select * from tipo_documento where id_tipo_documento = '$key' ";
+$query6 = "select * from tipo_documentos where id_tipo_documento = '$key' ";
 $ejecuta6 = mysqli_query($c, $query6);
 $arreglo6 = mysqli_fetch_array($ejecuta6);
 ?>

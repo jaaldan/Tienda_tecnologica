@@ -6,23 +6,23 @@ $obj = new Clientes();
 if ($_POST) {
 
     $obj->id_cliente = $_POST['id_cliente'];
-    $obj->id_rol = $_POST['id_rol'];
-    $obj->nombres = $_POST['nombres'];
-    $obj->apellidos = $_POST['apellidos'];
-    $obj->id_tipo_documento = $_POST['id_tipo_documento'];
-    $obj->numero_documento = $_POST['numero_documento'];
-    $obj->correo = $_POST['correo'];
-    $obj->numero_celulaar = $_POST['numero_celular'];
-    $obj->direccion = $_POST['direccion'];
-    $obj->clave = $_POST['clave'];
-    $obj->estado = $_POST['estado'];
+    $obj->id_rol_cliente = $_POST['id_rol_cliente'];
+    $obj->nombres_cliente = $_POST['nombres_cliente'];
+    $obj->apellidos_cliente = $_POST['apellidos_cliente'];
+    $obj->id_tipo_documento_cliente = $_POST['id_tipo_documento_cliente'];
+    $obj->numero_documento_cliente = $_POST['numero_documento_cliente'];
+    $obj->correo_cliente = $_POST['correo_cliente'];
+    $obj->numero_celular_cliente = $_POST['numero_celular_cliente'];
+    $obj->direccion_cliente = $_POST['direccion'];
+    $obj->clave_cliente = $_POST['clave_cliente'];
+    $obj->estado_cliente = $_POST['estado_cliente'];
     $obj->imagen_cliente = $_POST['imagen_cliente'];
 
 }
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query3 = "select * from cliente where id_cliente = '$key' ";
+$query3 = "select * from clientes where id_cliente = '$key' ";
 $ejecuta3 = mysqli_query($c, $query3);
 $arreglo3 = mysqli_fetch_array($ejecuta3);
 ?>
@@ -137,7 +137,7 @@ $arreglo3 = mysqli_fetch_array($ejecuta3);
                             <center><select name="estado" id="estado">
 
                             <?php
-$query2 = "select * from cliente where nombres = '$arreglo3[10]' ";
+$query2 = "select * from clientes where nombres_cliente = '$arreglo3[10]' ";
 $ejecuta2 = mysqli_query($c, $query2);
 $arreglo2 = mysqli_fetch_array($ejecuta2);
 echo $arreglo2[0];
