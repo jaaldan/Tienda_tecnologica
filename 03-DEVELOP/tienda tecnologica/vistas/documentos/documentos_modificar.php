@@ -37,7 +37,7 @@ $arreglo6 = mysqli_fetch_array($ejecuta6);
         <br>
           <h2 class="modal-title" id="exampleModalLabel">Modificar Documento</h2>
         </div>
-            <form action="" name="modificar_documento" method="POST">
+            <form action="" name="documentos_modificar" method="POST">
             <center>
                 <table class="table table-striped table table-bordered border-success table table-hover">
                     <tr>
@@ -45,7 +45,7 @@ $arreglo6 = mysqli_fetch_array($ejecuta6);
                             <center>Id Documento</center>
                         </th>
                         <td>
-                            <center><input type="text" name="id_tipo_documento" id="id_tipo_documento" value="<?php echo $arreglo6[0] ?>" placeholder="El Codigo es Asignado por el Sistema" maxlength="50" size="20"></center>
+                            <center><input type="text" name="id_tipo_documento" id="id_tipo_documento" value="<?php echo $arreglo6[0] ?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>
@@ -69,7 +69,7 @@ $arreglo6 = mysqli_fetch_array($ejecuta6);
                             <center>Estado</center>
                         </th>
                         <td>
-                            <center><select name="estado" id="estado">
+                            <center><select name="estado_documento" id="estado_documento">
                                     <?php
 $query7 = "select * from tipo_documentos where id_tipo_documento = '$arreglo6[3]' ";
 $ejecuta7 = mysqli_query($c, $query7);

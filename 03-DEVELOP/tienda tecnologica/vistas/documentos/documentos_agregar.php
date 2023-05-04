@@ -39,7 +39,7 @@ if ($_POST) {
                             <center>Id Tipo de Documento</center>
                         </th>
                         <td>
-                            <center><input type="text" name="id_tipo_documento" id="id_tipo_documento" placeholder="El Codigo es Asignado por el Sistema" maxlength="50" size="20"></center>
+                            <center><input type="text" name="id_tipo_documento" id="id_tipo_documento" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>
@@ -63,7 +63,7 @@ if ($_POST) {
                             <center>Estado</center>
                         </th>
                         <td>
-                            <center><select name="estado" id="estado">
+                            <center><select name="estado_documento" id="estado_documento">
                                     <option value="seleccionar">Seleccione el estado</option>
                                     <option value="activo">Activo</option>
                                     <option value="inactivo">Inactivo</option>

@@ -5,7 +5,7 @@ if ($_POST) {
 }
 $cone = new conexion();
 $c = $cone->conectando();
-$query = "select count(*) as totalRegistros from transportadora";
+$query = "select count(*) as totalRegistros from transportadoras";
 $ejecuta = mysqli_query($c, $query);
 $arreglo = mysqli_fetch_array($ejecuta);
 $totalRegistros = $arreglo['totalRegistros'];
@@ -21,11 +21,11 @@ $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
 
 if (isset($_POST['buscar'])) {
-  $query2 = "select * from transportadora where nombre_transportadora like '%$obj->nombre_transportadora%' limit $desde, $maximoRegistros";
+  $query2 = "select * from transportadoras where nombre_transportadora like '%$obj->nombre_transportadora%' limit $desde, $maximoRegistros";
   $ejecuta2 = mysqli_query($c, $query2);
   $arreglo2 = mysqli_fetch_array($ejecuta2);
 } else {
-  $query2 = "select * from transportadora limit $desde, $maximoRegistros";
+  $query2 = "select * from transportadoras limit $desde, $maximoRegistros";
   $ejecuta2 = mysqli_query($c, $query2);
   $arreglo2 = mysqli_fetch_array($ejecuta2);
 }
@@ -56,7 +56,7 @@ if (isset($_POST['buscar'])) {
       <br>
       <br>
     </head>
-    <form action="" name="transportadora" method="POST">
+    <form action="" name="transportadoras" method="POST">
       <div class="campo" id="filtropro">
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" name="nombre_transportadora" id="nombre_transportadora" placeholder="Digite el Nombre o Código de la Transportadora" aria-label="Search" />

@@ -1,12 +1,12 @@
 <?php
 include("../../modelo/envio_modelos.php");
-$obj = new envio();
+$obj = new envios();
 if($_POST){
 
     $obj->id_envio = $_POST['id_envio'];
-    $obj->id_transportadora = $_POST['id_transporadora'];
-    $obj->direccion = $_POST['direccion'];
-    $obj->estado = $_POST['estado'];
+    $obj->id_transportadora_envio = $_POST['id_transporadora_envio'];
+    $obj->direccion_envio = $_POST['direccion_envio'];
+    $obj->estado_envio = $_POST['estado_envio'];
 }
 
 if(isset($_POST['guardar'])){

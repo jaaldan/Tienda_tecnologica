@@ -6,23 +6,23 @@ $obj = new Usuarios();
 if ($_POST) {
 
     $obj->id_usuario = $_POST['id_usuario'];
-    $obj->id_rol = $_POST['id_rol'];
-    $obj->nombres = $_POST['nombres'];
-    $obj->apellidos = $_POST['apellidos'];
-    $obj->id_tipo_documento = $_POST['id_tipo_documento'];
-    $obj->numero_documento = $_POST['numero_documento'];
-    $obj->correo = $_POST['correo'];
-    $obj->numero_celular = $_POST['numero_celular'];
-    $obj->direccion = $_POST['direccion'];
-    $obj->clave = $_POST['clave'];
-    $obj->estado = $_POST['estado'];
+    $obj->id_rol_usuario = $_POST['id_rol_usuario'];
+    $obj->nombres_usuario = $_POST['nombres_usuario'];
+    $obj->apellidos_usuario = $_POST['apellidos_usuario'];
+    $obj->id_tipo_documento_usuario = $_POST['id_tipo_documento_usuario'];
+    $obj->numero_documento_usuario = $_POST['numero_documento_usuario'];
+    $obj->correo_usuario = $_POST['correo_usuario'];
+    $obj->numero_celular_usuario = $_POST['numero_celular_usuario'];
+    $obj->direccion_usuario = $_POST['direccion_usuario'];
+    $obj->clave_usuario = $_POST['clave_usuario'];
+    $obj->estado_usuario = $_POST['estado_usuario'];
     $obj->imagen_usuario = $_POST['imagen_usuario'];
 
 }
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query2 = "select * from usuario where nombres = '$key' ";
+$query2 = "select * from usuarios where nombres = '$key' ";
 $ejecuta2 = mysqli_query($c, $query2);
 $arreglo2 = mysqli_fetch_array($ejecuta2);
 

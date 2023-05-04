@@ -15,7 +15,7 @@ if (isset($_POST['guardar'])) {
 }
 
 if (isset($_POST['modifica'])) {
-    echo "llegue";
+    echo "llegue.";
     $obj->modificar();
 }
 

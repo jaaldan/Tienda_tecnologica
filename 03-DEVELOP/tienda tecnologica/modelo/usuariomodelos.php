@@ -3,16 +3,16 @@ class Usuarios
 {
 
     public $id_usuario;
-    public $id_rol;
-    public $nombres;
-    public $apellidos;
-    public $id_tipo_documento;
-    public $numero_documento;
-    public $correo;
-    public $numero_celular;
-    public $direccion;
-    public $clave;
-    public $estado;
+    public $id_rol_usuario;
+    public $nombres_usuario;
+    public $apellidos_usuario;
+    public $id_tipo_documento_usuario;
+    public $numero_documento_usuario;
+    public $correo_usuario;
+    public $numero_celular_usuario;
+    public $direccion_usuario;
+    public $clave_usuario;
+    public $estado_usuario;
     public $imagen_usuario;
 
     public function agregar()
@@ -20,23 +20,23 @@ class Usuarios
 
         $cone = new conexion();
         $c = $cone->conectando();
-        $query = "select * from  usuario where nombres = '$this->nombres'";
+        $query = "select * from  usuarios where nombres_usuario = '$this->nombres_usuario'";
         $ejecuta = mysqli_query($c, $query);
         if (mysqli_fetch_array($ejecuta)) {
             echo "<script> alert('El documento ya existe en el sistema')</script>";
         } else {
             $insertar = "insert into usuario values(
                                                  '$this->id_usuario',
-                                                 '$this->id_rol',
-                                                 '$this->nombres',
-                                                 '$this->apellidos',
-                                                 '$this->id_tipo_documento',
-                                                 '$this->numero_documento',
-                                                 '$this->correo',
-                                                 '$this->numero_celular',
-                                                 '$this->direccion',
-                                                 '$this->clave',
-                                                 '$this->estado',
+                                                 '$this->id_rol_usuario',
+                                                 '$this->nombres_usuario',
+                                                 '$this->apellidos_usuario',
+                                                 '$this->id_tipo_documento_usuario',
+                                                 '$this->numero_documento_usuario',
+                                                 '$this->correo_usuario',
+                                                 '$this->numero_celular_usuario',
+                                                 '$this->direccion_usuario',
+                                                 '$this->clave_usuario',
+                                                 '$this->estado_usuario',
                                                  '$this->imagen_usuario'
          )";
             echo $insertar;

@@ -1,15 +1,15 @@
 <?php
-     class transportadora{
+     class transportadoras{
                         public $id_transportadora;
                         public $nombre_transportadora;
-                        public $numero_telefono;
-                        public $estado;
+                        public $numero_telefono_transportadora;
+                        public $estado_transportadora;
       
       
                         function agregar(){
                           $cone = new Conexion();
                           $c = $cone->conectando();
-                          $query= "select * from  transportadora where nombre_transportadora = '$this->nombre_transportadora'";
+                          $query= "select * from  transportadoras where nombre_transportadora = '$this->nombre_transportadora'";
                           $ejecuta = mysqli_query($c,$query);
                           if(mysqli_fetch_array($ejecuta)){
                               echo "<script> alert('El documento ya existe en el sistema')</script>";
@@ -17,8 +17,8 @@
                               $insertar = "insert into transportadora values(
                                                                       '$this->id_transportadora',
                                                                       '$this->nombre_transportadora',
-                                                                      '$this->numero_telefono',
-                                                                      '$this->estado'
+                                                                      '$this->numero_telefono_transportadora',
+                                                                      '$this->estado_transportadora'
                            )";
                            echo $insertar;
                            mysqli_query($c,$insertar);
@@ -29,15 +29,15 @@
      function modificar(){
                         $cone = new conexion();
                         $c = $cone->conectando();
-                        $query = "select * from transportadora where nombre_transportadora = '$this->nombre_transportadora'";
+                        $query = "select * from transportadoras where nombre_transportadora = '$this->nombre_transportadora'";
                         $ejecuta = mysqli_query($c, $query);
                         if(mysqli_fetch_array($ejecuta)){
                            echo "<script> alert('La Categoria ya Existe en el Sistema')</script>";
                          }else{
                             $update = "update transportadora set id_transportadora='$this->id_transportadora',
                                                         nombre_transportadora='$this->nombre_transportadora',
-                                                        numero_telefono='$this->numero_telefono',
-                                                        estado='$this->estado'
+                                                        numero_telefono='$this->numero_telefono_transportadora',
+                                                        estado='$this->estado_transportadora'
                                                         where id_transportadora='$this->id_transportadora'";
                             echo $update;
                             mysqli_query($c,$update);
@@ -50,7 +50,7 @@
      function eliminar(){
                         $conet = new conexion();
                         $c = $conet->conectando();
-                        $delete = "delete from transportadora where id_transportadora='$this->id_transportadora'";
+                        $delete = "delete from transportadoras where id_transportadora='$this->id_transportadora'";
                         $d=mysqli_query($c,$delete);
                      
                     

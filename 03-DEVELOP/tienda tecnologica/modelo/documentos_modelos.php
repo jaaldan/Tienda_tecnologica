@@ -37,8 +37,9 @@
             echo "<script> alert('El documento ya Existe en el Sistema')</script>";
         } else {
             $update = "update tipo_documentos set id_tipo_documento='$this->id_tipo_documento',
-                                                        nombre_documento='$this->nombre_documento' where id_tipo_documento='$this->id_tipo_documento',
-                                                        acronimo_documento='$this->acronimo_documento' where id_tipo_documento='$this->id_tipo_documento'";
+                                                        nombre_documento='$this->nombre_documento',
+                                                        acronimo_documento='$this->acronimo_documento',
+                                                        estado_documento='$this->estado_documento' where id_tipo_documento='$this->id_tipo_documento'";
             echo $update;
             mysqli_query($c, $update);
             echo "<script> alert('el documento fue Modificada en el Sistema')</script>";

@@ -6,9 +6,9 @@ $obj = new envio();
 if ($_POST) {
 
     $obj->id_envio = $_POST['id_envio'];
-    $obj->id_transportadora = $_POST['id_transportadora'];
-    $obj->direccion = $_POST['direccion'];
-    $obj->estado = $_POST['estado'];
+    $obj->id_transportadora_envio = $_POST['id_transportadora_envio'];
+    $obj->direccion_envio = $_POST['direccion_envio'];
+    $obj->estado_envio = $_POST['estado_envio'];
 }
 $key = $_GET['key'];
 $cone = new conexion();

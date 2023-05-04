@@ -6,12 +6,12 @@ $obj = new Ventas();
 if ($_POST) {
 
     $obj->id_venta = $_POST['id_venta'];
-    $obj->id_pago = $_POST['id_pago'];
-    $obj->id_pedido = $_POST['id_pedido'];
-    $obj->fecha = $_POST['fecha'];
-    $obj->hora = $_POST['hora'];
-    $obj->valor_total = $_POST['valor_total'];
-    $obj->estado = $_POST['estado'];
+    $obj->id_pago_venta = $_POST['id_pago_venta'];
+    $obj->id_pedido_venta = $_POST['id_pedido_venta'];
+    $obj->fecha_venta = $_POST['fecha_venta'];
+    $obj->hora_venta = $_POST['hora_venta'];
+    $obj->valor_total = $_POST['valor_total_venta'];
+    $obj->estado_venta = $_POST['estado_venta'];
 }
 $key = $_GET['key'];
 $cone = new conexion();

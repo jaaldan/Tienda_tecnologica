@@ -23,7 +23,7 @@
         if(mysqli_fetch_array($ejecuta)) {
             echo "<script> alert('El documento ya existe en el sistema')</script>";
         }else{
-            $ruta ='../../imagenes/'.$_FILES['imagen_cliente']['name'];
+            $ruta ='../imagenes/'.$_FILES['imagen_cliente']['name'];
             move_uploaded_file($_FILES['imagen_cliente']['tmp_name'],$ruta);
             $insertar = "insert into cliente values(
                                                     '$this->id_cliente',

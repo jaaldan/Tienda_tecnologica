@@ -1,11 +1,11 @@
 <?php
 include "../../conexion/conectar.php";
 if ($_POST) {
-    $obj->nombres = $_POST['nombres'];
+    $obj->nombres = $_POST['nombres_usuario'];
 }
 $cone = new conexion();
 $c = $cone->conectando();
-$query = "select count(*) as totalRegistros from usuario";
+$query = "select count(*) as totalRegistros from usuarios";
 $ejecuta = mysqli_query($c, $query);
 $arreglo = mysqli_fetch_array($ejecuta);
 $totalRegistros = $arreglo['totalRegistros'];
@@ -21,11 +21,11 @@ $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
 
 if (isset($_POST['buscar'])) {
-    $query2 = "select * from usuario where nombres like '%$obj->nombres%' limit $desde, $maximoRegistros";
+    $query2 = "select * from usuarios where nombres_usuario like '%$obj->nombres_usuario%' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 } else {
-    $query2 = "select * from usuario limit $desde, $maximoRegistros";
+    $query2 = "select * from usuarios limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 }

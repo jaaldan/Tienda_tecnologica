@@ -101,7 +101,7 @@ echo '</pre>';
 do {
     $documento = $r['id_tipo_documento'];
     $nombre = $r['nombre_documento'];
-    if ($documento == $obj->id_tipo_documento) {
+    if ($documento == $obj->id_tipo_documento_cliente) {
         echo "<option value=$documento=>$nombre";
     } else {
         echo "<option  value=$documento>$nombre";

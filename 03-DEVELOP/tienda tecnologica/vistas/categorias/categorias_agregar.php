@@ -40,7 +40,7 @@
                             <center>Id Categoria</center>
                         </th>
                         <td>
-                            <center><input type="text" name="id_categoria" id="id_categoria" placeholder="El Codigo es Asignado por el Sistema" maxlength="50" size="20"></center>
+                            <center><input type="text" name="id_categoria" id="id_categoria" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>

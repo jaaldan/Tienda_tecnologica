@@ -2,18 +2,18 @@
 include("../../conexion/conectar.php");
 include("../../controlador/transportadoracontrolador.php");
 
-$obj = new transportadora();
+$obj = new transportadoras();
 if ($_POST) {
 
     $obj->id_transportadora = $_POST['id_transportadora'];
     $obj->nombre_transportadora = $_POST['nombre_transportadora'];
-    $obj->numero_telefono = $_POST['numero_telefono'];
-    $obj->estado = $_POST['estado'];
+    $obj->numero_telefono = $_POST['numero_telefononumero_transportadora'];
+    $obj->estado = $_POST['estado_transportadora'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query2 = "select * from transportadora where id_transportadora = '$key' ";
+$query2 = "select * from transportadoras where id_transportadora = '$key' ";
 $ejecuta2 = mysqli_query($c, $query2);
 $arreglo2 = mysqli_fetch_array($ejecuta2);
 
@@ -57,7 +57,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Nombre empresa transportadora</center>
                         </th>
                         <td>
-                            <center><input type="text" name="nombre_transportadora" id="id_transportadora" value="<?php echo $arreglo2[1]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
+                            <center><input type="text" name="nombre_transportadora" id="nombre_transportadora" value="<?php echo $arreglo2[1]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +65,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Telefono</center>
                         </th>
                         <td>
-                            <center><input type="text" name="telefono" id="telefono" value="<?php echo $arreglo2[2]?>" placeholder="digite el numero de telefono" readonly maxlength="50" size="20"></center>
+                            <center><input type="text" name="numero_telefono_transportadora" id="numero_telefono_transportadora" value="<?php echo $arreglo2[2]?>" placeholder="digite el numero de telefono" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>

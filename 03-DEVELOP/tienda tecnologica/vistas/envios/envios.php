@@ -5,7 +5,7 @@ if ($_POST) {
 }
 $cone = new conexion();
 $c = $cone->conectando();
-$query = "select count(*) as totalRegistros from envio";
+$query = "select count(*) as totalRegistros from envios";
 $ejecuta = mysqli_query($c, $query);
 $arreglo = mysqli_fetch_array($ejecuta);
 $totalRegistros = $arreglo['totalRegistros'];
@@ -21,11 +21,11 @@ $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
 
 if (isset($_POST['buscar'])) {
-    $query2 = "select * from envio where id_envio like '%$obj->id_envio%' limit $desde, $maximoRegistros";
+    $query2 = "select * from envios where id_envio like '%$obj->id_envio%' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 } else {
-    $query2 = "select * from envio limit $desde, $maximoRegistros";
+    $query2 = "select * from envios limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 }

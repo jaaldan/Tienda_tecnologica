@@ -2,13 +2,13 @@
 include("../../conexion/conectar.php");
 include("../../controlador/transportadoracontrolador.php");
 
-$obj = new transportadora();
+$obj = new transportadoras();
 if ($_POST) {
 
     $obj->id_transportadora = $_POST['id_transportadora'];
     $obj->nombre_transportadora = $_POST['nombre_transportadora'];
-    $obj->numero_telefono = $_POST['numero_telefono'];
-    $obj->estado = $_POST['estado'];
+    $obj->numero_telefono_transportadora = $_POST['numero_telefono_transportadora'];
+    $obj->estado_transportadora = $_POST['estado_transportadora'];
 }
 ?>
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ if ($_POST) {
                             <center>Telefono</center>
                         </th>
                         <td>
-                            <center><input type="text"name="numero_telefono" id="numero_telefono" placeholder="Digite el numero de telefono" maxlength="50" size="20"></center>
+                            <center><input type="text"name="numero_telefono_transportadora" id="numero_telefono_transportadora" placeholder="Digite el numero de telefono" maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>
@@ -64,7 +64,7 @@ if ($_POST) {
                             <center>Estado</center>
                         </th>
                         <td>
-                            <center><select name="estado" id="estado">
+                            <center><select name="estado_transportadora" id="estado_transportadora">
                                     <option value="seleccionar">Seleccione el estado</option>
                                     <option value="activo">Activo</option>
                                     <option value="inactivo">Inactivo</option>

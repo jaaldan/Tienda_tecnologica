@@ -46,7 +46,7 @@ $arreglo6 = mysqli_fetch_array($ejecuta6);
                             <center>Id Tipo de Documento</center>
                         </th>
                         <td>
-                            <center><input type="text" name="id_tipo_documento" id="id_tipo_documento" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
+                            <center><input type="text" name="id_tipo_documento" id="id_tipo_documento" value="<?php echo $arreglo6[0] ?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>
@@ -54,7 +54,7 @@ $arreglo6 = mysqli_fetch_array($ejecuta6);
                             <center>Nombre Documento</center>
                         </th>
                         <td>
-                            <center><input type="text" name="nombre_documento" id="nombre_documento" placeholder="Digite el Nombre del documento" readonly maxlength="50" size="20"></center>
+                            <center><input type="text" name="nombre_documento" id="nombre_documento" value="<?php echo $arreglo6[1] ?>" placeholder="Digite el Nombre del documento" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>
@@ -62,7 +62,7 @@ $arreglo6 = mysqli_fetch_array($ejecuta6);
                             <center>Acronimo Documento</center>
                         </th>
                         <td>
-                            <center><input type="text" name="acronimo_documento" id="acronimo_documento" placeholder="Digite el acronimo del documento" readonly maxlength="50" size="20"></center>
+                            <center><input type="text" name="acronimo_documento" id="acronimo_documento" value="<?php echo $arreglo6[2] ?>" placeholder="Digite el acronimo del documento" readonly maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>

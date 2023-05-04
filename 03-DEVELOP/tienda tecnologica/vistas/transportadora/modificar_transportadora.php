@@ -2,18 +2,18 @@
 include("../../conexion/conectar.php");
 include("../../controlador/transportadoracontrolador.php");
 
-$obj = new transportadora();
+$obj = new transportadoras();
 if ($_POST) {
 
     $obj->id_transportadora = $_POST['id_transportadora'];
     $obj->nombre_transportadora = $_POST['nombre_transportadora'];
-    $obj->numero_telefono = $_POST['numero_telefono'];
-    $obj->estado = $_POST['estado'];
+    $obj->numero_telefono_transportadora = $_POST['numero_telefono_transportadora'];
+    $obj->estado_transportadora = $_POST['estado_transportadora'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query2 = "select * from transportadora where id_transportadora = '$key' ";
+$query2 = "select * from transportadoras where id_transportadora = '$key' ";
 $ejecuta2 = mysqli_query($c, $query2);
 $arreglo2 = mysqli_fetch_array($ejecuta2);
 
@@ -66,7 +66,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Telefono</center>
                         </th>
                         <td>
-                            <center><input type="text" name="numero_telefono" id="numero_telefono" value="<?php echo $arreglo2[2] ?>" placeholder="Digite el numero de telefono" maxlength="50" size="20"></center>
+                            <center><input type="text" name="numero_telefono_transportadora" id="numero_telefono_transportadora" value="<?php echo $arreglo2[2] ?>" placeholder="Digite el numero de telefono" maxlength="50" size="20"></center>
                         </td>
                     </tr>
                     <tr>
@@ -74,9 +74,9 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Estado</center>
                         </th>
                         <td>
-                            <center><select name="estado" id="estado">
+                            <center><select name="estado_transportadora" id="estado_transportadora">
                                     <?php
-                                    $query3 = "select * from transportadora where id_transportadora = '$arreglo2[2]' ";
+                                    $query3 = "select * from transportadoras where id_transportadora = '$arreglo2[2]' ";
                                     $ejecuta3 = mysqli_query($c, $query3);
                                     $arreglo3 = mysqli_fetch_array($ejecuta3);
                                     echo $arreglo3[0];

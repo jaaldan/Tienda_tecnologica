@@ -1,13 +1,12 @@
 <?php
      class ventas{
                         public $id_venta;
-                        public $id_pago;
-                        public $id_pedido;
-                        public $id_categoria;
-                        public $fecha;
-                        public $hora;
-                        public $valor_total;
-                        public $estado;
+                        public $id_pago_venta;
+                        public $id_pedido_venta;
+                        public $fecha_venta;
+                        public $hora_venta;
+                        public $valor_total_venta;
+                        public $estado_venta;
       
                         function agregar(){
                           $conet = new Conexion();
@@ -19,12 +18,12 @@
                           }else{
                               $insertar = "insert into ventas values(
                                                                       '$this->id_venta',
-                                                                      '$this->id_pago',
-                                                                      '$this->id_pedido',
-                                                                      '$this->fecha',
-                                                                      '$this->hora',
-                                                                      '$this->valor_total',
-                                                                      '$this->estado'
+                                                                      '$this->id_pago_venta',
+                                                                      '$this->id_pedido_venta',
+                                                                      '$this->fecha_venta',
+                                                                      '$this->hora_venta',
+                                                                      '$this->valor_total_venta',
+                                                                      '$this->estado_venta'
                            )";
                            echo $insertar;
                            mysqli_query($c,$insertar);
@@ -41,12 +40,12 @@
                            echo "<script> alert('La Categoria ya Existe en el Sistema')</script>";
                          }else{
                             $update = "update ventas set id_venta='$this->id_venta',
-                                                        id_pago='$this->id_pago',
-                                                        id_pedido='$this->id_pedido',
-                                                        fecha='$this->fecha',
-                                                        hora='$this->hora',
-                                                        valor_total='$this->valor_total',
-                                                        estado='$this->estado',
+                                                        id_pago_venta='$this->id_pago_venta',
+                                                        id_pedido_venta='$this->id_pedido_venta',
+                                                        fecha_venta='$this->fecha_venta',
+                                                        hora_venta='$this->hora_venta',
+                                                        valor_total_venta='$this->valor_total_venta',
+                                                        estado_venta='$this->estado_venta',
                                                          where id_pedido='$this->id_pedido'";
                             echo $update;
                             mysqli_query($c,$update);
@@ -59,7 +58,7 @@
      function eliminar(){
                         $conet = new conexion();
                         $c = $conet->conectando();
-                        $delete = "delete from categorias where id_categoria='$this->id_categoria'";
+                        $delete = "delete from categorias where id_venta='$this->id_venta'";
                         $d=mysqli_query($c,$delete);
                      
                     

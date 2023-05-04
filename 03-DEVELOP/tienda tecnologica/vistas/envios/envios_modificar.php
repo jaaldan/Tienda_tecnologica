@@ -6,9 +6,9 @@ $obj = new envio();
 if ($_POST) {
 
     $obj->id_envio = $_POST['id_envio'];
-    $obj->id_transportadora = $_POST['id_transportadora'];
-    $obj->direccion = $_POST['direccion'];
-    $obj->estado = $_POST['estado'];
+    $obj->id_transportadora_envio = $_POST['id_transportadora_envio'];
+    $obj->direccion_envio = $_POST['direccion_envio'];
+    $obj->estado_envio = $_POST['estado_envio'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
@@ -76,7 +76,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                         <td>
                             <center><select name="estado" id="estado">
                                     <?php
-                                    $query3 = "select * from transportadora where id_transportadora = '$arreglo2[3]' ";
+                                    $query3 = "select * from transportadoras where id_transportadora = '$arreglo2[3]' ";
                                     $ejecuta3 = mysqli_query($c, $query3);
                                     $arreglo3 = mysqli_fetch_array($ejecuta3);
                                     echo $arreglo3[0];

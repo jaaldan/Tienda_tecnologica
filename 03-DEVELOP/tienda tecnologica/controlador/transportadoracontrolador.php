@@ -1,12 +1,12 @@
 <?php
 include("../../modelo/transportadoramodelos.php");
-$obj = new transportadora();
+$obj = new transportadoras();
 if($_POST){
 
     $obj->id_transportadora = $_POST['id_transportadora'];
     $obj->nombre_transportadora = $_POST['nombre_transportadora'];
-    $obj->numero_telefono = $_POST['numero_telefono'];
-    $obj->estado = $_POST['estado'];
+    $obj->numero_telefono_transportadora = $_POST['numero_telefono_transportadora'];
+    $obj->estado_transportadora = $_POST['estado_transportadora'];
 }
 
 if(isset($_POST['guardar'])){
