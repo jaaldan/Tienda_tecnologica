@@ -6,7 +6,7 @@ if ($_POST) {
 
     $obj->id_pago = $_POST['id_pago'];
     $obj->metodo_pago = $_POST['metodo_pago'];
-    $obj->estado = $_POST['estado'];
+    $obj->estado_pago = $_POST['estado_pago'];
 }
 ?>
 <!DOCTYPE html>
@@ -48,9 +48,9 @@ if ($_POST) {
                             </tr>
                             <tr>
                             <th><center>Estado</center></th>
-                            <td><center><select name="estado" id="estado">
-                            <option value="Activo">Activo</option>
-                            <option value="Inactivo">Inactivo</option>
+                            <td><center><select name="estado_pago" id="estado_pago">
+                            <option value="ACTIVO">ACTIVO</option>
+                            <option value="INACTIVO">INACTIVO</option>
                             </tr>
                         </table>
                         <P align="right"><a href="pagos.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>

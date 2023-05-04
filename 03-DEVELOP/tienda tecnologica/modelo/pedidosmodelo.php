@@ -2,46 +2,58 @@
      class pedidos{
     
                          public $id_pedido;
-                         public $id_cliente;
-                         public $direccion;
-                         public $fecha;
-                         public $estado;
+                         public $id_cliente_pedido;
+                         public $direccion_pedido;
+                         public $fecha_pedido;
+                         public $id_producto_detalle_pedido;
+                         public $cantidad_producto_detalle_pedido;
+                         public $valor_iva_detalle_pedido;
+                         public $precio_venta_detalle_pedido;
+                         public $estado_pedido;
 
                          function agregar(){
                                              $conet = new conexion();
                                              $c = $conet->conectando();
-                                             $query= "select * from pedido where id_pedido = '$this->id_pedido'";
+                                             $query= "select * from pedidos where id_pedido = '$this->id_pedido'";
                                              $ejecuta = mysqli_query($c,$query);
                                              if(mysqli_fetch_array($ejecuta)){
                                                  echo "<script> alert('El Id pedido ya existe en el sistema')</script>";
                                              }else{
-                                                 $insertar = "insert into pedido values(
+                                                 $insertar = "insert into pedidos values(
                                                                                          '$this->id_pedido',
-                                                                                         '$this->id_cliente',
-                                                                                         '$this->direccion',
-                                                                                         '$this->fecha',
-                                                                                         '$this->estado'
+                                                                                         '$this->id_cliente_pedido',
+                                                                                         '$this->direccion_pedido',
+                                                                                         '$this->fecha_pedido',
+                                                                                         '$this->estado_pedido'
                                               )";
+                                              $insertar2 = "insert into detalle_pedidos values(
+                                                '$this->id_producto_detalle_pedido ',
+                                                '$this->cantidad_producto_detalle_pedido',
+                                                '$this->valor_iva_detalle_pedido',
+                                                '$this->precio_venta_detalle_pedido'
+                                               )";                
                                               echo $insertar;
+                                              echo $insertar2;
                                               mysqli_query($c,$insertar);
-                                              echo "<script> alert('El pedido fue creado en el sistema')</script>";
+                                              mysqli_query($c,$insertar2);
+                                              echo "<script> alert('El pedido fue creado exitosamente en el sistema')</script>";
                                              }
                         }
 
                         function modificar(){
                                            $conet = new conexion();
                                            $c = $conet->conectando();
-                                           $query = "select * from pedido where id_cliente = '$this->id_cliente' and
-                                           direccion = '$this->direccion' and fecha = '$this->fecha' and estado = '$this->estado'";
+                                           $query = "select * from pedidos where id_cliente_pedido = '$this->id_cliente_pedido' and
+                                           direccion_pedido = '$this->direccion_pedido' and fecha_pedido = '$this->fecha_pedido' and estado_pedido = '$this->estado_pedido'";
                                            $ejecuta = mysqli_query($c, $query);
                                            if(mysqli_fetch_array($ejecuta)){
                                               echo "<script> alert('El pedido ya existe en el sistema')</script>";
                                             }else{
-                                              $update = "update pedido set id_pedido='$this->id_pedido',
-                                              id_cliente='$this->id_cliente', 
-                                              direccion ='$this->direccion',
-                                              fecha ='$this->fecha', 
-                                              estado ='$this->estado'  
+                                              $update = "update pedidos set id_pedido='$this->id_pedido',
+                                              id_cliente_pedido='$this->id_cliente_pedido', 
+                                              direccion_pedido ='$this->direccion_pedido',
+                                              fecha_pedido ='$this->fecha_pedido', 
+                                              estado_pedido ='$this->estado_pedido'  
                                               where id_pedido ='$this->id_pedido'";
                                               echo $update;
                                               mysqli_query($c,$update);
@@ -53,7 +65,7 @@
                         function eliminar(){
                                            $conet = new conexion();
                                            $c = $conet->conectando();
-                                           $delete = "delete from pedido where id_pedido='$this->id_pedido'";
+                                           $delete = "delete from pedidos where id_pedido='$this->id_pedido'";
                                            $d=mysqli_query($c,$delete);
                                            if(mysqli_errno()==1451){
                                               echo "<script> alert('El pedido no fue eliminado en el sistema porque tiene registros asociados')</script>";

@@ -6,14 +6,14 @@ if ($_POST) {
 
     $obj->id_pago = $_POST['id_pago'];
     $obj->metodo_pago = $_POST['metodo_pago'];
-    $obj->estado = $_POST['estado'];
+    $obj->estado_pago = $_POST['estado_pago'];
 }
 $key = $_GET['key'];
 if ($key > 0) {
 
     $conet = new conexion();
     $c = $conet->conectando();
-    $query = "select * from pago where id_pago = '$key'";
+    $query = "select * from pagos where id_pago = '$key'";
     $resultado = mysqli_query($c, $query);
     $arreglo = mysqli_fetch_array($resultado);
     $obj->id_pago = $arreglo[0];
@@ -23,7 +23,7 @@ if ($key > 0) {
 } else {
     $obj->id_pago = "";
     $obj->metodo_pago = "";
-    $obj->estado = "";
+    $obj->estado_pago = "";
 }
 ?>
 <!DOCTYPE html>
@@ -49,25 +49,16 @@ if ($key > 0) {
                         <table class="table table-striped table table-bordered border-success table table-hover">
                             <tr>
                             <th>
-                            <center>Código</center>
+                               <center>Método de pago</center>
                             </th>
                             <td>
-                            <center><input type="number" name="id_pago" id="id_pago" value="<?php echo $obj->id_pago ?>" readOnly ></center>
-                            </td>
-                            </tr>
-                            <tr>
-                            <th>
-                            <center>Método de pago</center>
-                            </th>
-                            <td>
-                            <center><input type="text" name="metodo_pago" id="metodo_pago" value="<?php echo $obj->metodo_pago ?>" readOnly ></center>
+                               <center><input type="text" name="metodo_pago" id="metodo_pago" value="<?php echo $obj->metodo_pago ?>" readOnly></center>
                             </td>
                             </tr>
                             <tr>
                             <th><center>Estado</center></th>
-                            <td><center><select name="estado" id="estado" value="<?php echo $obj->estado ?>" readOnly>
-                            <option value="Activo">Activo</option>
-                            <option value="Inactivo">Inactivo</option>
+                            <td>
+                            <center><select name="estado_pago" id="estado_pago" value="<?php echo $obj->estado_pago ?>" readOnly></center>
                             </td>
                             </tr>
                         </table>

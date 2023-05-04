@@ -5,7 +5,7 @@ if($_POST){
 
     $obj->id_pago = $_POST['id_pago'];
     $obj->metodo_pago = $_POST['metodo_pago'];
-    $obj->estado = $_POST['estado'];
+    $obj->estado_pago = $_POST['estado_pago'];
 }
 
 if(isset($_POST['guarda'])){

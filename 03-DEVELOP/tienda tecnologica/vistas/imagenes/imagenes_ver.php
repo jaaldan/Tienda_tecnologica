@@ -2,12 +2,13 @@
 include("../../conexion/conectar.php");
 include("../../controlador/imagenescontrolador.php");
 
+
 $obj = new imagenes();
 if ($_POST) {
 
     $obj->id_imagen = $_POST['id_imagen'];
-    $obj->id_producto = $_POST['id_producto'];
-    $obj->imagen_producto = $_POST['imagen_producto'];
+    $obj->id_producto_imagen = $_POST['id_producto_imagen'];
+    $obj->imagen_producto = $_FILES['imagen_producto']['tmp_name'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
@@ -77,12 +78,12 @@ $r = mysqli_fetch_assoc($query);
                             <center>Imagen</center>
                         </th>
                         <td>
-                            <center><input type="image" name="imagen_producto" id="imagen_producto"  value= <img src="<?php echo $arreglo2[2]; ?>" width="250" height="250" readonly></center>
+                            <center><img src="<?php echo $arreglo2[2]; ?>" width="250" height="250"></center>
                         </td>            
                     </tr>
                 </table>
-                <a href="<?php if( $arreglo2[0]<>''){
-                                                echo 'imagenes.php?key='.urlencode($arreglo2[0]);
+                <a href="<?php if( $arreglo2[1]<>''){
+                                                echo 'imagenes.php?key='.urlencode($arreglo2[1]);
                                             } 
                                             ?>"> 
                     <P align="right"> <button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>

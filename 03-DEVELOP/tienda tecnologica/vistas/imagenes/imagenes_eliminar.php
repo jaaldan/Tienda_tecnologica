@@ -5,7 +5,7 @@ $obj = new imagenes();
 if ($_POST) {
 
     $obj->id_imagen = $_POST['id_imagen'];
-    $obj->id_producto = $_POST['id_producto'];
+    $obj->id_producto_imagen = $_POST['id_producto_imagen'];
     $obj->imagen_producto = $_FILES['imagen_producto']['tmp_name'];
 }
 $key = $_GET['key'];
@@ -13,19 +13,28 @@ if ($key > 0) {
 
     $conet = new conexion();
     $c = $conet->conectando();
-    $query = "select * from imagenes where id_imagen = '$key'";
-    $resultado = mysqli_query($c, $query);
-    $arreglo = mysqli_fetch_array($resultado);
-    $obj->id_imagen = $arreglo[0];
-    $obj->id_producto = $arreglo[1];
-    $obj->imagen_producto = $arreglo[2];
+    $query2 = "select * from imagenes where id_imagen = '$key'";
+    $resultado2 = mysqli_query($c, $query2);
+    $arreglo2 = mysqli_fetch_array($resultado2);
+    $obj->id_imagen = $arreglo2[0];
+    $obj->id_producto_imagen = $arreglo2[1];
+    $obj->imagen_producto = $arreglo2[2];
 
 } else {
     $obj->id_imagen = "";
-    $obj->id_producto = "";
+    $obj->id_producto_imagen = "";
     $obj->imagen_producto = "";
 }
 ?>
+
+<?php
+$conet = new Conexion();
+$c = $conet->conectando();
+$sql = "select * from productos";
+$query = mysqli_query($c, $sql);
+$r = mysqli_fetch_assoc($query);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -60,7 +69,11 @@ if ($key > 0) {
                                         <center>Nombre producto</center>
                                     </th>
                                     <td>
-                                        <center><input type="text" name="id_producto" id="id_producto"  value="<?php echo $obj->id_producto  ?>" readOnly></center>
+                                        <center><input type="text" name="id_producto" id="id_producto" value="<?php 
+                                        $query3="select nombre_producto from productos where id_producto = '$arreglo2[1]'";
+                                        $resultado3=mysqli_query($c,$query3);
+                                        $arreglo3 = mysqli_fetch_array($resultado3);
+                                        echo $arreglo3[0]; ?>" readOnly></center>
                                     </td>
                                 </tr>
                                 <tr>
@@ -68,12 +81,21 @@ if ($key > 0) {
                                         <center>Imagen</center>
                                     </th>
                                     <td>
-                                    <center><input type="image" name="imagen_producto" id="imagen_producto" value= <img src="<?php echo $obj->imagen; ?>" width="250" height="250" readOnly></center>
+                                    <center><input type="image" name="imagen_producto" id="imagen_producto" value= <img src="<?php echo $obj->imagen_producto; ?>" width="250" height="250" readOnly></center>
                                     </td>
                                 </tr>
                            </table>
-                        <P align="right"><a href="imagenes.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
-                        <button type="submit" class="btn btn-success" name="elimina"><i class="fa fa-check" aria-hidden="true">Eliminar</i></button></P>
+                           <a href="<?php if( $arreglo2[1]<>''){
+                                                echo 'imagenes.php?key='.urlencode($arreglo2[1]);
+                                            } 
+                                            ?>">    
+                        <P align="right"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
+                        <a href="<?php if( $arreglo2[1]<>''){
+                                                echo 'imagenes.php?key='.urlencode($arreglo2[1]);
+                                            } 
+                                            ?>"><button type="submit" class="btn btn-success" name="elimina"><i class="fa fa-check" aria-hidden="true">Eliminar</i></button></a>
+                                            <a href="<?php if( $arreglo2[1]<>''){echo 'imagenes.php?key='.urlencode($arreglo2[1]);
+                                            }?>"></P>
     </form>
     </div>
 </body>
