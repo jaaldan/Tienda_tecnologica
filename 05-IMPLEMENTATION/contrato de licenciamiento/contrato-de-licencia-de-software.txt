@@ -1,0 +1,111 @@
+LICENCIA DE PRODUCTO SOFTWARE
+
+El PRODUCTO SOFTWARE se encuentra protegido por leyes de derechos de autor y por tratados 
+internacionales sobre derechos de autor, así como por otras leyes y tratados sobre la propiedad intelectual. 
+El PRODUCTO SOFTWARE se concede bajo licencia, no se vende.
+
+1	CONCESIÓN DE LICENCIA. Este CLUF le otorga los siguientes derechos:
+
+*	Software de Aplicaciones. Podrá instalar y usar una copia del PRODUCTO SOFTWARE o 
+cualquier versión anterior para el mismo sistema operativo en un único equipo o PC. El usuario principal 
+del equipo o PC en que se instaló el PRODUCTO SOFTWARE podrá hacer una segunda copia para su 
+uso exclusivo en un equipo o PC portátil.
+*	Almacenamiento/Uso en la red. Podrá también almacenar o instalar una copia del PRODUCTO 
+SOFTWARE en un dispositivo de almacenamiento, tal como un servidor de red, que se use sólo para 
+instalar o ejecutar el PRODUCTO SOFTWARE en sus otros equipos o PCs dentro de una red interna; sin 
+embargo, usted deberá adquirir y dedicar una licencia para cada PC o equipo separado en cuyo dispositivo 
+de almacenamiento instale o ejecute el PRODUCTO SOFTWARE. No podrá compartir ni usar 
+simultáneamente en diferentes PCs una licencia para el PRODUCTO SOFTWARE.
+
+*	Paquete de Licencia. Si usted ha adquirido este CLUF en un Paquete de Licencia Microsoft 
+podrá hacer la cantidad de copias adicionales de la porción del software del PRODUCTO SOFTWARE 
+autorizada en los materiales impresos de este CLUF y podrá usar cada copia de la manera especificada 
+arriba. También está autorizado a hacer la cantidad de copias secundarias para usar en los equipos o PCs 
+portátiles que se especifican arriba.
+
+1	DESCRIPCIÓN DE OTROS DERECHOS Y LIMITACIONES.
+
+*	Software de Edición Académica. -- Si el PRODUCTO SOFTWARE se identifica como de 
+"Edición Académica" o "EA," usted deberá ser un "Usuario dedicado a la enseñanza calificado" para usar 
+el PRODUCTO SOFTWARE. Si no es un Usuario dedicado a la enseñanza calificado, no tendrá ningún 
+derecho bajo este CLUF. Para determinar si usted es un Usuario dedicado a la enseñanza calificado, 
+póngase en contacto con (Dirección entidad):
+
+*	Software no para la venta. -- Si el PRODUCTO SOFTWARE se encuentra marcado como "No 
+para reventa" o "NPR", no obstante las otras secciones de este CLUF, no podrá revender, o de otra 
+manera transferir por ningún valor el PRODUCTO SOFTWARE.
+*	Limitaciones en materia de ingeniería inversa, descompilación y desensamblaje. No podrá 
+utilizar técnicas de ingeniería inversa, descompilar ni desensamblar el PRODUCTO SOFTWARE, 
+excepto y sólo en el caso que tal actividad esté expresamente permitida por la ley aplicable, no obstante 
+esta limitación.
+
+*	Separación de componentes. El PRODUCTO SOFTWARE se otorga bajo licencia como un 
+producto único. Sus partes componentes no pueden separarse para ser usadas en más de un equipo o PC.
+*	Alquiler. No podrá alquilar, arrendar o prestar el PRODUCTO SOFTWARE.
+*	Servicios de soporte. (Nombre entidad) podrá proporcionarle los servicios de soporte 
+relacionados con el PRODUCTO SOFTWARE ("Servicios de soporte"). El uso de los Servicios de 
+soporte se encuentra regido por las disposiciones y programas de (Nombre entidad) que se describen en el 
+manual del usuario, en la documentación "en línea" y/o en otros materiales proporcionados por (nombre 
+entidad). Todo código de software complementario que se proporcione como parte de los Servicios de 
+soporte será considerado parte del PRODUCTO SOFTWARE y estará sujeto a los términos y condiciones 
+de este CLUF. Con respecto a la información técnica que usted proporcione a (nombre entidad) como 
+parte de los Servicios de soporte, (nombre entidad) podrá utilizar esa información con fines comerciales, 
+incluso para soporte del producto y desarrollo. no utilizará esa información en una manera que lo 
+identifique a usted personalmente.
+
+*	Transferencia del software. Todos los derechos otorgados por el presente CLUF sólo se pueden 
+transferir de manera permanente con la condición de que no retenga copia alguna, de que transfiera el 
+PRODUCTO SOFTWARE completo (incluyendo todas las partes componentes, los medios y los 
+materiales impresos, cualquier actualización, este CLUF y si corresponde, el Certificado de 
+Autenticidad), y de que el receptor acepte los términos de este CLUF. Si el PRODUCTO SOFTWARE es
+
+
+una actualización, cualquier transferencia deberá incluir todas las versiones anteriores del PRODUCTO 
+SOFTWARE.
+
+*	Terminación. Sin perjuicio de cualquier otro derecho, (nombre entidad) puede terminar este 
+CLUF si usted no cumple con los términos y condiciones del mismo. En dicho caso, deberá destruir todas 
+las copias del PRODUCTO SOFTWARE y todos sus componentes.
+
+1	ACTUALIZACIONES. SI EL PRODUCTO SOFTWARE se encuentra marcado como una 
+actualización, usted deberá tener la licencia correspondiente para usar un producto identificado como de 
+actualización por Microsoft a los fines de poder usar el PRODUCTO SOFTWARE. Un PRODUCTO 
+SOFTWARE marcado como actualización reemplaza o complementa al producto usado como base para 
+otorgarle la actualización. Usted podrá usar el producto actualizado resultante únicamente de acuerdo con 
+los términos de este CLUF. Si el PRODUCTO SOFTWARE es una actualización de un componente de 
+un paquete de programas de software del que ha obtenido licencia como un producto individual, el 
+PRODUCTO SOFTWARE podrá usarse y transferirse sólo como parte de ese paquete del producto 
+individual y no podrá separarse para usarse en más de un equipo o PC.
+
+2	DERECHOS DE AUTOR. La titularidad y derechos de autor con respecto al PRODUCTO 
+SOFTWARE (incluyendo pero no limitándose a imágenes, fotografías, figuras animadas, vídeo, audio, 
+música, texto y "applets" o subprogramas incorporados al PRODUCTO SOFTWARE), los materiales 
+impresos que lo acompañan y cualquier copia del PRODUCTO SOFTWARE son propiedad de (Nombre 
+entidad) o de sus proveedores. El PRODUCTO SOFTWARE se encuentra protegido por leyes sobre 
+derechos de autor y por disposiciones de tratados internacionales. Por consiguiente, deberá tratar al 
+PRODUCTO SOFTWARE como cualquier otro material sujeto a derechos de autor excepto que podrá 
+instalar el PRODUCTO SOFTWARE en un solo equipo o PC siempre que mantenga el original 
+solamente para fines de copia de seguridad (o copia de respaldo) o archivo. No podrá copiar los 
+materiales impresos que acompañan al PRODUCTO SOFTWARE.
+
+3	SOFTWARE EN MEDIO DUAL. Es posible que reciba el PRODUCTO SOFTWARE en más 
+de un medio. Independientemente del tipo o tamaño del medio que reciba, sólo podrá usar el 
+medio que sea apropiado para su único equipo o PC. No podrá usar o instalar el otro medio en 
+otro equipo o PC. No podrá prestar, alquilar, arrendar o de otra manera transferir el otro medio a 
+otro usuario, excepto como parte de una transferencia permanente (como se dispone arriba) del 
+PRODUCTO SOFTWARE.
+
+
+
+
+
+
+
+IMPORTANTE-LEA DETENIDAMENTE: Este Contrato de Licencia para el Usuario Final ("CLUF") 
+constituye un acuerdo legal entre usted (ya sea una persona física o una entidad jurídica) y (Nombre 
+entidad) respecto al producto de software indicado arriba, el que incluye software y puede incluir medios 
+relacionados, materiales impresos y cualquier documentación "en línea" o electrónica ("PRODUCTO 
+SOFTWARE"). Al instalar, copiar o de otra manera usar el PRODUCTO SOFTWARE, usted acepta 
+quedar obligado por los términos del presente CLUF. Si no está de acuerdo con los términos de este 
+CLUF, no instale o use el PRODUCTO SOFTWARE; por el contrario, devuélvalo al lugar donde lo
+
