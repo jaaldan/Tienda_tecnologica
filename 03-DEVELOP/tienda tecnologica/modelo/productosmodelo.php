@@ -3,12 +3,13 @@
     
                          public $id_producto;
                          public $nombre_producto;
-                         public $id_categoria;
-                         public $marca;
-                         public $color;
-                         public $pvp_con_iva;
-                         public $salidas;
-                         public $cantidad_stock;
+                         public $id_categoria_producto;
+                         public $marca_producto;
+                         public $color_producto;
+                         public $pvp_con_iva_producto;
+                         public $salidas_producto;
+                         public $cantidad_stock_producto;
+                         public $descripcion_producto;
 
                          function agregar(){
                                              $conet = new conexion();
@@ -21,12 +22,14 @@
                                                  $insertar = "insert into productos values(
                                                                                          '$this->id_producto',
                                                                                          '$this->nombre_producto',
-                                                                                         '$this->id_categoria',
-                                                                                         '$this->marca',
-                                                                                         '$this->color',
-                                                                                         '$this->pvp_con_iva',
-                                                                                         '$this->salidas',
-                                                                                         '$this->cantidad_stock'
+                                                                                         '$this->id_categoria_producto',
+                                                                                         '$this->marca_producto',
+                                                                                         '$this->color_producto',
+                                                                                         '$this->pvp_con_iva_producto',
+                                                                                         '$this->salidas_producto',
+                                                                                         '$this->cantidad_stock_producto',
+                                                                                         '$this->descripcion_producto'
+                                                                                         
                                               )";
                                               echo $insertar;
                                               mysqli_query($c,$insertar);
@@ -38,20 +41,26 @@
                                            $conet = new conexion();
                                            $c = $conet->conectando();
                                            $query = "select * from productos where nombre_producto = '$this->nombre_producto' 
-                                           and id_categoria  = '$this->id_categoria' and marca  = '$this->marca' and color  = '$this->color'
-                                           and pvp_con_iva  = '$this->pvp_con_iva' and salidas  = '$this->salidas' and cantidad_stock  = '$this->cantidad_stock'";
+                                           and id_categoria_producto = '$this->id_categoria_producto' 
+                                           and marca_producto = '$this->marca_producto' 
+                                           and color_producto = '$this->color_producto' 
+                                           and pvp_con_iva_producto = '$this->pvp_con_iva_producto' 
+                                           and salidas_producto = '$this->salidas_producto' 
+                                           and cantidad_stock_producto = '$this->cantidad_stock_producto' 
+                                           and descripcion_producto = '$this->descripcion_producto'";
                                            $ejecuta = mysqli_query($c, $query);
                                            if(mysqli_fetch_array($ejecuta)){
                                               echo "<script> alert('No se ha realizado una modificación en el producto')</script>";
                                             }else{
-                                               $update = "update productos set id_producto='$this->id_producto',
+                                               $update = "update productos set id_producto='$this->id_producto', 
                                                nombre_producto='$this->nombre_producto', 
-                                               id_categoria ='$this->id_categoria',
-                                               marca ='$this->marca', 
-                                               color ='$this->color', 
-                                               pvp_con_iva ='$this->pvp_con_iva', 
-                                               salidas ='$this->salidas', 
-                                               cantidad_stock ='$this->cantidad_stock'  
+                                               id_categoria_producto='$this->id_categoria_producto', 
+                                               marca_producto='$this->marca_producto', 
+                                               color_producto='$this->color_producto', 
+                                               pvp_con_iva_producto='$this->pvp_con_iva_producto', 
+                                               salidas_producto='$this->salidas_producto', 
+                                               cantidad_stock_producto='$this->cantidad_stock_producto'  
+                                               descripcion_producto= '$this->descripcion_producto'
                                                where id_producto='$this->id_producto'";
                                                echo $update;
                                                mysqli_query($c,$update);
@@ -61,18 +70,22 @@
 
                         }
                         function eliminar(){
+                                           try{  
                                            $conet = new conexion();
                                            $c = $conet->conectando();
                                            $delete = "delete from productos where id_producto='$this->id_producto'";
                                            $d=mysqli_query($c,$delete);
-                                        
-                                       
-                                        
-                                           if(mysqli_errno()==1451){
-                                              echo "<script> alert('La Categoria No fue Eliminada en el Sistema porque tiene Registros Asociados')</script>";
-                                            }else{
-                                               echo "<script> alert('La Categoria fue Eliminada en el Sistema')</script>";
-                                            }
+                                           echo "<script> alert('El producto fue eliminado en el Sistema')</script>"; 
+                                          }
+                                           catch(Exception $e){
+                                           
+                                                                                    
+                                           //if(mysqli_errno()==1451){
+                                                      echo "<script> alert('El producto no fue eliminado en el sistema porque tiene registros asociados')</script>";
+                                            //}else{
+                                               
+                                           // }
+                                          }
 
                         }
 

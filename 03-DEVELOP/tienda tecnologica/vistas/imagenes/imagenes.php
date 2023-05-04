@@ -1,8 +1,9 @@
 <?php
 include("../../conexion/conectar.php");
 if ($_POST) {
-    $obj->id_producto = $_POST['id_producto'];
+    $obj->id_imagen = $_POST['id_imagen'];
 }
+$key = $_GET['key'];
 $conet = new conexion();
 $c = $conet->conectando();
 $query = "select count(*) as totalRegistros from imagenes";
@@ -19,22 +20,30 @@ if (empty($_GET['pagina'])) {
 $desde = ($pagina - 1) * $maximoRegistros;
 $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
+
 if (isset($_POST['search'])) {
-    $query2 = "select * from imagenes where id_imagen like '%$obj->id_imagen%' limit $desde, $maximoRegistros";
+    $query2 = "select * from imagenes where id_imagen like '%$obj->id_imagen%' and id_producto_imagen = '$key' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 } else {
-    $query2 = "select * from imagenes limit $desde, $maximoRegistros";
+    $query2 = "select * from imagenes where id_producto_imagen = '$key' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 }
-$key = $_GET['key'];
-$query2 = "select * from imagenes where id_producto = '$key' ";
-$ejecuta2 = mysqli_query($c, $query2);
-$arreglo2 = mysqli_fetch_array($ejecuta2);
+/*
 
+if($key==''){
+
+
+    $query2 = "select * from imagenes where id_producto = '$key' limit $desde, $maximoRegistros";
+    $ejecuta2 = mysqli_query($c, $query2);
+    $arreglo2 = mysqli_fetch_array($ejecuta2);
+}
+*/
+$paso = $key;
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,13 +68,13 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
         <nav class="navbar navbar-expand-lg bg-">
                 <div class="container-fluid">
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" name="id_producto"  placeholder="Digite el Nombre o Código del producto" aria-label="Search">
-                         <button class="btn btn-primary" name="search"  type="submit">Buscar</button>
+                        <input class="form-control me-2" type="search" name="id_imagen" placeholder="Digite el código de la imagen" aria-label="Search">
+                        <button type="submit" class="btn btn-primary" name="search"><i class="fa fa-search" aria-hidden="true">Buscar</button></i>
                     </form>
                 </div>
             </nav>
             <div class="marco" align="left">
-            <button type="submit" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true"></i> Listar</button>
+            <button type="submit" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true">Listar</i></button>
         </div>
         </div>
             <table class="table-light table table-striped table table-bordered border-success table table-hover">
@@ -96,6 +105,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                                 do{
                                     ?>
                                     <tr>
+                                    
                                         <td><?php echo $arreglo2[0] ?></td>
                                         <td><?php 
                                         $query3="select nombre_producto from productos where id_producto = '$arreglo2[1]'";
@@ -133,7 +143,9 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                                         </center>
                                         </td>
                                     </tr>
+                                   
                             <?php
+                           
                                 }while($arreglo2 = mysqli_fetch_array($ejecuta2));
                             }
                             ?>
@@ -142,9 +154,15 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <a href="../productos/productos.php" target="marco">
                             <P align="right"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
                             </a>
-                            <a href="imagenes_agregar.php" target="marco">
+                            
+                            
+                            <a href="<?php if( $paso >= 0){
+                                                echo 'imagenes_agregar.php?key='.urlencode($paso);
+                                            } 
+                                           ?>">
                                 <button name="button" class="btn btn-success"><i class="fa fa-address-book-o" aria-hidden="true">Agregar imagen</i></button>
                             </a>
+                          
                         </P>
                         <br>
             <nav aria-label="Page navigation example">

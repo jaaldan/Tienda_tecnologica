@@ -1,5 +1,24 @@
 <?php
 include("../../conexion/conectar.php");
+?>
+
+<?php
+session_start();
+$varsesion = $_SESSION['CORREO_USUARIO'];
+$c = new conexion();
+$cone = $c->conectando();
+$sql1 = "select roles.ID_ROL from usuarios INNER JOIN roles on usuarios.ID_ROL_USUARIO = roles.ID_ROL where usuarios.CORREO_USUARIO = '$varsesion' ";
+$rs1 = mysqli_query($cone,$sql1);
+$arreglo1 = mysqli_fetch_row($rs1);
+if($arreglo1[0] !=1){
+    echo 'ESTE USUARIO NO TIENE AUTORIZACION PARA ACCEDER A ESTA FUNCIONALIDAD';
+
+die();
+}
+
+?>
+
+<?php
 if ($_POST) {
     $obj->nombre_producto = $_POST['nombre_producto'];
 }
@@ -28,7 +47,6 @@ if (isset($_POST['search'])) {
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,22 +60,21 @@ if (isset($_POST['search'])) {
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-<div class="container-fluid p-3 mb-5 bg-body rounded">
+    <div class="container-fluid p-3 mb-5 bg-body rounded">
         <head>
             <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
             <br>
             <br>
             <h2>Productos</h2>
         </head>
-        <form action="" name="pagos" method="POST">
-                <div class="campo" id="filtropro">
-                <nav class="navbar navbar-expand-lg bg-">
-                <div class="container-fluid">
-                <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" name="nombre_producto" placeholder="Digite el Nombre o Código del Producto" aria-label="Search">
-                    <button class="btn btn-primary" name="search" type="submit"><i class="fa fa-search"
-                            aria-hidden="true">Buscar</i></button>
-                </form>
+        <form action="" name="productos" method="POST">
+        <div class="campo" id="filtropro">
+        <nav class="navbar navbar-expand-lg bg-">
+        <div class="container-fluid">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" name="nombre_producto" placeholder="Digite el nombre del producto" aria-label="Search">
+                <button class="btn btn-primary btn-lg" type="submit" name="search"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
+            </form>
         </div>
         </nav>
             <div class="marco"align="left">
@@ -91,6 +108,9 @@ if (isset($_POST['search'])) {
                         <center>Cantidad(Stock)</center>
                     </th>
                     <th>
+                        <center>Descripción</center>
+                    </th>
+                    <th>
                         <center>Acciones</center>
                     </th>
                 </tr>
@@ -115,9 +135,10 @@ if (isset($_POST['search'])) {
                                         echo $arreglo3[0]; ?></td>
                                         <td><?php echo $arreglo2[3] ?></td>
                                         <td><?php echo $arreglo2[4] ?></td>
-                                        <td><?php echo $arreglo2[5] ?></td>
+                                        <td>$<?php echo number_format($arreglo2[5], 2, '.', ',');?></td>
                                         <td><?php echo $arreglo2[6] ?></td>
                                         <td><?php echo $arreglo2[7] ?></td>
+                                        <td><?php echo $arreglo2[8] ?></td>
                                         <td>
                                         <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'productos_ver.php?key='.urlencode($arreglo2[0]);
@@ -135,7 +156,7 @@ if (isset($_POST['search'])) {
                                                 echo '../imagenes/imagenes.php?key='.urlencode($arreglo2[0]);
                                             } 
                                             ?>">                                    
-                                                <button name="imagen" class="btn btn-secondary" type="button"><i class="fa fa-plus-square" aria-hidden="true">Imagen</i></button>
+                                                <button name="imagen" class="btn btn-success" type="button"><i class="fa fa-file-image-o" aria-hidden="true">Imagen</i></button>
                                             </a>
                                             <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'productos_eliminar.php?key='.urlencode($arreglo2[0]);

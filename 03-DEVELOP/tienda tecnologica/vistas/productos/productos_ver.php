@@ -1,28 +1,37 @@
 <?php
 include("../../conexion/conectar.php");
 include("../../controlador/productoscontrolador.php");
-
 $obj = new productos();
 if ($_POST) {
 
     $obj->id_producto = $_POST['id_producto'];
     $obj->nombre_producto = $_POST['nombre_producto'];
-    $obj->id_categoria = $_POST['id_categoria'];
-    $obj->marca = $_POST['marca'];
-    $obj->color = $_POST['color'];
-    $obj->pvp_con_iva = $_POST['pvp_con_iva'];
-    $obj->salidas = $_POST['salidas'];
-    $obj->cantidad_stock = $_POST['cantidad_stock'];
+    $obj->id_categoria_producto = $_POST['id_categoria_producto'];
+    $obj->marca_producto = $_POST['marca_producto'];
+    $obj->color_producto = $_POST['color_producto'];
+    $obj->pvp_con_iva_producto = $_POST['pvp_con_iva_producto'];
+    $obj->salidas_producto = $_POST['salidas_producto'];
+    $obj->cantidad_stock_producto = $_POST['cantidad_stock_producto'];
+    $obj->descripcion_producto = $_POST['descripcion_producto'];
 }
 $key = $_GET['key'];
+echo $key;
 $cone = new conexion();
 $c = $cone->conectando();
 $query2 = "select * from productos where id_producto = '$key' ";
 $ejecuta2 = mysqli_query($c, $query2);
 $arreglo2 = mysqli_fetch_array($ejecuta2);
-
-
 ?>
+
+<?php
+$conet = new Conexion();
+$c = $conet->conectando();
+$sql = "select * from categorias";
+$query = mysqli_query($c, $sql);
+$r = mysqli_fetch_assoc($query);
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -68,7 +77,11 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Nombre categoría</center>
                         </th>
                         <td>
-                            <center><input type="text" name="id_categoria" id="id_categoria"  value="<?php echo $arreglo2[2]?>" readonly></center>
+                            <center><input type="text" name="id_categoria_producto" id="id_categoria_producto"  value="<?php 
+                                        $query3="select nombre_categoria from categorias where id_categoria = '$arreglo2[2]'";
+                                        $resultado3=mysqli_query($c,$query3);
+                                        $arreglo3 = mysqli_fetch_array($resultado3);
+                                        echo $arreglo3[0];?>" readonly></center>
                         </td>            
                     </tr>
                     <tr>
@@ -76,7 +89,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Marca</center>
                         </th>
                         <td>
-                            <center><input type="text" name="marca" id="marca"  value="<?php echo $arreglo2[3]?>" readonly></center>
+                            <center><input type="text" name="marca_producto" id="marca_producto"  value="<?php echo $arreglo2[3]?>" readonly></center>
                         </td>            
                     </tr>
                     <tr>
@@ -84,7 +97,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Color</center>
                         </th>
                         <td>
-                            <center><input type="text" name="color" id="color"  value="<?php echo $arreglo2[4]?>" readonly></center>
+                            <center><input type="text" name="color_producto" id="color_producto"  value="<?php echo $arreglo2[4]?>" readonly></center>
                         </td>            
                     </tr>
                     <tr>
@@ -92,7 +105,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>PVP_con_IVA</center>
                         </th>
                         <td>
-                            <center><input type="number" name="pvp_con_iva" id="pvp_con_iva"  value="<?php echo $arreglo2[5]?>" readonly></center>
+                            <center><input name="pvp_con_iva_producto" id="pvp_con_iva_producto"  value="$<?php echo number_format($arreglo2[5], 2, '.', ',');?>" readonly></center>
                         </td>            
                     </tr>
                     <tr>
@@ -100,7 +113,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Salidas</center>
                         </th>
                         <td>
-                            <center><input type="number" name="salidas" id="salidas"  value="<?php echo $arreglo2[6]?>" readonly></center>
+                            <center><input type="number" name="salidas_producto" id="salidas_producto"  value="<?php echo $arreglo2[6]?>" readonly></center>
                         </td>            
                     </tr>
                     <tr>
@@ -108,7 +121,15 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                             <center>Cantidad(Stock)</center>
                         </th>
                         <td>
-                            <center><input type="number" name="cantidad_stock" id="cantidad_stock"  value="<?php echo $arreglo2[7]?>" readonly></center>
+                            <center><input type="number" name="cantidad_stock_producto" id="cantidad_stock_producto"  value="<?php echo $arreglo2[7]?>" readonly></center>
+                        </td>            
+                    </tr>
+                    <tr>
+                        <th>
+                            <center>Descripción</center>
+                        </th>
+                        <td>
+                            <center><input class="form-control" type="text" name="descripcion_producto" id="descripcion_producto" aria-label="default input example" value="<?php echo $arreglo2[8]?>" readonly></center>
                         </td>            
                     </tr>
                 </table>

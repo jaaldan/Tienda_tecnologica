@@ -6,12 +6,13 @@ if ($_POST) {
 
     $obj->id_producto = $_POST['id_producto'];
     $obj->nombre_producto = $_POST['nombre_producto'];
-    $obj->id_categoria = $_POST['id_categoria'];
-    $obj->marca = $_POST['marca'];
-    $obj->color = $_POST['color'];
-    $obj->pvp_con_iva = $_POST['pvp_con_iva'];
-    $obj->salidas = $_POST['salidas'];
-    $obj->cantidad_stock = $_POST['cantidad_stock'];
+    $obj->id_categoria_producto = $_POST['id_categoria_producto'];
+    $obj->marca_producto = $_POST['marca_producto'];
+    $obj->color_producto = $_POST['color_producto'];
+    $obj->pvp_con_iva_producto = $_POST['pvp_con_iva_producto'];
+    $obj->salidas_producto = $_POST['salidas_producto'];
+    $obj->cantidad_stock_producto = $_POST['cantidad_stock_producto'];
+    $obj->descripcion_producto = $_POST['descripcion_producto'];
 }
 ?>
 
@@ -65,14 +66,14 @@ $r = mysqli_fetch_assoc($query);
                             <center>Nombre categoría</center>
                             </th>
                             <td>
-                            <center><select name="id_categoria" id="id_categoria">
+                            <center><select name="id_categoria_producto" id="id_categoria_producto">
                             <option>
                             Seleccione la categoria
                             <?php
                             do {
                             $categoria = $r['id_categoria'];
                             $nombre = $r['nombre_categoria'];
-                            if ($categoria == $obj->id_categoria) {
+                            if ($categoria == $obj->id_categoria_producto) {
                             echo "<option value=$categoria=>$nombre";
                             } else {
                             echo "<option  value=$categoria>$nombre";
@@ -95,7 +96,7 @@ $r = mysqli_fetch_assoc($query);
                             <center>Marca</center>
                             </th>
                             <td>
-                            <center><input type="text" name="marca" id="marca" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input type="text" name="marca_producto" id="marca_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
                             <tr>
@@ -103,7 +104,7 @@ $r = mysqli_fetch_assoc($query);
                             <center>Color</center>
                             </th>
                             <td>
-                            <center><input type="text" name="color" id="color" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input type="text" name="color_producto" id="color_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
                             <tr>
@@ -111,7 +112,7 @@ $r = mysqli_fetch_assoc($query);
                             <center>PVP con IVA</center>
                             </th>
                             <td>
-                            <center><input type="text" name="pvp_con_iva" id="pvp_con_iva" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input type="text" name="pvp_con_iva_producto" id="pvp_con_iva_producto"  placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
                             <tr>
@@ -119,7 +120,7 @@ $r = mysqli_fetch_assoc($query);
                             <center>Salidas</center>
                             </th>
                             <td>
-                            <center><input type="text" name="salidas" id="salidas" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input type="text" name="salidas_producto" id="salidas_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
                             <tr>
@@ -127,7 +128,15 @@ $r = mysqli_fetch_assoc($query);
                             <center>Cantidad(Stock)</center>
                             </th>
                             <td>
-                            <center><input type="text" name="cantidad_stock" id="cantidad_stock" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            <center><input type="text" name="cantidad_stock_producto" id="cantidad_stock_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
+                            </td>
+                            </tr>
+                            <tr>
+                            <th>
+                            <center>Descripción</center>
+                            </th>
+                            <td>
+                            <center><input class="form-control" type="text" name="descripcion_producto" id="descripcion_producto" width="100px" placerholder="Digite el nombre del metodo de pago" aria-label="default input example"></center>      
                             </td>
                             </tr>
                         </table>

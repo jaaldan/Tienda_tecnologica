@@ -5,29 +5,29 @@ $obj = new pedidos();
 if($_POST){
 
     $obj->id_pedido = $_POST['id_pedido'];
-    $obj->id_cliente = $_POST['id_cliente'];
-    $obj->direccion = $_POST['direccion'];
-    $obj->fecha = $_POST['fecha'];
-    $obj->estado = $_POST['estado'];
+    $obj->id_cliente_pedido = $_POST['id_cliente_pedido'];
+    $obj->direccion_pedido = $_POST['direccion_pedido'];
+    $obj->fecha_pedido = $_POST['fecha_pedido'];
+    $obj->estado_pedido = $_POST['estado_pedido'];
 }
 $key = $_GET['key'];
 echo $key;
 $conet = new conexion();
 $c = $conet->conectando();
-$query="select * from pedido where id_pedido = '$key'";
+$query="select * from pedidos where id_pedido = '$key'";
 $resultado = mysqli_query($c, $query);
 $arreglo = mysqli_fetch_array($resultado); 
 $obj->id_pedido = $arreglo[0];
-$obj->id_cliente = $arreglo[1];
-$obj->direccion = $arreglo[2];
-$obj->fecha = $arreglo[3];
-$obj->estado = $arreglo[4];
+$obj->id_cliente_pedido = $arreglo[1];
+$obj->direccion_pedido = $arreglo[2];
+$obj->fecha_pedido = $arreglo[3];
+$obj->estado_pedido = $arreglo[4];
 ?>
 
 <?php
 $conet = new Conexion();
 $c = $conet->conectando();
-$sql = "select * from cliente";
+$sql = "select * from clientes";
 $query = mysqli_query($c, $sql);
 $r = mysqli_fetch_assoc($query);
 ?>
@@ -65,14 +65,14 @@ $r = mysqli_fetch_assoc($query);
             <center>Id Cliente</center>
             </th>
             <td>
-                            <center><select name="id_cliente" id="id_cliente" readOnly>
+                            <center><select name="id_cliente_pedido" id="id_cliente_pedido" readOnly>
                             <option>
                             Seleccione el cliente
                             <?php
                             do {
                             $cliente = $r['id_cliente'];
-                            $nombre = $r['nombres'];
-                            if ($cliente == $obj->id_cliente) {
+                            $nombre = $r['nombres_cliente'];
+                            if ($cliente == $obj->id_cliente_pedido) {
                             echo "<option value=$cliente=>$nombre";
                             } else {
                             echo "<option  value=$cliente>$nombre";
@@ -95,7 +95,7 @@ $r = mysqli_fetch_assoc($query);
              <center>Direccion</center>
              </th>
              <td>
-             <center><input class="form-control form-control-sm" type="text" name="direccion" id="direccion" value="<?php echo $obj->direccion  ?>" aria-label=".form-control-sm example"></center>
+             <center><input class="form-control form-control-sm" type="text" name="direccion_pedido" id="direccion_pedido" value="<?php echo $obj->direccion_pedido  ?>" aria-label=".form-control-sm example"></center>
              </td>
              </tr>
              <tr>
@@ -103,14 +103,14 @@ $r = mysqli_fetch_assoc($query);
              <center>Fecha</center>            
              </th>
              <td>
-             <center><input class="form-control form-control-sm" type="date" name="fecha" id="fecha" value="<?php echo $obj->fecha  ?>"  aria-label=".form-control-sm example"></center>
+             <center><input class="form-control form-control-sm" type="date" name="fecha_pedido" id="fecha_pedido" value="<?php echo $obj->fecha_pedido  ?>"  aria-label=".form-control-sm example"></center>
              </td>
              </tr>
              <tr>
              <th><center>Estado</center></th>
-             <td><center><select name="estado" id="estado" value="<?php echo $obj->estado  ?>">
-             <option value="Activo">Activo</option>
-             <option value="Inactivo">Inactivo</option>
+             <td><center><select name="estado_pedido" id="estado_pedido" value="<?php echo $obj->estado_pedido  ?>">
+             <option value="Activo">ACTIVO</option>
+             <option value="Inactivo">INACTIVO</option>
              </tr>
              </table>
         <P align="right"><a href="pedidos.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>

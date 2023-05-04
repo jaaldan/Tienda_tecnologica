@@ -5,12 +5,13 @@ if($_POST){
 
     $obj->id_producto = $_POST['id_producto'];
     $obj->nombre_producto = $_POST['nombre_producto'];
-    $obj->id_categoria = $_POST['id_categoria'];
-    $obj->marca = $_POST['marca'];
-    $obj->color = $_POST['color'];
-    $obj->pvp_con_iva = $_POST['pvp_con_iva'];
-    $obj->salidas = $_POST['salidas'];
-    $obj->cantidad_stock = $_POST['cantidad_stock'];
+    $obj->id_categoria_producto = $_POST['id_categoria_producto'];
+    $obj->marca_producto = $_POST['marca_producto'];
+    $obj->color_producto = $_POST['color_producto'];
+    $obj->pvp_con_iva_producto = $_POST['pvp_con_iva_producto'];
+    $obj->salidas_producto = $_POST['salidas_producto'];
+    $obj->cantidad_stock_producto = $_POST['cantidad_stock_producto'];
+    $obj->descripcion_producto = $_POST['descripcion_producto'];
 }
 
 if(isset($_POST['guarda'])){

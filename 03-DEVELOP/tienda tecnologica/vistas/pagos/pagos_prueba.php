@@ -1,11 +1,11 @@
 <?php
 include("../../conexion/conectar.php");
 if ($_POST) {
-    $obj->metodo_pago = $_POST['metodo_pago'];
+    $obj->METODO_PAGO = $_POST['METODO_PAGO'];
 }
 $conet = new conexion();
 $c = $conet->conectando();
-$query = "select count(*) as totalRegistros from pagos";
+$query = "select count(*) as totalRegistros from PAGOS";
 $ejecuta = mysqli_query($c, $query);
 $arreglo = mysqli_fetch_array($ejecuta);
 $totalRegistros = $arreglo['totalRegistros'];
@@ -20,15 +20,14 @@ $desde = ($pagina - 1) * $maximoRegistros;
 $totalPaginas = ceil($totalRegistros / $maximoRegistros);
 echo $totalPaginas;
 if (isset($_POST['search'])) {
-    $query2 = "select * from pagos where metodo_pago like '%$obj->metodo_pago%' limit $desde, $maximoRegistros";
+    $query2 = "select * from PAGOS where METODO_PAGO like '%$obj->METODO_PAGO%' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 } else {
-    $query2 = "select * from pagos limit $desde, $maximoRegistros";
+    $query2 = "select * from PAGOS limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
     $arreglo2 = mysqli_fetch_array($ejecuta2);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,46 +38,33 @@ if (isset($_POST['search'])) {
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
-    <title>Pagos</title>
+    <title>Administracion</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-        <head>
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <form class="d-flex" role="search">
+                     <input class="form-control me-2" type="search" name="METODO_PAGO" placeholder="Digite el Nombre o Código de la Categoria" aria-label="Search">
+                     <button class="btn btn-outline-success" name="search"  type="submit"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
+                    </form>
+                </div>
+            </nav>
             <br>
-            <br>
-            <h2>Métodos de Pago</h2>
-        </head>
-        <form action="" name="pagos" method="POST">
-        <div class="campo" id="filtropro">
-        <nav class="navbar navbar-expand-lg bg-">
-           <div class="container-fluid">
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" name="metodo_pago"  placeholder="Ingrese el nombre del metodo de pago" aria-label="Search">
-                <button type="submit" class="btn btn-primary btn-lg" name="search"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
-              </form>
-           </div>
-        </nav>
-            <div class="marco" align="left">
-             <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-list-ul" aria-hidden="true">Listar</i></button>
-            </div>
-        <div class="table-responsive">
-            <table class="table-light table table-striped table table-bordered border-success table table-hover">
-                <tr class="table-info table table-striped table table-bordered border-success table table-hover">
-                    <td>
-                        <center>Código</center>
-                    </td>
-                    <td>
-                        <center>Método de pago</center>
-                    </td>
-                    <td>
-                        <center>Estado</center>
-                    </td>
-                    <td>
-                        <center>Acciones</center>
-                    </td>
-                </tr>
-                <?php
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm shadow p-3 mb-5 bg-body rounded">
+                    <thead>
+                        <tr>
+                            <td colspan="6" class="p-3 mb-2 bg-primary text-white"><h5>Lista de Pagos</h5></td>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr class="table-secondary">
+                            <td>Código</td>
+                            <td>Nombre</td>
+                            <td>Estado</td>
+                            <td>Acciones</td>
+                        </tr>
+                         <?php
                             if ($arreglo2 == 0) {
                                 //echo "no hay registros";
                             ?>
@@ -115,28 +101,19 @@ if (isset($_POST['search'])) {
                                 }while($arreglo2 = mysqli_fetch_array($ejecuta2));
                             }
                             ?>
-                            </table>
-                            <br>
-
-                            <a href="home.html">
-                            <P align="right"><button name="button" class="btn btn-primary btn-lg" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
-                            </a>
-                            <a href="pagos_agregar.php" target="marco">
-                                <button name="button" class="btn btn-success btn-lg"><i class="fa fa-address-book-o" aria-hidden="true">Agregar metodo de pago</i></button>
-                            </a>
-                        </P>
-                        <br>  
+                    </tbody>
+                </table>
+            </div>    
             <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
+                <ul class="pagination justify-content-end">
                     <?php 
                     if($pagina!=1){
                     ?>
-                    <li class="page-item">
-                        <a class="page-link" href="?pagina=<?php echo 1; ?>"><<</a>
-                    </li>
                     <li class="page-item ">
-                        <a class="page-link" href="?pagina=<?php echo $pagina-1; ?>"><</a>
+                        <a class="page-link" href="?pagina=<?php echo 1; ?>"><</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?pagina=<?php echo $pagina-1; ?>"><<</a>
                     </li>
                     <?php
                     }
@@ -151,20 +128,17 @@ if (isset($_POST['search'])) {
                     if($pagina !=$totalPaginas){
                     ?>
                     <li class="page-item">
-                    <a class="page-link" href="?pagina=<?php echo $pagina+1; ?>">></a>
+                        <a class="page-link" href="?pagina=<?php echo $pagina+1; ?>">>></a>
                     </li>
                     <li class="page-item">
-                    <a class="page-link" href="?pagina=<?php echo $totalPaginas; ?>">>></a>
+                        <a class="page-link" href="?pagina=<?php echo $totalPaginas; ?>">></a>
                     </li>
                     <?php
                     }
                     ?>
                 </ul>
             </nav>
-            </div>
-          </div>
-         </form>
-        </div>      
+        </form>
     </div>
 </body>
 </html>

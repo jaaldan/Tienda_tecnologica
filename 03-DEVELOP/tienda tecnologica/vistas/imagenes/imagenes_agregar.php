@@ -2,20 +2,30 @@
 include('../../conexion/conectar.php');
 include("../../controlador/imagenescontrolador.php");
 $obj = new imagenes();
-if ($_POST) {
+if($_POST){
 
     $obj->id_imagen = $_POST['id_imagen'];
-    $obj->id_producto = $_POST['id_producto'];
+    $obj->id_producto_imagen = $_POST['id_producto_imagen'];
     $obj->imagen_producto = $_FILES['imagen_producto']['tmp_name'];
 }
+$key = $_GET['key'];
+echo $key;
+
+/*$conet = new conexion();
+$c = $conet->conectando();
+$query2 = "select * from imagenes where id_imagen = '$key' ";
+$ejecuta2 = mysqli_query($c, $query2);
+$arreglo2 = mysqli_fetch_array($ejecuta2);
+*/
 ?>
 
 <?php
-$conet = new Conexion();
+/*$conet = new Conexion();
 $c = $conet->conectando();
 $sql = "select * from productos";
 $query = mysqli_query($c, $sql);
 $r = mysqli_fetch_assoc($query);
+*/
 ?>
 
 <!DOCTYPE html>
@@ -52,28 +62,17 @@ $r = mysqli_fetch_assoc($query);
                             <center>Nombre producto</center>
                             </th>
                             <td>
-                            <center><select name="id_producto" id="id_producto">
-                            <option>
-                            Seleccione el producto
+                            <center>
+                            <input type="hidden" name="id_producto_imagen" id="id_producto_imagen" value="<?php echo $key ?>" placerholder="El Codigo es asignado por el sistema">
                             <?php
-                            do {
-                            $producto = $r['id_producto'];
-                            $nombre = $r['nombre_producto'];
-                            if ($producto == $obj->id_producto) {
-                            echo "<option value=$producto=>$nombre";
-                            } else {
-                            echo "<option  value=$producto>$nombre";
-                            }
-                            } while ($r = mysqli_fetch_assoc($query));
-                            $row = mysqli_num_rows($query);
-                            $rows = 0;
-                            if ($rows > 0) {
-                            mysqli_data_seek($r, 0);
-                            $r = mysqli_fetch_assoc($query);
-                            }
+                            $conet = new conexion();
+                            $c = $conet->conectando();
+                            $query2 = "select nombre_producto from productos where id_producto = '$key' ";
+                            $ejecuta2 = mysqli_query($c, $query2);
+                            $arreglo2 = mysqli_fetch_array($ejecuta2);
+                            echo $arreglo2[0];
                             ?>
-                            </option>
-                            </select>
+
                             </center>
                         </td>
                     </tr>
@@ -86,9 +85,14 @@ $r = mysqli_fetch_assoc($query);
                             </td>
                             </tr>
                         </table>
-                        <P align="right"><a href="imagenes.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
-                        <button type="submit" class="btn btn-success" name="guarda"><i class="fa fa-check" aria-hidden="true">Guardar</i></button></P>
-    </form>
+                        <a href="<?php if( $key<>''){
+                                                echo 'imagenes.php?key='.urlencode($key);
+                                            } 
+                                            ?>">
+                           <P align="right"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
+                           <a href="imagenes.php"><button type="submit" class="btn btn-success" name="guarda"><i class="fa fa-check" aria-hidden="true">Guardar</i></button></a>
+                           </P>                      
+            </form>
     </div>
 </body>
 </html>

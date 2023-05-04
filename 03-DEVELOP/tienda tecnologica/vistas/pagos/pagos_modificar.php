@@ -6,18 +6,18 @@ if($_POST){
 
     $obj->id_pago = $_POST['id_pago'];
     $obj->metodo_pago = $_POST['metodo_pago'];
-    $obj->estado = $_POST['estado'];
+    $obj->estado_pago = $_POST['estado_pago'];
 }
 $key = $_GET['key'];
 echo $key;
 $conet = new conexion();
 $c = $conet->conectando();
-$query="select * from pago where id_pago = '$key'";
+$query="select * from pagos where id_pago = '$key'";
 $resultado = mysqli_query($c, $query);
 $arreglo = mysqli_fetch_array($resultado); 
 $obj->id_pago = $arreglo[0];
 $obj->metodo_pago = $arreglo[1];
-$obj->estado = $arreglo[2];
+$obj->estado_pago = $arreglo[2];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,14 +42,6 @@ $obj->estado = $arreglo[2];
                             <table class="table table-striped table table-bordered border-success table table-hover">
                                 <tr>
                                     <th>
-                                        <center>Código</center>
-                                    </th>
-                                    <td>
-                                        <center><input type="text" name="id_pago" id="id_pago" value="<?php echo $obj->id_pago  ?>" placeholder="El Codigo es Asignado por el Sistema" readOnly></center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
                                         <center>Método de pago</center>
                                     </th>
                                     <td>
@@ -58,9 +50,9 @@ $obj->estado = $arreglo[2];
                                 </tr>
                                 <tr>
                            <th><center>Estado</center></th>
-                           <td><center><select name="estado" id="estado" value="<?php echo $obj->estado  ?>"placeholder="Seleccione el estado del metodo de pago"></center>
-                           <option value="Activo">Activo</option>
-                           <option value="Inactivo">Inactivo</option>
+                           <td><center><select name="estado_pago" id="estado_pago" value="<?php echo $obj->estado_pago  ?>"placeholder="Seleccione el estado del metodo de pago"></center>
+                           <option value="ACTIVO">ACTIVO</option>
+                           <option value="INACTIVO">INACTIVO</option>
                            </td>
                            </tr>
                            </table>

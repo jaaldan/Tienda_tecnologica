@@ -5,19 +5,19 @@ $obj = new imagenes();
 if($_POST){
 
     $obj->id_imagen = $_POST['id_imagen'];
-    $obj->id_producto = $_POST['id_producto'];
+    $obj->id_producto_imagen = $_POST['id_producto_imagen'];
     $obj->imagen_producto = $_FILES['imagen_producto']['tmp_name'];
 }
 $key = $_GET['key'];
 echo $key;
 $conet = new conexion();
 $c = $conet->conectando();
-$query="select * from imagenes where id_imagen = '$key'";
-$resultado = mysqli_query($c, $query);
-$arreglo = mysqli_fetch_array($resultado); 
-$obj->id_imagen = $arreglo[0];
-$obj->id_producto = $arreglo[1];
-$obj->imagen_producto = $arreglo[2];
+$query2="select * from imagenes where id_imagen = '$key'";
+$resultado2 = mysqli_query($c, $query2);
+$arreglo2 = mysqli_fetch_array($resultado2); 
+$obj->id_imagen = $arreglo2[0];
+$obj->id_producto_imagen = $arreglo2[1];
+$obj->imagen_producto = $arreglo2[2];
 ?>
 
 <?php
@@ -54,7 +54,7 @@ $r = mysqli_fetch_assoc($query);
                                         <center>Código</center>
                                     </th>
                                     <td>
-                                        <center><input type="text" name="id_imagen" id="id_imagen" value="<?php echo $obj->id_imagen  ?>"readOnly></center>
+                                        <center><input type="text" name="id_imagen" id="id_imagen" value="<?php echo $obj->id_imagen?>"readOnly></center>
                                     </td>
                                 </tr>
                                 <tr>
@@ -62,14 +62,14 @@ $r = mysqli_fetch_assoc($query);
                                         <center>Nombre producto</center>
                                     </th>
                                     <td>
-                            <center><select name="id_producto" id="id_producto" value="<?php echo $obj->id_producto ?>">
+                            <center><select name="id_producto_imagen" id="id_producto_imagen" value="<?php echo $obj->id_producto_imagen?>">
                             <option>
                             Seleccione el producto
                             <?php
                             do {
                             $producto = $r['id_producto'];
                             $nombre = $r['nombre_producto'];
-                            if ($producto == $obj->id_producto) {
+                            if ($producto == $obj->id_producto_imagen) {
                             echo "<option value=$producto=>$nombre";
                             } else {
                             echo "<option  value=$producto>$nombre";
@@ -92,13 +92,16 @@ $r = mysqli_fetch_assoc($query);
                                         <center>Imagen</center>
                                     </th>
                                     <td>
-                                        <center><input type="file" name="imagen_producto" id="imagen_producto"  value="<?php echo $obj->imagen ?>"></center>
+                                        <center><input type="file" name="imagen_producto" id="imagen_producto"  value="<?php echo $obj->imagen_producto ?>"></center>
                                     </td>
                                 </tr>
                            </table>
-                           <P align="right"><a href="imagenes.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
-                           <a href="imagenes.php"><button type="submit" class="btn btn-success" name="modifica"><i class="fa fa-check" aria-hidden="true">Guardar</i></button>
-                           </a>
+                           <a href="<?php if( $arreglo2[1]<>''){
+                                                echo 'imagenes.php?key='.urlencode($arreglo2[1]);
+                                            } 
+                                            ?>"> 
+                           <P align="right"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
+                           <a href="imagenes.php"><button type="submit" class="btn btn-success" name="modifica"><i class="fa fa-check" aria-hidden="true">Guardar</i></button></a>
                            </P>                      
             </form>
     </div>
