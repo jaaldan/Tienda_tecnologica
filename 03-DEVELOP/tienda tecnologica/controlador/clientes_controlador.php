@@ -14,7 +14,7 @@ if ($_POST) {
     $obj->direccion_cliente = $_POST['direccion'];
     $obj->clave_cliente = $_POST['clave_cliente'];
     $obj->estado_cliente = $_POST['estado_cliente'];
-    $obj->imagen_cliente = $_POST['imagen_cliente'];
+    $obj->imagen_cliente = $_FILES['imagen_cliente'];
 
 }
 

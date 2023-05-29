@@ -21,7 +21,7 @@
                            )";
             echo $insertar;
             mysqli_query($c, $insertar);
-            echo "<script> alert('El documento fue creado en el sistema')</script>";
+            echo "<script> alert('la categoria fue creada en el sistema')</script>";
         }
     }
 

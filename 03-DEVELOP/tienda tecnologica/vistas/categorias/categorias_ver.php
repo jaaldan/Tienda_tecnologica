@@ -27,55 +27,56 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
-    <title>Agregar Categoria</title>
+    <title>Datos Categoria</title>
 </head>
 
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-        <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
-        <br>
-        <br>
-        <h2>Agregar Categoria</h2>
-        <br>
-        <br>
-        <form action="" name="agregar_categoria" method="POST">
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+           <center><img src="../../img/logo_3_T_T.jpg" width="550px" height="110px" alt=""></center>
+         <br>
+         <br>
+         <h2>Datos Categoria</h2>
+        </div>
+        <form action="" name="categorias_ver" method="POST">
             <center>
-                <table class="table table-striped table table-bordered border-success table table-hover">
-                    <tr>
-                        <th>
-                            <center>Id Categoria</center>
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                          Codigo
                         </th>
-                        <td>
-                            <center><input type="text" name="id_categoria" id="id_categoria" value="<?php echo $arreglo2[0] ?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                           <input type="text" name="id_categoria" id="id_categoria" 
+                           value="<?php echo $arreglo2[0] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Nombre Categoria</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Nombre Categoria
                         </th>
-                        <td>
-                            <center><input type="text" name="nombre_categoria" id="nombre_categoria"  value="<?php echo $arreglo2[1] ?>" placeholder="Digite el Nombre de la categoria" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="nombre_categoria" id="nombre_categoria"
+                            value="<?php echo $arreglo2[1] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Estado</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Estado
                         </th>
-                        <td>
-                            <center>
-                            <center><input type="text" name="estado_categoria" id="estado_categoria"  value="<?php echo $arreglo2[2] ?>" placeholder="Digite el Nombre de la categoria" readonly maxlength="50" size="20"></center>
-
+                        <td class="text-center">
+                            <input type="text" name="estado_categoria" id="estado_categoria" 
+                            value="<?php echo $arreglo2[2] ?>" readonly maxlength="50" size="20">
+                        </td>
                     </tr>
                 </table>
+            </center>
                 <a href="categorias.php" target="marco">
                     <P align="right"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa fa-times" aria-hidden="true">Cerrar</i></button>
                 </a>
 
                 <button type="button" class="btn btn-primary" name="imprimir" onClick="window.print()"><i class="fa fa-check" aria-hidden="true">Imprimir</i></button>
                 </P>
-            </center>
         </form>
     </div>
 </body>
-
 </html>

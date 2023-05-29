@@ -39,120 +39,130 @@ $arreglo3 = mysqli_fetch_array($ejecuta3);
     <title>clientes modificar</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
         <div>
-            <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
-        <br>
-        <br>
-          <h2>Modificar cliente</h2>
+            <center><img src="../../img/logo_3_T_T.jpg" width="550px" height="110px" alt=""></center>
+         <br>
+         <br>
+         <h2>Modificar Cliente</h2>
         </div>
-        <form action="" name="agregar_cliente" method="POST">
+        <form action="" name="clientes_modificar" method="POST">
             <center>
-                <table class="table table-striped table table-bordered border-success table table-hover">
-                    <tr>
-                        <th>
-                            <center>Codigo</center>
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Codigo
                         </th>
-                        <td>
-                            <center><input type="text" name="id_cliente" id="id_cliente"value="<?php echo $arreglo3[0] ?>" placeholder="El Codigo es Asignado por el Sistema" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="id_cliente" id="id_cliente"
+                            value="<?php echo $arreglo3[0] ?>" placeholder="El Codigo es Asignado por el Sistema" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Rol</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Rol
                         </th>
-                        <td>
-                            <center><input type="text" name="id_rol" id="id_rol"value="<?php echo $arreglo3[1] ?>" placeholder="seleccione su rol" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="id_rol" id="id_rol"
+                            value="<?php echo $arreglo3[1] ?>" placeholder="seleccione su rol" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Nombres</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Nombres
                         </th>
-                        <td>
-                            <center><input type="text" name="nombres" id="nombres"value="<?php echo $arreglo3[2] ?>" placeholder="ingrese sus nombres" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="nombres" id="nombres"
+                            value="<?php echo $arreglo3[2] ?>" placeholder="ingrese sus nombres" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Apellidos</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Apellidos
                         </th>
-                        <td>
-                            <center><input type="text" name="apellidos" id="apellidos"value="<?php echo $arreglo3[3] ?>" placeholder="ingrese sus apellidos" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="apellidos" id="apellidos"
+                            value="<?php echo $arreglo3[3] ?>" placeholder="ingrese sus apellidos" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Tipo De Documento</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Tipo De Documento
                         </th>
-                        <td>
-                            <center><input type="text" name="id_tipo_documento" id="id_tipo_documento"value="<?php echo $arreglo3[4] ?>" placeholder="Seleccione el tipo del documento" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="id_tipo_documento" id="id_tipo_documento"
+                            value="<?php echo $arreglo3[4] ?>" placeholder="Seleccione el tipo del documento" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Numero De Documento</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Numero De Documento
                         </th>
-                        <td>
-                            <center><input type="text" name="numero_documento" id="numero_documento"value="<?php echo $arreglo3[5] ?>" placeholder="Digite el Numero del documento" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="numero_documento" id="numero_documento"
+                            value="<?php echo $arreglo3[5] ?>" placeholder="Digite el Numero del documento" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Correo Electronico</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Correo Electronico
                         </th>
-                        <td>
-                            <center><input type="text" name="correo" id="correo"value="<?php echo $arreglo3[6] ?>" placeholder="Digite su correo electronico" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="correo" id="correo"
+                            value="<?php echo $arreglo3[6] ?>" placeholder="Digite su correo electronico" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Telefono</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Telefono
                         </th>
-                        <td>
-                            <center><input type="text" name="numero_celular" id="numero_celular"value="<?php echo $arreglo3[7] ?>" placeholder="Digite numero de telefono" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="numero_celular" id="numero_celular"
+                            value="<?php echo $arreglo3[7] ?>" placeholder="Digite numero de telefono" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Direccion</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Direccion
                         </th>
-                        <td>
-                            <center><input type="text" name="direccion" id="direccion"value="<?php echo $arreglo3[8] ?>" placeholder="Digite su direccion" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="direccion" id="direccion"
+                            value="<?php echo $arreglo3[8] ?>" placeholder="Digite su direccion" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Contraseña</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Contraseña
                         </th>
-                        <td>
-                            <center><input type="text" name="clave" id="clave"value="<?php echo $arreglo3[9] ?>" placeholder="Digite su contraseña" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="clave" id="clave"
+                            value="<?php echo $arreglo3[9] ?>" placeholder="Digite su contraseña" maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Estado</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Estado
                         </th>
-                        <td>
-                            <center><select name="estado" id="estado">
-
-                            <?php
-$query2 = "select * from clientes where nombres_cliente = '$arreglo3[10]' ";
-$ejecuta2 = mysqli_query($c, $query2);
-$arreglo2 = mysqli_fetch_array($ejecuta2);
-echo $arreglo2[0];
-?>
+                        <td class="text-center">
+                            <select name="estado" id="estado">
+                                <?php
+                                  $query2 = "select * from clientes where nombres_cliente = '$arreglo3[10]' ";
+                                  $ejecuta2 = mysqli_query($c, $query2);
+                                  $arreglo2 = mysqli_fetch_array($ejecuta2);
+                                  echo $arreglo2[0];
+                                ?>
                                     <option value="activo">Activo</option>
                                     <option value="inactivo">Inactivo</option>
-                                </select></center>
+                            </select>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Imagen</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Imagen
                         </th>
-                        <td>
-                            <center><input type="file" name="imagen_cliente" id="imagen_cliente"value="<?php echo $arreglo3[11] ?>" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="file" name="imagen_cliente" id="imagen_cliente"  
+                            value="<?php echo $obj->imagen_cliente?>">
                         </td>
                     </tr>
                 </table>

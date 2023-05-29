@@ -39,110 +39,121 @@ $arreglo3 = mysqli_fetch_array($ejecuta3);
     <title>clientes ver</title>
 </head>
 <body>
- <div class="container shadow p-3 mb-5 bg-body rounded">
+ <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
         <div>
-            <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
+            <center><img src="../../img/logo_3_T_T.jpg" width="550px" height="110px" alt=""></center>
         <br>
         <br>
-          <h2 class="modal-title" id="exampleModalLabel">Datos del Cliente</h2>
+          <h2>Datos del Cliente</h2>
         </div>
-         <form action="" name="agregar_cliente" method="POST">
+         <form action="" name="clientes_ver" method="POST">
             <center>
-                <table class="table table-striped table table-bordered border-success table table-hover">
-                    <tr>
-                        <th>
-                            <center>Codigo</center>
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Codigo
                         </th>
-                        <td>
-                            <center><input type="text" name="id_cliente" id="id_cliente"value="<?php echo $arreglo3[0] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="id_cliente" id="id_cliente"
+                            value="<?php echo $arreglo3[0] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Rol</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Rol
                         </th>
-                        <td>
-                            <center><input type="text" name="id_rol" id="id_rol"value="<?php echo $arreglo3[1] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="id_rol" id="id_rol"
+                            value="<?php echo $arreglo3[1] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Nombres</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Nombres
                         </th>
-                        <td>
-                            <center><input type="text" name="nombre" id="nombres"value="<?php echo $arreglo3[2] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="nombre" id="nombres"
+                            value="<?php echo $arreglo3[2] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Apellidos</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Apellidos
                         </th>
-                        <td>
-                            <center><input type="text" name="apellidos" id="apellidos"value="<?php echo $arreglo3[3] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="apellidos" id="apellidos"
+                            value="<?php echo $arreglo3[3] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Tipo De Documento</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Tipo De Documento
                         </th>
-                        <td>
-                            <center><input type="text" name="id_tipo_documento" id="id_tipo_documento"value="<?php echo $arreglo3[4] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                           <input type="text" name="id_tipo_documento" id="id_tipo_documento"
+                           value="<?php echo $arreglo3[4] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Numero de Documento</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Numero de Documento
                         </th>
-                        <td>
-                            <center><input type="text" name="numero_documento" id="numero_documento"value="<?php echo $arreglo3[5] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="numero_documento" id="numero_documento"
+                            value="<?php echo $arreglo3[5] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Correo</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Correo
                         </th>
-                        <td>
-                            <center><input type="text" name="correo" id="correo"value="<?php echo $arreglo3[6] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="correo" id="correo"
+                            value="<?php echo $arreglo3[6] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Telefono</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Telefono
                         </th>
-                        <td>
-                            <center><input type="text" name="numero_celular" id="numero_celular"value="<?php echo $arreglo3[7] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="numero_celular" id="numero_celular"
+                            value="<?php echo $arreglo3[7] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Direccion</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Direccion
                         </th>
-                        <td>
-                            <center><input type="text" name="direccion" id="direccion"value="<?php echo $arreglo3[8] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="direccion" id="direccion"
+                            value="<?php echo $arreglo3[8] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Clave</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Clave
                         </th>
-                        <td>
-                            <center><input type="text" name="clave" id="clave"value="<?php echo $arreglo3[9] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="clave" id="clave"
+                            value="<?php echo $arreglo3[9] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Estado</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Estado
                         </th>
-                        <td>
-                            <center><input type="text" name="estado" id="estado"value="<?php echo $arreglo3[10] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="estado" id="estado"
+                            value="<?php echo $arreglo3[10] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Imagen</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Imagen
                         </th>
-                        <td>
-                            <center><input type="text" name="imagen_cliente" id="imagen_cliente"value="<?php echo $arreglo3[11] ?>" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <img src="<?php echo $arreglo3[11]; ?>" width="250" height="250" readonly>
                         </td>
                     </tr>
                 </table>

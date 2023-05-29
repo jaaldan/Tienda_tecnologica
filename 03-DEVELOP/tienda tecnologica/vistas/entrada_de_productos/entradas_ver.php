@@ -31,61 +31,65 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
     <title>entradas ver</title>
 </head>
 <body>
-  <div class="container shadow p-3 mb-5 bg-body rounded">
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
         <div>
-            <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
+            <center><img src="../../img/logo_3_T_T.jpg" width="550px" height="110px" alt=""></center>
         <br>
         <br>
-          <h2 class="modal-title" id="exampleModalLabel">Ver Entrada</h2>
+          <h2>Datos Entrada</h2>
         </div>
         <form action="" name="entradas_ver" method="POST">
             <center>
-                <table class="table table-striped table table-bordered border-success table table-hover">
-                    <tr>
-                        <th>
-                            <center>Id Entrada</center>
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Codigo
                         </th>
-                        <td>
-                            <center><input type="text" name="id_entrada" id="id_entrada" value="<?php echo $arreglo2[0] ?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="id_entrada" id="id_entrada"
+                            value="<?php echo $arreglo2[0] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Nombre Producto</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Nombre Producto
                         </th>
-                        <td>
-                            <center><input type="text" name="id_producto" id="id_producto"
+                        <td class="text-center">
+                            <input type="text" name="id_producto" id="id_producto"
                             value="<?php 
                                          $query = "select nombre_producto from productos where id_producto ='$arreglo2[1]'";
                                          $resultado = mysqli_query($c, $query);
                                          $arreglo = mysqli_fetch_array($resultado);
                                          echo $arreglo[0];
                                     ?>
-                            "placeholder="Digite el Nombre del producto" readonly maxlength="50" size="20"></center>
+                                   "readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Proveedor</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                           Proveedor
                         </th>
-                        <td>
-                            <center><input type="text" name="proveedor" id="proveedor"  value="<?php echo $arreglo2[2] ?>" placeholder="Digite el Nombre de la categoria" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="proveedor" id="proveedor"
+                            value="<?php echo $arreglo2[2] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Entrada</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Entrada
                         </th>
-                        <td>
-                            <center><input type="text" name="cantidad_entrada" id="cantidad_entrada"  value="<?php echo $arreglo2[3] ?>" placeholder="Digite el Nombre de la categoria" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="cantidad_entrada" id="cantidad_entrada" 
+                            value="<?php echo $arreglo2[3] ?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Valor Proveedor</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Valor Proveedor
                         </th>
-                        <td>
-                            <center><input type="text" name="valor_proveedor" id="valor_proveedor"  value="<?php echo $arreglo2[4] ?>" placeholder="Digite el Nombre de la categoria" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="valor_proveedor" id="valor_proveedor" 
+                            value="<?php echo $arreglo2[4] ?>"readonly maxlength="50" size="20">
                         </td>
                     </tr>
                 </table>
@@ -97,7 +101,7 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
                 </P>
             </center>
         </form>               
-  </div>
+    </div>
 </body>
 </html>
 

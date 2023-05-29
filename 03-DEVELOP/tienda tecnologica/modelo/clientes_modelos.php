@@ -18,14 +18,14 @@
     {
         $conet = new conexion();
         $c = $conet->conectando();
-        $query = "select * from  clientes where numero_documento_cliente = '$this->numero_documento_cliente'";
+        $query = "select * from  clientes where id_cliente = '$this->id_cliente'";
         $ejecuta = mysqli_query($c, $query);
         if(mysqli_fetch_array($ejecuta)) {
-            echo "<script> alert('El documento ya existe en el sistema')</script>";
+            echo "<script> alert('El cliente ya existe en el sistema')</script>";
         }else{
-            $ruta ='../imagenes/'.$_FILES['imagen_cliente']['name'];
+            $ruta ='../../imagenes/'.$_FILES['imagen_cliente']['name'];
             move_uploaded_file($_FILES['imagen_cliente']['tmp_name'],$ruta);
-            $insertar = "insert into cliente values(
+            $insertar = "insert into clientes values(
                                                     '$this->id_cliente',
                                                     '$this->id_rol_cliente',
                                                     '$this->nombres_cliente',
@@ -49,7 +49,7 @@
     {
         $conet = new conexion();
         $c = $conet->conectando();
-        $query = "select * from clientes where numero_documento_cliente = '$this->numero_documento_cliente'";
+        $query = "select * from clientes where id_cliente = '$this->id_cliente'";
         $ejecuta = mysqli_query($c, $query);
         if (mysqli_fetch_array($ejecuta)) {
             echo "<script> alert('El cliente ya Existe en el Sistema')</script>";

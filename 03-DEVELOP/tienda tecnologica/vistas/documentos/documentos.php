@@ -18,7 +18,7 @@ if (empty($_GET['pagina'])) {
 }
 $desde = ($pagina - 1) * $maximoRegistros;
 $totalPaginas = ceil($totalRegistros / $maximoRegistros);
-echo $totalPaginas;
+//echo $totalPaginas;
 
 if (isset($_POST['buscar'])) {
     $query6 = "select * from tipo_documentos where nombre_documento like '%$obj->nombre_documento%' limit $desde, $maximoRegistros";
@@ -43,27 +43,37 @@ if (isset($_POST['buscar'])) {
     <title>Documentos</title>
 </head>
 <body>
-<div class="container shadow p-3 mb-5 bg-body rounded">
-        <head>
-            <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
-            <br>
-            <br>
-            <h2>Documentos</h2>
-        </head>
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+            <table class="table ">
+             <thead>
+              <head>
+               <tr>
+                 <th><center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center></th>
+               </tr>
+              </head>
+               <tr>
+                 <th><h2><i class="fa fa-id-card-o fa-2x" aria-hidden="true"></i>   Documentos</h2></th>
+               </tr>
+             </thead>
+            </table>
+        </div>
         <form action="" name="documentos" method="POST">
                 <div class="campo" id="filtropro">
+                 <nav class="navbar navbar-expand-lg bg-light">
                     <form class="d-flex" id="buscar" role="search">
                         <input  class="form-control me-2" type="search" name="nombre_documento" id="nombre_documento" placeholder="Digite el Nombre" aria-label="Search"/>
                         <button type="submit" name="buscar" id="buscar" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
                     </form>
+                 </nav>
                     <div class="marco" align="left">
                         <button type="submit" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true"></i> Listar</button>
                     </div>
                     <section>
-                        <table class="table-light table table-striped table table-bordered border-success table table-hover">
-                            <tr class="table-info table table-striped table table-bordered border-success table table-hover">
+                        <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                            <tr>
                                 <th>
-                                    <center> Codigo Documento</center>
+                                    <center> Codigo </center>
                                 </th>
                                 <th>
                                     <center>Nombre Documento</center>
@@ -78,72 +88,82 @@ if (isset($_POST['buscar'])) {
                                     <center>Acciones</center>
                                 </th>
                             </tr>
-            <?php
-if ($arreglo6 == 0) {
-    echo "no hay registros";
-} else {
-    do {
-        ?>
-                                    <tr>
-                                        <td><?php echo $arreglo6[0] ?></td>
-                                        <td><?php echo $arreglo6[1] ?></td>
-                                        <td><?php echo $arreglo6[2] ?></td>
-                                        <td><?php echo $arreglo6[3] ?></td>
-        <td>
+                             <?php
+                              if ($arreglo6 == 0) {
+                              echo "no hay registros";
+                              } else {
+                              do {
+                             ?>
+                                <tr>
+                                    <td><?php echo $arreglo6[0] ?></td>
+                                    <td><?php echo $arreglo6[1] ?></td>
+                                    <td><?php echo $arreglo6[2] ?></td>
+                                    <td><?php echo $arreglo6[3] ?></td>
+                                    <td>
+                                     <center>
                                         <a href="<?php if ($arreglo6[0] != '') {
-            echo 'documentos_ver.php?key=' . urlencode($arreglo6[0]);
-        }
-
-        ?>"
-                                                <center><button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true">Ver</i></button>
-                                            </a>
-                                            <a href="<?php if ($arreglo6[0] != '') {
-            echo 'documentos_modificar.php?key=' . urlencode($arreglo6[0]);
-        }
-
-        ?>"
-                                                <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true">Modificar</i></button>
-                                            </a>
-                                            </center>
-                                        </td>
-                                    </tr>
+                                             echo 'documentos_ver.php?key=' . urlencode($arreglo6[0]);
+                                          }
+                                          ?>"
+                                             data-toggle="tooltip" data-placement="top" title="Ver">
+                                             <button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                        </a>
+                                        <a href="<?php if ($arreglo6[0] != '') {
+                                             echo 'documentos_modificar.php?key=' . urlencode($arreglo6[0]);
+                                             }
+                                             ?>"
+                                              data-toggle="tooltip" data-placement="top" title="Modificar">
+                                              <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        </a>
+                                        <a href="<?php if ($arreglo6[0] != "") {
+                                              echo 'documentos_eliminar.php?key=' . urlencode($arreglo6[0]);
+                                              }
+                                              ?>"
+                                              data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                              <button name="eliminar"type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                        </a>      
+                                     <center>
+                                    </td>
+                                </tr>
 
                             <?php
-} while ($arreglo6 = mysqli_fetch_array($ejecuta6));
-}
-?>
+                             } while ($arreglo6 = mysqli_fetch_array($ejecuta6));
+                             }
+                             ?>
                         </table>
                         <br>
-                        <P align="right"><a href="../../framework.php" target="marco" class="full-width"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
+                         <P align="right"><a href="../../framework.php" target="marco" class="full-width"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
                             <a href="documentos_agregar.php" target="marco">
                                 <button name="agregar" class="btn btn-success" type="button"><i class="fa fa-address-book-o" aria-hidden="true">Agregar Categoria</i></button>
                             </a>
-                        </P>
+                         </P>
                         <br>
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-end">
+                            <ul class="pagination justify-content-center">
                                 <?php
-if ($pagina != 1) {
-    ?>
+                                 if ($pagina != 1) {
+                                ?>
                                     <li class="page-item ">
                                         <a class="page-link" href="?pagina=<?php echo 1; ?>">
-                                            << </a>
+                                         << 
+                                        </a>
                                     </li>
                                     <li class="page-item">
                                         <a class="page-link" href="?pagina=<?php echo $pagina - 1; ?>">
-                                            <<< </a>
+                                            <<< 
+                                        </a>
                                     </li>
                                 <?php
-}
-for ($i = 1; $i <= $totalPaginas; $i++) {
-    if ($i == $pagina) {
-        echo '<li class="page-item active" aria-current="page"><a class="page-link" href="?pagina=' . $i . '">' . $i . '</a></li>';
-    } else {
-        echo '<li class="page-item "><a class="page-link" href="?pagina=' . $i . '">' . $i . '</a></li>';
-    }
-}
-if ($pagina != $totalPaginas) {
-    ?>
+                                 }
+                                 for ($i = 1; $i <= $totalPaginas; $i++) {
+                                 if ($i == $pagina) {
+                                  echo '<li class="page-item active" aria-current="page"><a class="page-link" href="?pagina=' . $i . '">' . $i . '</a></li>';
+                                 } else {
+                                  echo '<li class="page-item "><a class="page-link" href="?pagina=' . $i . '">' . $i . '</a></li>';
+                                 }
+                                 }
+                                 if ($pagina != $totalPaginas) {
+                                ?>
                                     <li class="page-item">
                                         <a class="page-link" href="?pagina=<?php echo $pagina + 1; ?>">>></a>
                                     </li>
@@ -151,14 +171,14 @@ if ($pagina != $totalPaginas) {
                                         <a class="page-link" href="?pagina=<?php echo $totalPaginas; ?>">></a>
                                     </li>
                                 <?php
-}
-?>
+                                 }
+                                ?>
                             </ul>
                         </nav>
                     </section>
                 </div>
-            </form>
-</div>
+        </form>
+    </div>
 </body>
 </html>
 
