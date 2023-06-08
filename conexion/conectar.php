@@ -12,7 +12,7 @@ class Conexion{
                  $conn = mysqli_init();
                mysqli_ssl_set($conn,NULL,NULL, "../db/DDL_db/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
 
-                   mysqli_real_connect($conn, 'tiendatecnologica.mysql.database.azure.com', 'admitilo', 'Tienda*123456', 'tienda_tecnologica', 3306, MYSQLI_CLIENT_SSL);
+                   mysqli_real_connect($conn, 'tiendatecnologica.mysql.database.azure.com', 'admitilo', 'Tienda*123456', 'tienda_tecnologica', 3306,null);
                    if (mysqli_connect_errno()) {
                    die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
