@@ -9,10 +9,10 @@ class Conexion{
                //private $puerto = "3306";
                
                public function conectando() {
-                 $conn = mysqli_init();
-               mysqli_ssl_set($conn,NULL,NULL, "../db/DDL_db/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+                 $con = mysqli_init();
+               mysqli_ssl_set($con,NULL,NULL, "../db/DDL_db/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
 
-                   mysqli_real_connect($conn, 'tiendatecnologica.mysql.database.azure.com', 'admitilo', 'Tienda*123456', 'tienda_tecnologica', 3306,null);
+                   mysqli_real_connect($con, 'tiendatecnologica.mysql.database.azure.com', 'admitilo', 'Tienda*123456', 'tienda_tecnologica', 3306,null);
                    if (mysqli_connect_errno()) {
                    die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
