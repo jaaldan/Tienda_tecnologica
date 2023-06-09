@@ -1,38 +1,33 @@
 <?php
 class Conexion{
-               
 
-               private $servidor = "tiendatecnologica.mysql.database.azure.com";
-               private $usuario = "admitilo";
-               private $clave = "Tienda*123456";
-               private $db = "tienda_tecnologica";
-               private $puerto = "3306";
-               
-               public function conectando() {
-                 $con = mysqli_init();
-               mysqli_ssl_set($con,NULL,NULL, "../db/DDL_db/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+$host = 'tiendatecnologica.mysql.database.azure.com';
+$usuario = 'admitilo';
+$contraseña = 'Tienda*123456';
+$basedatos = 'tienda_tecnologica';
+$puerto = 3306;
 
-                   mysqli_real_connect($con, 'tiendatecnologica.mysql.database.azure.com', 'admitilo', 'Tienda*123456', 'tienda_tecnologica', 3306,null);
-                   if (mysqli_connect_errno()) {
-                   die('Failed to connect to MySQL: '.mysqli_connect_error());
+public function conectando() {
+$con = mysqli_init();
+
+// Establecer la conexión
+mysqli_real_connect($con, $host, $usuario, $contraseña, $basedatos, $puerto);
+
+// Verificar si la conexión fue exitosa
+if (mysqli_connect_errno()) {
+    die("Error al conectar a la base de datos: " . mysqli_connect_error());
+} else {
+    echo "Conexión exitosa a la base de datos.";
 }
-               }
+// Aquí puedes realizar operaciones en la base de datos
 
+// Cerrar la conexión
+mysqli_close($enlace);
 
 }
+
 $obj = new Conexion();
  if($obj->conectando()){
      echo "conectado al servidor";
- }
-
- ?>
- <?php 
-//$conn = mysqli_init();
-//mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-//mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL);
-//if (mysqli_connect_errno()) {
-//die('Failed to connect to MySQL: '.mysqli_connect_error());
-//}
-//$conn = mysqli_connect($this->servidor,$this->usuario,$this->clave,$this->db) or die ("Error al conectar con el servidor");
-                   //return $conn;
+    }
 ?>
