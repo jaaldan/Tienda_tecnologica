@@ -7,7 +7,7 @@ $contraseña = 'Tienda*123456';
 $basedatos = 'tienda_tecnologica';
 $puerto = 3306;
 
-public function conectando() {
+
 $enlace = mysqli_init();
 
 // Establecer la conexión
@@ -24,10 +24,5 @@ if (mysqli_connect_errno()) {
 // Cerrar la conexión
 mysqli_close($enlace);
 
-}
 
-$obj = new Conexion();
- if($obj->conectando()){
-     echo "conectado al servidor";
-    }
 ?>
