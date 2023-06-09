@@ -8,10 +8,10 @@ $basedatos = 'tienda_tecnologica';
 $puerto = 3306;
 
 public function conectando() {
-$con = mysqli_init();
+$enlace = mysqli_init();
 
 // Establecer la conexión
-mysqli_real_connect($con, $host, $usuario, $contraseña, $basedatos, $puerto);
+mysqli_real_connect($enlace, $host, $usuario, $contraseña, $basedatos, $puerto);
 
 // Verificar si la conexión fue exitosa
 if (mysqli_connect_errno()) {
