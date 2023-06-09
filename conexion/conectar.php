@@ -2,11 +2,11 @@
 class Conexion{
                
 
-               //private $servidor = "tiendatecnologica.mysql.database.azure.com";
-               //private $usuario = "admitilo";
-               //private $clave = "Tienda*123456";
-               //private $db = "tienda_tecnologica";
-               //private $puerto = "3306";
+               private $servidor = "tiendatecnologica.mysql.database.azure.com";
+               private $usuario = "admitilo";
+               private $clave = "Tienda*123456";
+               private $db = "tienda_tecnologica";
+               private $puerto = "3306";
                
                public function conectando() {
                  $con = mysqli_init();
