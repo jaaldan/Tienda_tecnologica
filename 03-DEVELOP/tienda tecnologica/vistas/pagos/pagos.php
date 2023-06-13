@@ -18,7 +18,7 @@ if (empty($_GET['pagina'])) {
 }
 $desde = ($pagina - 1) * $maximoRegistros;
 $totalPaginas = ceil($totalRegistros / $maximoRegistros);
-echo $totalPaginas;
+//echo $totalPaginas;
 if (isset($_POST['search'])) {
     $query2 = "select * from pagos where metodo_pago like '%$obj->metodo_pago%' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
@@ -42,41 +42,47 @@ if (isset($_POST['search'])) {
     <title>Pagos</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-        <head>
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Métodos de Pago</h2>
-        </head>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+            <table class="table ">
+                <thead>
+                    <head>
+                        <tr>
+                        <th><center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center></th>
+                        </tr>
+                    </head>
+                    <tr>
+                        <th><h2><i class="fa fa-credit-card-alt fa-2x" aria-hidden="true"></i> Pagos</h2></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <form action="" name="pagos" method="POST">
         <div class="campo" id="filtropro">
-        <nav class="navbar navbar-expand-lg bg-">
-           <div class="container-fluid">
-              <form class="d-flex" role="search">
+        <nav class="navbar navbar-expand-lg bg-light">
+              <form class="d-flex" id="search" role="search">
                 <input class="form-control me-2" type="search" name="metodo_pago"  placeholder="Ingrese el nombre del metodo de pago" aria-label="Search">
-                <button type="submit" class="btn btn-primary btn-lg" name="search"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
+                <button type="submit" name="search" id="search" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
               </form>
-           </div>
         </nav>
             <div class="marco" align="left">
-             <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-list-ul" aria-hidden="true">Listar</i></button>
+             <button type="submit" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true"></i> Listar</button>
             </div>
-        <div class="table-responsive">
-            <table class="table-light table table-striped table table-bordered border-success table table-hover">
-                <tr class="table-info table table-striped table table-bordered border-success table table-hover">
-                    <td>
+        <section>
+            <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                <tr>
+                    <th>
                         <center>Código</center>
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         <center>Método de pago</center>
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         <center>Estado</center>
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         <center>Acciones</center>
-                    </td>
+                    </th>
                 </tr>
                 <?php
                             if ($arreglo2 == 0) {
@@ -99,14 +105,16 @@ if (isset($_POST['search'])) {
                                             <a href="<?php if($arreglo2[0]<>""){
                                             echo "pagos_modificar.php?key=".urlencode($arreglo2[0]);
                                             }
-                                            ?>">
-                                            <button type="button" class="btn btn-warning btn-lg"><i class="fa fa-pencil" aria-hidden="true">Modificar</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Modificar">
+                                            <button name="modificar" type="button" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                             </a>
                                             <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'pagos_eliminar.php?key='.urlencode($arreglo2[0]);
                                             } 
-                                            ?>">
-                                            <button name="button" class="btn btn-danger btn-lg" type="button"><i class="fa fa-trash" aria-hidden="true">Eliminar</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Eliminar">
+                                            <button name="eliminar" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                             </a>
                                             </center>
                                         </td>
@@ -117,18 +125,16 @@ if (isset($_POST['search'])) {
                             ?>
                             </table>
                             <br>
-
-                            <a href="home.html">
-                            <P align="right"><button name="button" class="btn btn-primary btn-lg" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
+                            <a href="../login/framework.php" target="marco" class="full-width">
+                            <P align="right"><button name="button" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
                             </a>
                             <a href="pagos_agregar.php" target="marco">
-                                <button name="button" class="btn btn-success btn-lg"><i class="fa fa-address-book-o" aria-hidden="true">Agregar metodo de pago</i></button>
+                                <button name="button" type="button" class="btn btn-success"><i class="fa fa-address-book-o" aria-hidden="true">Agregar metodo de pago</i></button>
                             </a>
                         </P>
                         <br>  
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
                     <?php 
                     if($pagina!=1){
                     ?>
@@ -161,10 +167,9 @@ if (isset($_POST['search'])) {
                     ?>
                 </ul>
             </nav>
-            </div>
+            </section>
           </div>
-         </form>
-        </div>      
+         </form>    
     </div>
 </body>
 </html>

@@ -6,15 +6,15 @@
                         public $estado_transportadora;
       
       
-                        function agregar(){
+                       public function agregar(){
                           $cone = new Conexion();
                           $c = $cone->conectando();
-                          $query= "select * from  transportadoras where nombre_transportadora = '$this->nombre_transportadora'";
+                          $query = "select * from  transportadoras where nombre_transportadora = '$this->nombre_transportadora'";
                           $ejecuta = mysqli_query($c,$query);
                           if(mysqli_fetch_array($ejecuta)){
                               echo "<script> alert('El documento ya existe en el sistema')</script>";
                           }else{
-                              $insertar = "insert into transportadora values(
+                              $insertar = "insert into transportadoras values(
                                                                       '$this->id_transportadora',
                                                                       '$this->nombre_transportadora',
                                                                       '$this->numero_telefono_transportadora',
@@ -34,14 +34,14 @@
                         if(mysqli_fetch_array($ejecuta)){
                            echo "<script> alert('La Categoria ya Existe en el Sistema')</script>";
                          }else{
-                            $update = "update transportadora set id_transportadora='$this->id_transportadora',
+                            $update = "update transportadoras set id_transportadora='$this->id_transportadora',
                                                         nombre_transportadora='$this->nombre_transportadora',
-                                                        numero_telefono='$this->numero_telefono_transportadora',
-                                                        estado='$this->estado_transportadora'
+                                                        numero_telefono_transportadora='$this->numero_telefono_transportadora',
+                                                        estado_transportadora='$this->estado_transportadora'
                                                         where id_transportadora='$this->id_transportadora'";
                             echo $update;
                             mysqli_query($c,$update);
-                            echo "<script> alert('La Categoria fue Modificada en el Sistema')</script>";
+                            echo "<script> alert('La transportadora fue Modificada en el Sistema')</script>";
                        
                          }
 

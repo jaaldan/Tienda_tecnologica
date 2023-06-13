@@ -7,8 +7,8 @@ if ($_POST) {
 
     $obj->id_transportadora = $_POST['id_transportadora'];
     $obj->nombre_transportadora = $_POST['nombre_transportadora'];
-    $obj->numero_telefono = $_POST['numero_telefononumero_transportadora'];
-    $obj->estado = $_POST['estado_transportadora'];
+    $obj->numero_telefono_transportadora = $_POST['numero_telefononumero_transportadora'];
+    $obj->estado_transportadora = $_POST['estado_transportadora'];
 }
 $key = $_GET['key'];
 $cone = new conexion();
@@ -33,58 +33,63 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
 </head>
 
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-        <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+      <div>
+         <center><img src="../../img/logo_3_T_T.jpg" width="550px" height="110px" alt=""></center>
         <br>
         <br>
-        <h2>Ver transportadora</h2>
-        <br>
-        <br>
-        <br>
-        <form action="" name="agregar_transportadora" method="POST">
+        <h2>Datos transportadora</h2>
+      <div>
+        <form action="" name="ver_transportadora" method="POST">
             <center>
-                <table class="table table-striped table table-bordered border-success table table-hover">
-                    <tr class="table-striped table table-bordered border-success table table-hover">
-                        <th>
-                            <center>Id transportadora</center>
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Id transportadora
                         </th>
-                        <td>
-                            <center><input type="text" name="id_transportadora" id="id_transportadora" value="<?php echo $arreglo2[0]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="id_transportadora" id="id_transportadora"
+                            value="<?php echo $arreglo2[0]?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Nombre empresa transportadora</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Nombre empresa transportadora
                         </th>
-                        <td>
-                            <center><input type="text" name="nombre_transportadora" id="nombre_transportadora" value="<?php echo $arreglo2[1]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="nombre_transportadora" id="nombre_transportadora" 
+                            value="<?php echo $arreglo2[1]?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Telefono</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Telefono
                         </th>
-                        <td>
-                            <center><input type="text" name="numero_telefono_transportadora" id="numero_telefono_transportadora" value="<?php echo $arreglo2[2]?>" placeholder="digite el numero de telefono" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="numero_telefono_transportadora" id="numero_telefono_transportadora"
+                            value="<?php echo $arreglo2[2]?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Estado</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Estado
                         </th>
-                        <td>
-                            <center><input type="text" name="estado" id="estado" value="<?php echo $arreglo2[3]?>" placeholder="digite el estado" readonly maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="estado" id="estado"
+                            value="<?php echo $arreglo2[3]?>" readonly maxlength="50" size="20">
                         </td>
                     </tr>
                 </table>
                 <br>
                 <a href="transportadora.php" target="marco">
                     <P align="center"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            <i class="fa fa-times" aria-hidden="true">Cerrar</i></button></P>
-                </a>
+                        <i class="fa fa-times" aria-hidden="true">Cerrar</i></button>
+                </a> 
+                        <button type="button" class="btn btn-primary" name="imprimir" onClick="window.print()"><i class="fa fa-check" aria-hidden="true">Imprimir</i></button>
+                    </P>
+                
             </center>
         </form>
     </div>
 </body>
-
 </html>

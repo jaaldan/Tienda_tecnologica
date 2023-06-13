@@ -9,7 +9,7 @@ if($_POST){
     $obj->estado_pago = $_POST['estado_pago'];
 }
 $key = $_GET['key'];
-echo $key;
+//echo $key;
 $conet = new conexion();
 $c = $conet->conectando();
 $query="select * from pagos where id_pago = '$key'";
@@ -31,26 +31,34 @@ $obj->estado_pago = $arreglo[2];
     <title>Pagos</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Modificar método de pago</h2>
-            <br>
-            <br>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+         <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center>
+         <br>
+         <br>
+         <h2>Modificar método de pago</h2>
+        </div>
             <form action="" name="pagos_modificar" method="POST">
-                            <table class="table table-striped table table-bordered border-success table table-hover">
-                                <tr>
-                                    <th>
+                            <table class="table table-striped table-hover table-bordered table-sm shadow">
+                                <tr class="text-center align-middle">
+                                    <th class="text-center">
+                                        <center>Código</center>
+                                    </th>
+                                    <td class="text-center">
+                                        <center><input type="number" name="id_pago" id="id_pago"  value="<?php echo $obj->id_pago  ?>" readonly></center>
+                                    </td>
+                                </tr>
+                                <tr class="text-center align-middle">
+                                    <th class="text-center">
                                         <center>Método de pago</center>
                                     </th>
-                                    <td>
+                                    <td class="text-center">
                                         <center><input type="text" name="metodo_pago" id="metodo_pago"  value="<?php echo $obj->metodo_pago  ?>"placeholder="Digite el Nombre del metodo de pago"></center>
                                     </td>
                                 </tr>
-                                <tr>
-                           <th><center>Estado</center></th>
-                           <td><center><select name="estado_pago" id="estado_pago" value="<?php echo $obj->estado_pago  ?>"placeholder="Seleccione el estado del metodo de pago"></center>
+                                <tr class="text-center align-middle">
+                           <th class="text-center"><center>Estado</center></th>
+                           <td class="text-center"><center><select name="estado_pago" id="estado_pago" value="<?php echo $obj->estado_pago  ?>"placeholder="Seleccione el estado del metodo de pago"></center>
                            <option value="ACTIVO">ACTIVO</option>
                            <option value="INACTIVO">INACTIVO</option>
                            </td>

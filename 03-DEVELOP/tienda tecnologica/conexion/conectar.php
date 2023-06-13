@@ -17,7 +17,7 @@ class Conexion{
 }
 $obj = new Conexion();
  if($obj->conectando()){
-     echo "conectado al servidor";
+     
  }
 
- ?>
+ 

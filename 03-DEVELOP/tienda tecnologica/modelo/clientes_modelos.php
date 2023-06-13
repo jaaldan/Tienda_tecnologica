@@ -49,7 +49,7 @@
     {
         $conet = new conexion();
         $c = $conet->conectando();
-        $query = "select * from clientes where id_cliente = '$this->id_cliente'";
+        $query = "select * from clientes where '' = '$this->id_cliente'";
         $ejecuta = mysqli_query($c, $query);
         if (mysqli_fetch_array($ejecuta)) {
             echo "<script> alert('El cliente ya Existe en el Sistema')</script>";

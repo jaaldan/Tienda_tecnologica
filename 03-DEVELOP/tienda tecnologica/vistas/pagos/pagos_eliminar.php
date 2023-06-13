@@ -18,7 +18,7 @@ if ($key > 0) {
     $arreglo = mysqli_fetch_array($resultado);
     $obj->id_pago = $arreglo[0];
     $obj->metodo_pago = $arreglo[1];
-    $obj->estado = $arreglo[2];
+    $obj->estado_pago = $arreglo[2];
 
 } else {
     $obj->id_pago = "";
@@ -38,29 +38,37 @@ if ($key > 0) {
     <title>Pagos</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Eliminar método de pago</h2>
-        <br>
-        <br>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+         <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center>
+         <br>
+         <br>
+         <h2>Eliminar método de pago</h2>
+        </div>
         <form action="" name="pagos_eliminar" method="POST">
-                        <table class="table table-striped table table-bordered border-success table table-hover">
-                            <tr>
-                            <th>
+                        <table class="table table-striped table-hover table-bordered table-sm shadow">
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
+                               <center>Código</center>
+                            </th>
+                            <td class="text-center">
+                               <center><input type="number" name="id_pago" id="id_pago" value="<?php echo $obj->id_pago ?>" readOnly></center>
+                            </td>
+                            </tr>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                                <center>Método de pago</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                                <center><input type="text" name="metodo_pago" id="metodo_pago" value="<?php echo $obj->metodo_pago ?>" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th><center>Estado</center></th>
-                            <td>
-                            <center><select name="estado_pago" id="estado_pago" value="<?php echo $obj->estado_pago ?>" readOnly></center>
-                            </td>
-                            </tr>
+                            <tr class="text-center align-middle">
+                           <th class="text-center"><center>Estado</center></th>
+                           <td class="text-center">
+                           <center><input type="text" name="estado_pago" id="estado_pago" value="<?php echo $obj->estado_pago ?>" readOnly></center>
+                           </td>
+                           </tr>
                         </table>
                         <P align="right"><a href="pagos.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
                         <button type="submit" class="btn btn-success" name="elimina"><i class="fa fa-check" aria-hidden="true">Eliminar</i></button></P>

@@ -36,36 +36,36 @@ $r = mysqli_fetch_assoc($query);
     <title>Productos</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Agregar producto</h2>
-        <br>
-        <br>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+         <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center>
+         <br>
+         <br>
+         <h2>Agregar Producto</h2>
+        </div>
         <form action="" name="productos_agregar" method="POST">
-                        <table class="table table-striped table table-bordered border-success table table-hover">
-                            <tr>
-                            <th>
+                        <table class="table table-striped table-hover table-bordered table-sm shadow">
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Código</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input type="number" name="id_producto" id="id_producto" placerholder="El Codigo es Asignado por el Sistema" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Nombre producto</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input type="text" name="nombre_producto" id="nombre_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Nombre categoría</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><select name="id_categoria_producto" id="id_categoria_producto">
                             <option>
                             Seleccione la categoria
@@ -91,51 +91,51 @@ $r = mysqli_fetch_assoc($query);
                             </center>
                         </td>
                     </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Marca</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input type="text" name="marca_producto" id="marca_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Color</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input type="text" name="color_producto" id="color_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>PVP con IVA</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input type="text" name="pvp_con_iva_producto" id="pvp_con_iva_producto"  placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Salidas</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input type="text" name="salidas_producto" id="salidas_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Cantidad(Stock)</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input type="text" name="cantidad_stock_producto" id="cantidad_stock_producto" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example"></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Descripción</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input class="form-control" type="text" name="descripcion_producto" id="descripcion_producto" width="100px" placerholder="Digite el nombre del metodo de pago" aria-label="default input example"></center>      
                             </td>
                             </tr>

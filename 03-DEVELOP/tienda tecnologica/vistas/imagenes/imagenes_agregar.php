@@ -9,7 +9,7 @@ if($_POST){
     $obj->imagen_producto = $_FILES['imagen_producto']['tmp_name'];
 }
 $key = $_GET['key'];
-echo $key;
+//echo $key;
 
 /*$conet = new conexion();
 $c = $conet->conectando();
@@ -40,29 +40,30 @@ $r = mysqli_fetch_assoc($query);
     <title>Agregar Imagen</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Agregar Imagen</h2>
-        <br>
-        <br>
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+         <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center>
+         <br>
+         <br>
+         <h2>Agregar Imagen</h2>
+        </div>
         <form action="" name="imagenes_agregar" method="POST" enctype="multipart/form-data">
-                        <table class="table table-striped table table-bordered border-success table table-hover">
-                            <tr>
-                            <th>
-                            <center>Código</center>
+        <center>
+                        <table class="table table-striped table-hover table-bordered table-sm shadow">
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
+                            Código
                             </th>
-                            <td>
-                            <center><input type="number" name="id_imagen" id="id_imagen" placerholder="El Codigo es asignado por el sistema" readOnly></center>
+                            <td class="text-center">
+                            <input type="number" name="id_imagen" id="id_imagen" 
+                            placerholder="El Codigo es asignado por el sistema" readOnly>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
-                            <center>Nombre producto</center>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
+                            Nombre producto
                             </th>
-                            <td>
-                            <center>
+                            <td class="text-center">
                             <input type="hidden" name="id_producto_imagen" id="id_producto_imagen" value="<?php echo $key ?>" placerholder="El Codigo es asignado por el sistema">
                             <?php
                             $conet = new conexion();
@@ -72,16 +73,14 @@ $r = mysqli_fetch_assoc($query);
                             $arreglo2 = mysqli_fetch_array($ejecuta2);
                             echo $arreglo2[0];
                             ?>
-
-                            </center>
                         </td>
                     </tr>
-                            <tr>
-                            <th>
-                            <center>Imagen</center>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
+                            Imagen
                             </th>
-                            <td>
-                            <center><input type="file" name="imagen_producto" id="imagen_producto"></center>
+                            <td class="text-center">
+                            <input type="file" name="imagen_producto" id="imagen_producto">
                             </td>
                             </tr>
                         </table>
