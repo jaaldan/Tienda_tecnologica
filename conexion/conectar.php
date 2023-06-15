@@ -9,9 +9,9 @@ $puerto = 3306;
 
 
 $enlace = mysqli_init();
-
+mysqli_ssl_set($enlace, NULL, NULL, "../db/DDL_db/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
 // Establecer la conexión
-mysqli_real_connect($enlace, $host, $usuario, $contraseña, $basedatos, $puerto);
+mysqli_real_connect($enlace, $host, $usuario, $contraseña, $basedatos, $puerto,NULL, MYSQLI_CLIENT_SSL);
 
 // Verificar si la conexión fue exitosa
 if (mysqli_connect_errno()) {
