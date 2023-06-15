@@ -13,6 +13,9 @@ class Conexion{
         
         // $con = mysqli_connect($this->servidor,$this->usuario,$this->clave,$this->db) or die ("Error al conectar con el servidor");
         // $con = mysqli_connect($this->servidor,$this->usuario,$this->clave,$this->db) or die ("Error al conectar con el servidor");
+        if ($con->connect_error) {
+            die('Error de Conexión (' . $con->connect_errno . ') ' . $con->connect_error);
+        }
         return $con;
     }
 
