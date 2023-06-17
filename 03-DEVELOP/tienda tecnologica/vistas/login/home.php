@@ -225,8 +225,8 @@
 							<i class="zmdi zmdi-power"></i>
 							<div class="mdl-tooltip" for="btn-exit">Cerrar cesion</div>
 						</li>
-						<li class="text-condensedLight noLink"><small>Nombre Usuario</small></li>
-						<li class="noLink">
+						<li><small>Nombre Usuario</small></li>
+						<li>
 							<figure>
 								<img src="../../assets/img/usuario.png" alt="Avatar" class="img-responsive">
 							</figure>

@@ -30,7 +30,7 @@
 				<i class="zmdi zmdi-account-circle"></i>
 			</p>
 			<p class="text-center text-condensedLight">Iniciar Sesion</p>
-			<form action="home.html">
+			<form action="home.php">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 					<input class="mdl-textfield__input" type="text" id="userName">
 					<label class="mdl-textfield__label" for="userName">Nombre Usuario</label>
@@ -44,7 +44,7 @@
 					Registrarse
 				</button>
 			</form>
-			<a href="../vistas_clientes/product.html">
+			<a href="../vistas_clientes/product.php">
 				<button>
 					cliente vista
 				</button>

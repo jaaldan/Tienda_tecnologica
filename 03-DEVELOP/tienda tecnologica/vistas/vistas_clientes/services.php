@@ -1,3 +1,7 @@
+<?php
+include "../../conexion/conectar.php";
+include "head_cliente.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,18 +22,6 @@
 </head>
 <body>
     <div class="page-container">
-        <nav class="full-reset nav-phonestore">
-           <div class="logo tittles-pages">
-                PhoneStore 
-           </div>
-           <ul class="list-unstyled full-reset navigation-list">
-            <li><a href="../vistas_clientes/product.html">Inicio</a></li>
-            <li><a href="../vistas_clientes/news.html">Noticias</a></li>
-            <li><a href="../vistas_clientes/services.html">Promociones</a></li>
-            <li><a href="../vistas_clientes/contact.html">Contactenos</a></li>  
-           </ul>
-            <i class="fa fa-bars visible-xs btn-mobile"></i>
-        </nav>
         <div class="content-page cover-background font-content-services">
             <section class="all-services section">
                 <div class="container">

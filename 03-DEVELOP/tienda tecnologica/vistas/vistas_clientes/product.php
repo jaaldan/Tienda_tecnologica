@@ -1,9 +1,14 @@
+<?php
+include "../../conexion/conectar.php";
+include "head_cliente.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Productos</title>
+	<link rel="stylesheet" href="../../css/normalize.css">
 	<link rel="stylesheet" href="../../css/normalize1.css">
 	<link rel="stylesheet" href="../../css/bootstrap1.min.css">
 	<link rel="stylesheet" href="../../css/font-awesome1.min.css">
@@ -18,18 +23,6 @@
 </head>
 <body>
 	<div class="page-container">
-		<nav class="full-reset nav-phonestore">
-           <div class="logo tittles-pages">
-                Tienda tecnologica 
-           </div>
-		   <ul class="list-unstyled full-reset navigation-list">
-			<li><a href="../vistas_clientes/product.html">Inicio</a></li>
-			<li><a href="../vistas_clientes/news.html">Noticias</a></li>
-			<li><a href="../vistas_clientes/services.html">Promociones</a></li>
-			<li><a href="../vistas_clientes/contact.html">Contactenos</a></li>  
-		   </ul>
-            <i class="fa fa-bars visible-xs btn-mobile"></i>
-    	</nav>
 	    <div class="content-page">
 		    <div class="hidden-xs content-carousel">
 		    	<div id="carousel-phonestore" class="carousel slide" data-ride="carousel" style="margin-top:0;">
@@ -72,6 +65,7 @@
 		    <section id="prod-container section">
 		    	<div class="container-fluid">
 		    		<div class="row">
+						<br>
 		    			<div class="col-xs-12 text-center">
 		    				<p class="tittles-pages">Tablets y Teléfonos</p>
 		    			</div>
@@ -92,6 +86,7 @@
 								</ul>
 								<div class="tab-content">
 								  <!-- ===================================== Todas las categorias ============================================= -->
+								  <br>
 								  <div class="tab-pane active" id="all-categories">
 								  	<p class="tittles-pages">Todos los productos</p>
 								  	<div class="row">
@@ -162,13 +157,13 @@
 								  </div>
 								  <!-- ===================================== SmartPhones ============================================= -->
 								  <div class="tab-pane" id="smartphones">
-								  	<p class="tittles-pages">SmartPhones</p>
+								  	<p class="tittles-pages">SmartPhones1111</p>
 								  	<div class="row">
 								  		<div class="col-xs-12 col-sm-6 col-md-3">
 								  			<div class="thumbnail thumbnail-content-phones">
 										      <img src="../../assets/img/phone-smartphone.png" alt="SmartPhone" class="img-responsive">
 										      <div class="caption">
-										        <h3 class=" text-center">SmartPhone</h3>
+										        <h3 class=" text-center">SmartPhone222</h3>
 										        <p class="text-justify">
 										        	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ratione ad consectetur facere, alias deserunt consequatur.
 										        </p>
@@ -369,7 +364,7 @@
 								  </div>
 								  <!-- ===================================== iOS ============================================= -->
 								  <div class="tab-pane" id="iOS">
-								  	<h2 class="tittles-pages">iOS</h2>
+								  	<h2 class="tittles-pages">iOS111</h2>
 								  	<div class="row">
 								  		<div class="col-xs-12 col-sm-6 col-md-3">
 								  			<div class="thumbnail thumbnail-content-phones">
@@ -538,7 +533,7 @@
                             </a>
     					</li>
     				</ul>
-    				<h4>Tienda TecnologicaS &copy; 2023</h4>
+    				<h4>Tienda Tecnologica &copy; 2023</h4>
     			</div>
     		</div>
     	</footer>

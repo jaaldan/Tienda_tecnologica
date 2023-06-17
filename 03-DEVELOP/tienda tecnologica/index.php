@@ -23,8 +23,8 @@
                 Tienda Tecnologica 
            </div>
             <ul class="list-unstyled full-reset navigation-list">
-                <li><a href="vistas/login/login.html">Ingresar</a></li>
-                <li><a href="index.html">Registrarse</a></li> 
+                <li><a href="vistas/login/login.php">Ingresar</a></li>
+                <li><a href="index.php">Registrarse</a></li> 
             </ul>
             <i class="fa fa-bars visible-xs btn-mobile"></i>
     	</nav>
