@@ -350,3 +350,24 @@ html, body {
 @media (min-width: 1200px) {  
     /*Estilos css aquí*/
 }
+
+#productos{
+	width: auto;
+	max-width: auto;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	overflow: hidden;
+}
+#pro{
+	width: 275px;
+	height: auto;
+	border-radius: 8px;
+	box-shadow:0 2px 2px rgba(0,0,0,0.2);
+	overflow: hidden;
+	margin: 20px;
+	text-align: center;
+	transition: all 0.25s;
+	float: left;
+}

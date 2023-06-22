@@ -34,7 +34,7 @@
                                             }else{
                                                $update = "update pagos set id_pago='$this->id_pago',
                                                metodo_pago='$this->metodo_pago', estado_pago='$this->estado_pago' where id_pago='$this->id_pago'";
-                                               echo $update;
+                                               //echo $update;
                                                mysqli_query($c,$update);
                                                echo "<script> alert('El metodo de pago fue modificado en el sistema')</script>";
                                           

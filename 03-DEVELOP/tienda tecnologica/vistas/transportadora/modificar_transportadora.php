@@ -2,7 +2,7 @@
 include("../../conexion/conectar.php");
 include("../../controlador/transportadoracontrolador.php");
 
-$obj = new transportadoras();
+$obj = new Transportadoras();
 if ($_POST) {
 
     $obj->id_transportadora = $_POST['id_transportadora'];

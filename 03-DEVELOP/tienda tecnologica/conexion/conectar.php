@@ -19,34 +19,41 @@ $obj = new Conexion();
  if($obj->conectando()){
      
  }
-
-
-//class Conexion{
-
-//$host = 'tiendatecnologica.mysql.database.azure.com';
-//$usuario = 'admitilo';
-//$contraseña = 'Tienda*123456';
-//$basedatos = 'tienda_tecnologica';
-//$puerto = 3306;
-
-
-//$enlace = mysqli_init();
-
-// Establecer la conexión
-//mysqli_real_connect($enlace, $host, $usuario, $contraseña, $basedatos, $puerto);
-
-// Verificar si la conexión fue exitosa
-//if (mysqli_connect_errno()) {
-    //die("Error al conectar a la base de datos: " . mysqli_connect_error());
-//} else {
-//    echo "Conexión exitosa a la base de datos.";
-//}
-// Aquí puedes realizar operaciones en la base de datos
-
-// Cerrar la conexión
-//mysqli_close($enlace);
-//}
 ?>
 
+<?php
+/*
+    class Conexion{
+        
+        private static $instance;
+
+        private static function conectar(){
+
+            $host = 'tiendatecnologica.mysql.database.azure.com';
+            $username = 'admitilo';
+            $password = 'Tienda*123456';
+            $db_name = 'tienda_tecnologica';
+            $port = 3306;
+            $ssl = "../../conexion/DigiCertGlobalRootCA.crt.pem";
+
+            $conn = mysqli_init(); 
+            mysqli_ssl_set($conn, NULL, NULL, $ssl, NULL, NULL);
+            mysqli_real_connect($conn, $host, $username, $password, $db_name, $port);
+
+            if ($conn->connect_error) {
+                die('Error de Conexión (' . $conn->connect_errno . ') ' . $conn->connect_error);
+            }
+
+            return $conn;
+        }
+
+        public static function conectando(){
+            if (!self::$instance) {
+                self::$instance = self::conectar();
+            }
+            return self::$instance;
+        }
+    } */
+?>
 
  
