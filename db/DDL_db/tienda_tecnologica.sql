@@ -17,11 +17,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Base de datos: `tienda_tecnologica`
---
-
--- --------------------------------------------------------
+# DROP DATABASE TIENDA_TECNOLOGICA;
+-- -----------------------------------------------------
+-- ESTRUCTURA STORE
+-- -----------------------------------------------------
+CREATE DATABASE TIENDA_TECNOLOGICA DEFAULT CHARACTER SET utf8 ;
+USE TIENDA_TECNOLOGICA ;
 
 --
 -- Estructura de tabla para la tabla `categorias`
