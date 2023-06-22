@@ -5,9 +5,9 @@
 
         private static function conectar(){
 
-            $host = 'dbtiendatecnologica.mysql.database.azure.com';
-            $username = 'albeiro_admin';
-            $password = 'Earv1234';
+            $host = 'tiendatecnologica.mysql.database.azure.com';
+            $username = 'admitilo';
+            $password = 'Tienda*123456';
             $db_name = 'tienda_tecnologica';
             $port = 3306;
             $ssl = "../../conexion/DigiCertGlobalRootCA.crt.pem";
