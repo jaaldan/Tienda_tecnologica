@@ -11,6 +11,12 @@ if ($_POST) {
     $obj->cantidad_entrada_producto = $_POST['cantidad_entrada_producto'];
     $obj->valor_proveedor_entrada_producto = $_POST['valor_proveedor_entrada_producto'];
 }
+$key = $_GET['key'];
+$cone = new conexion();
+$c = $cone->conectando();
+$query2 = "select * from entradas_productos where id_entrada_producto = '$key' ";
+$ejecuta2 = mysqli_query($c, $query2);
+$arreglo2 = mysqli_fetch_array($ejecuta2);
 ?>
 
 <!DOCTYPE html>
@@ -25,71 +31,72 @@ if ($_POST) {
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-<div class="container shadow p-3 mb-5 bg-body rounded">
-
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+    <div>
         <head>
-            <center><img src="../../img/logo_2_T_T.jpg" width="600px" height="150px" alt=""></center>
+            <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="110px" alt=""></center>
             <br>
             <br>
-            <h2>Agregar Productos</h2>
+            <h2>Crear Entrada</h2>
         </head>
         <br>
         <br>
-        <form action="" name="agregar_categoria" method="POST">
+    </div>
+        <form action="" name="entradas_agregar" method="POST">
+         <label for="text">Codigo Entrada</label>
+         <input type="text" name="id_entrada_producto" id="id_entrada_producto" placeholder="el codigo es asignado por el sistema" maxlength="50" size="20">
+         <br>
+         <br>
             <center>
-                <table class="table table-striped table table-bordered border-success table table-hover">
-                    <tr>
-                        <th>
-                            <center>Id entrada</center>
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Codigo producto
                         </th>
-                        <th>
-                            <center>Id producto</center>
+                        <th class="text-center">
+                            Nombre producto
                         </th>
-                        <th>
-                            <center>Proveedor</center>
+                        <th class="text-center">
+                            Proveedor
                         </th>
-                        <th>
-                            <center>Cantidad Entrada</center>
+                        <th class="text-center">
+                            Cantidad Entrada
                         </th>
-                        <th>
-                            <center>Valor Provedor</center>
+                        <th class="text-center">
+                            Valor Provedor
                         </th>
-                        <th>
-                            <center>Aciones</center>
+                        <th class="text-center">
+                            Aciones
                         </th>
                     </tr>
-                    <tr>
-                        <td>
-                            <center><input type="text" name="id_entrada" id="id_entrada" maxlength="50" size="20"></center>
+                    <tr class="text-center align-middle">
+                        <td class="text-center">
+                            <input type="text" name="id_producto_entrada" id="id_producto_entrada" placeholder="Digite el codigo del producto" maxlength="50" size="20">
                         </td>
-                        <td>
-                            <center><input type="text" name="id_producto" id="id_producto" placeholder="Digite el codigo del producto" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="proveedor_producto_entrada" id="proveedor_producto_entrada" placeholder="Digite el Nombre del producto" maxlength="50" size="20">
                         </td>
-                        <td>
-                            <center><input type="text" name="proveedor" id="proeveedor" placeholder="Digite el Nombre del proveedor" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="proveedor" id="proeveedor" placeholder="Digite el Nombre del proveedor" maxlength="50" size="20">
                         </td>
-                        <td>
-                            <center><input type="text" name="cantidad_entrada" id="cantidad_entrada" placeholder="Digite la cantidad" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="cantidad_entrada_producto" id="ccantidad_entrada_producto" placeholder="Digite la cantidad" maxlength="50" size="20">
                         </td>
-                        <td>
-                            <center><input type="text" name="valor_proveedor" id="valor_proveedor" placeholder="Digite el valor" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="valor_proveedor_entrada_producto" id="valor_proveedor_entrada_producto" placeholder="Digite el valor" maxlength="50" size="20">
                         </td>
-                        <td>
-                        <center><button name="ver" class="btn btn-primary" type="button"><i class="fa fa-plus-circle" aria-hidden="true"> Mas</i></center>
-                    </td>
+                        <td class="text-center">
+                         <button name="ver" class="btn btn-primary" type="button"><i class="fa fa-plus-circle" aria-hidden="true"> Mas</i>
+                        </td>
                     </tr>
-
                 </table>
+            </center>
                 <a href="entradas.php" target="marco">
                     <P align="right"> <button type="button" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true">Cerrar</i></button>
                 </a>
-
                 <button type="submit" class="btn btn-primary" name="guardar"><i class="fa fa-check" aria-hidden="true">Guaardar</i></button>
-                </P>
-            </center>
+                    </P>
         </form>
-</div>
-
-
+    </div>
 </body>
 </html>

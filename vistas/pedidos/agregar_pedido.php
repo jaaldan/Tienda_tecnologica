@@ -147,7 +147,7 @@ $p = mysqli_fetch_assoc($quer);
         <P align="right"><a href="pedidos.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
         <button name="agregar_producto" class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#Modalproducto"><i class="fa fa-address-book-o"
         aria-hidden="true">Agregar Producto</i></button>
-        <button type="submit" class="btn btn-success" name="guarda"><i class="fa fa-check" aria-hidden="true">Guardar</i></button></P>
+        <button type="submit" class="btn btn-success" name="guardar"><i class="fa fa-check" aria-hidden="true">Guardar</i></button></P>
         </form>
     </div>
 </body>

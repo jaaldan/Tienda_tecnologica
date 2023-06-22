@@ -2,7 +2,9 @@
 include("../../conexion/conectar.php");
 ?>
 
+
 <?php
+/*
 session_start();
 $varsesion = $_SESSION['CORREO_USUARIO'];
 $c = new conexion();
@@ -15,7 +17,7 @@ if($arreglo1[0] !=1){
 
 die();
 }
-
+*/
 ?>
 
 <?php
@@ -37,7 +39,7 @@ if (empty($_GET['pagina'])) {
 }
 $desde = ($pagina - 1) * $maximoRegistros;
 $totalPaginas = ceil($totalRegistros / $maximoRegistros);
-echo $totalPaginas;
+//echo $totalPaginas;
 if (isset($_POST['search'])) {
     $query2 = "select * from productos where nombre_producto like '%$obj->nombre_producto%' limit $desde, $maximoRegistros";
     $ejecuta2 = mysqli_query($c, $query2);
@@ -60,29 +62,35 @@ if (isset($_POST['search'])) {
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-    <div class="container-fluid p-3 mb-5 bg-body rounded">
-        <head>
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Productos</h2>
-        </head>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+            <table class="table ">
+                <thead>
+                    <head>
+                        <tr>
+                        <th><center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center></th>
+                        </tr>
+                    </head>
+                    <tr>
+                        <th><h2><i class="fa fa-mobile fa-2x" aria-hidden="true"></i> Productos</h2></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <form action="" name="productos" method="POST">
         <div class="campo" id="filtropro">
-        <nav class="navbar navbar-expand-lg bg-">
-        <div class="container-fluid">
-            <form class="d-flex" role="search">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <form class="d-flex" id="search" role="search">
                 <input class="form-control me-2" type="search" name="nombre_producto" placeholder="Digite el nombre del producto" aria-label="Search">
-                <button class="btn btn-primary btn-lg" type="submit" name="search"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
+                <button type="submit" name="search" id="search" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
             </form>
-        </div>
         </nav>
-            <div class="marco"align="left">
+            <div class="marco" align="left">
                 <button type="submit" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true"></i> Listar</button>
             </div>
         <section>
-            <table class="table-light table table-striped table table-bordered border-success table table-hover">
-                <tr class="table-info table table-striped table table-bordered border-success table table-hover">
+            <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                <tr>
                     <th>
                         <center>Código</center>
                     </th>
@@ -143,26 +151,30 @@ if (isset($_POST['search'])) {
                                         <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'productos_ver.php?key='.urlencode($arreglo2[0]);
                                             } 
-                                            ?>">
-                                            <button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true">Ver</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Ver">
+                                            <button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
                                             </a>
                                             <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'productos_modificar.php?key='.urlencode($arreglo2[0]);
                                             } 
-                                            ?>">                                    
-                                                <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true">Modificar</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Modificar">                                    
+                                                <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                             </a>
                                             <a href="<?php if($arreglo2[0]<>''){
                                                 echo '../imagenes/imagenes.php?key='.urlencode($arreglo2[0]);
                                             } 
-                                            ?>">                                    
-                                                <button name="imagen" class="btn btn-success" type="button"><i class="fa fa-file-image-o" aria-hidden="true">Imagen</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Imagen">                                    
+                                                <button name="imagen" class="btn btn-success" type="button"><i class="fa fa-file-image-o" aria-hidden="true"></i></button>
                                             </a>
                                             <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'productos_eliminar.php?key='.urlencode($arreglo2[0]);
                                             } 
-                                            ?>">
-                                            <button name="button" class="btn btn-danger" type="button"><i class="fa fa-trash" aria-hidden="true">Eliminar</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Eliminar">
+                                            <button name="button" class="btn btn-danger" type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                             </a>
                                         </td>
                                     </tr>
@@ -172,17 +184,16 @@ if (isset($_POST['search'])) {
                             ?>
                             </table>
                             <br>
-                            <P align="right"><a href="tienda tecnologica/home.html">
+                            <P align="right"><a href="../login/framework.php" target="marco">
                             <button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
                             </a>
                             <a href="productos_agregar.php" target="marco">
-                            <button type="button" class="btn btn-success"><i class="fa fa-address-book-o" aria-hidden="true">Agregar producto</i></button>
+                            <button type="button" class="btn btn-success"><i class="fa fa-address-book-o" aria-hidden="true">Agregar Producto</i></button>
                             </a>
                         </P>
                         <br>
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
                     <?php 
                     if($pagina!=1){
                     ?>
@@ -215,7 +226,7 @@ if (isset($_POST['search'])) {
                     ?>
                 </ul>
             </nav>
-            </div>
+            </section>
           </div>
         </form>
     </div>

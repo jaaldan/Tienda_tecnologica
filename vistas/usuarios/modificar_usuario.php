@@ -22,7 +22,7 @@ if ($_POST) {
 $key = $_GET['key'];
 $cone = new conexion();
 $c = $cone->conectando();
-$query2 = "select * from usuarios where nombres = '$key' ";
+$query2 = "select * from usuarios where nombres_usuario = '$key' ";
 $ejecuta2 = mysqli_query($c, $query2);
 $arreglo2 = mysqli_fetch_array($ejecuta2);
 
@@ -41,133 +41,141 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
 </head>
 
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+      <div>
         <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
         <br>
         <br>
         <h2>Modificar Usuario</h2>
-        <br>
-        <br>
-        <br>
+      </div>
         <form action="" name="modificar_usuario" method="POST">
             <center>
-                <table class="table table-striped table table-bordered border-success table table-hover">
-                    <tr>
-                        <th>
-                            <center>Id Usuario</center>
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Id Usuario
                         </th>
-                        <td>
-                            <center><input type="text" name="id_usuario" id="id_usuario"value="<?php echo $arreglo2[0] ?>" placeholder="El Codigo es Asignado por el Sistema"  maxlength="50" size="20"readonly></center>
+                        <td class="text-center">
+                            <input type="text" name="id_usuario" id="id_usuario"
+                            value="<?php echo $arreglo2[0] ?>" placeholder="El Codigo es Asignado por el Sistema"  maxlength="50" size="20"readonly>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Rol</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Rol
                         </th>
-                        <td>
-                            <center><input type="text" name="id_rol" id="id_rol"value="<?php echo $arreglo2[1] ?>" placeholder="Seleccione un Rol"  maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text" name="id_rol_usuario" id="id_rol_usuario"
+                            value="<?php echo $arreglo2[1] ?>" placeholder="Seleccione un Rol"  maxlength="50" size="20"></center>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Nombres</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Nombres
                         </th>
-                        <td>
-                            <center><input type="text"  name="nombres" id="nombres" value="<?php echo $arreglo2[2] ?>" placeholder="Digite el Nombre del usuario"  maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text"  name="nombres_usuario" id="nombres_usuario"
+                             value="<?php echo $arreglo2[2] ?>" placeholder="Digite el Nombre del usuario"  maxlength="50" size="20"></center>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Apellidos</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Apellidos
                         </th>
-                        <td>
-                            <center><input type="text"  name="apellidos" id="apellidos" value="<?php echo $arreglo2[3] ?>" placeholder="Digite el apellido del usuario"  maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text"  name="apellidos_usuario" id="apellidos_usuario"
+                            value="<?php echo $arreglo2[3] ?>" placeholder="Digite el apellido del usuario"  maxlength="50" size="20"></center>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Tipo De Documento</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Tipo De Documento
                         </th>
-                        <td>
-                            <center><input type="text"  name="id_tipo_documento" id="id_tipo_documento" value="<?php echo $arreglo2[4] ?>" placeholder="Seleccione tipo de documento"  maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text"  name="id_tipo_documento_usuario" id="id_tipo_documento_usuario"
+                             value="<?php echo $arreglo2[4] ?>" placeholder="Seleccione tipo de documento"  maxlength="50" size="20"></center>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Numero De Documento</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Numero De Documento
                         </th>
-                        <td>
-                            <center><input type="text"  name="numero_documento" id="numero_documento" value="<?php echo $arreglo2[5] ?>" placeholder="Digite numero de documento"  maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text"  name="numero_documento_usuario" id="numero_documento_usuario"
+                            value="<?php echo $arreglo2[5] ?>" placeholder="Digite numero de documento"  maxlength="50" size="20"></center>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Correo Electronico</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Correo Electronico
                         </th>
-                        <td>
-                            <center><input type="text"  name="correo" id="correo" value="<?php echo $arreglo2[6] ?>" placeholder="Digite el correo electronico"  maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text"  name="correo_usuario" id="correo_usuario"
+                            value="<?php echo $arreglo2[6] ?>" placeholder="Digite el correo electronico"  maxlength="50" size="20"></center>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Telefono</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Telefono
                         </th>
-                        <td>
-                            <center><input type="text"  name="numero_celular" id="numero_celular" value="<?php echo $arreglo2[7] ?>" placeholder="Digite el numero celular" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text"  name="numero_celular_usuario" id="numero_celular_usuario"
+                            value="<?php echo $arreglo2[7] ?>" placeholder="Digite el numero celular" maxlength="50" size="20"></center>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Direccion</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Direccion
                         </th>
-                        <td>
-                            <center><input type="text"  name="direccion" id="direccion" value="<?php echo $arreglo2[8] ?>" placeholder="Digite la direccion" maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text"  name="direccion_usuario" id="direccion_usuario"
+                            value="<?php echo $arreglo2[8] ?>" placeholder="Digite la direccion" maxlength="50" size="20"></center>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Contraseña</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Contraseña
                         </th>
-                        <td>
-                            <center><input type="text"  name="clave" id="clave" value="<?php echo $arreglo2[9] ?>" placeholder="digite la contraseña"  maxlength="50" size="20">
+                        <td class="text-center">
+                            <input type="text"  name="clave_usuario" id="clave_usuario"
+                            value="<?php echo $arreglo2[9] ?>" placeholder="digite la contraseña"  maxlength="50" size="20">
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Estado</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Estado
                         </th>
-                        <td>
-                            <center><select name="estado" id="estado">
+                        <td class="text-center">
+                            <select name="estado_usuario" id="estado_usuario">
 
                             <?php
-$query3 = "select * from usuario where nombres = '$arreglo2[10]' ";
+$query3 = "select * from usuarios where nombres_usuario = '$arreglo2[10]' ";
 $ejecuta3 = mysqli_query($c, $query3);
 $arreglo3 = mysqli_fetch_array($ejecuta3);
 echo $arreglo3[0];
 ?>
                                     <option value="activo">Activo</option>
                                     <option value="inactivo">Inactivo</option>
-                                </select></center>
+                                </select>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <center>Imagen</center>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Imagen
                         </th>
-                        <td>
-                            <center><input type="text"  name="imagen_usuario" id="imagen_usuario" value="<?php echo $arreglo2[11] ?>" placeholder="imagen"  maxlength="50" size="20"></center>
+                        <td class="text-center">
+                            <input type="text"  name="imagen_usuario" id="imagen_usuario" 
+                            value="<?php echo $arreglo2[11] ?>" placeholder="imagen"  maxlength="50" size="20"></center>
                         </td>
                     </tr>
                 </table>
-                <br>
-                <a href="usuarios.php" target="marco">
-                    <P align="center"> <button type="button" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true">Cerrar</i></button>
-                </a>
-                <button type="submit"  class="btn btn-success" name="modifica" ><i class="fa fa-check" aria-hidden="true">Modificar</i></button>
-                </P>
             </center>
+                <a href="usuarios.php" target="marco">
+                  <P align="right"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa fa-times" aria-hidden="true">Cerrar</i></button>
+                </a>
+                  <button type="submit" class="btn btn-primary" name="modifica"><i class="fa fa-check" aria-hidden="true">Modificar</i></button>
+                </P>
         </form>
     </div>
 </body>
-
 </html>

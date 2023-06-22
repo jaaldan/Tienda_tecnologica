@@ -143,7 +143,7 @@ if (isset($_POST['buscar'])) {
                              }
                             ?>
                         </table>
-                        <P align="right"><a href="../../framework.php" target="marco" class="full-width"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
+                        <P align="right"><a href="../login/framework.php" target="marco" class="full-width"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
                             <a href="entradas_agregar.php" target="marco">
                                 <button name="agregar" class="btn btn-success" type="button"><i class="fa fa-address-book-o" aria-hidden="true">Crear Entrada</i></button>
                             </a>

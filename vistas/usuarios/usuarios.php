@@ -1,9 +1,9 @@
 <?php
 include "../../conexion/conectar.php";
 if ($_POST) {
-    $obj->nombres = $_POST['nombres_usuario'];
+    $obj->nombres_usuario = $_POST['nombres_usuario'];
 }
-$cone = new Conexion();
+$cone = new conexion();
 $c = $cone->conectando();
 $query = "select count(*) as totalRegistros from usuarios";
 $ejecuta = mysqli_query($c, $query);
@@ -45,29 +45,36 @@ if (isset($_POST['buscar'])) {
 
 
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-
-        <head>
-            <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
-            <br>
-            <br>
-            <h2>Usuarios</h2>
-            <br>
-            <br>
-        </head>
-        <form action="" name="usuarios" method="POST">
-            <div class="campo" id="filtropro">
-                <form class="d-flex" role="search">
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+            <table class="table ">
+                <thead>
+                    <head>
+                        <tr> 
+                           <th><center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center></yh>
+                        </tr>
+                    </head>
+                        <tr>
+                          <th><h2><i class="fa fa-user fa-2x" aria-hidden="true"></i>   Usuarios</h2></th>
+                        </tr>
+                </thead>
+            </table>
+        </div>
+            <form action="" name="usuarios" method="POST">
+             <div class="campo" id="filtropro">
+               <nav class="navbar navbar-expand-lg bg-light">
+                <form class="d-flex" id="buscar" role="search">
                     <input class="form-control me-2" type="search" name="nombres" id="nombres" placeholder="Digite el Nombre o Código del Usuario" aria-label="Search">
                     <button type="submit" name="buscar" id="buscar" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
                 </form>
+               </nav>
             </div>
             <div class="marco" align="left">
                 <button type="button" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true"></i> Listar</button>
             </div>
             <section>
-                <table class="table-light table table-striped table table-bordered border-success table table-hover">
-                    <tr class="table-info table table-striped table table-bordered border-success table table-hover">
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr>
                         <th>
                             <center>Codigo</center>
                         </th>
@@ -116,9 +123,9 @@ if ($arreglo2 == 0) {
                             <!-php echo "No hay registros" ?-->
                         <!--</div-->
                         <?php
-} else {
-    do {
-        ?>
+                         } else {
+                         do {
+                        ?>
                             <tr>
                                 <td><?php echo $arreglo2[0] ?></td>
                                 <td><?php echo $arreglo2[1] ?></td>
@@ -133,18 +140,20 @@ if ($arreglo2 == 0) {
                                 <td><?php echo $arreglo2[10] ?></td>
                                 <td><?php echo $arreglo2[11] ?></td>
                                 <td>
+                                 <center>
                                     <a href="<?php if ($arreglo2[0] != '') {
-            echo 'ver_usuario.php?key=' . urlencode($arreglo2[0]);
+                                    echo 'ver_usuario.php?key=' . urlencode($arreglo2[0]);
         }
-
-        ?>">
-                                        <center><button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true">Ver</i></button>
+        ?>"
+                            data-toggle="tooltip" data-placement="top" title="Ver">
+                            <button id="ver" name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
                                     </a>
                                     <a href="<?php if ($arreglo2[0] != '') {
             echo 'modificar_usuario.php?key=' . urlencode($arreglo2[0]);
         }
-
-        ?>"><button name="modifica" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true">Modificar</i></button>
+        ?>"
+        data-toggle="tooltip" data-placement="top" title="Modificar">
+        <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     </a>
                                     </center>
                                 </td>
@@ -200,8 +209,5 @@ if ($pagina != $totalPaginas) {
             </section>
     </div>
     </form>
-
-
 </body>
-
 </html>
