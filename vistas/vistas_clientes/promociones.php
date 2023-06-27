@@ -13,13 +13,13 @@ $query1 = "select productos.*, imagenes.imagen_producto FROM productos JOIN imag
 $ejecuta1 =($c-> query($query1));
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Productos</title>
-	<link rel="stylesheet" href="../../css/normalize.css">
+	<title>Servicios</title>
 	<link rel="stylesheet" href="../../css/normalize1.css">
 	<link rel="stylesheet" href="../../css/bootstrap1.min.css">
 	<link rel="stylesheet" href="../../css/font-awesome1.min.css">
@@ -33,47 +33,12 @@ $ejecuta1 =($c-> query($query1));
 	<script src="../../js/bootstrap1.min.js"></script>
 </head>
 <body>
-	<div class="page-container">
-	    <div class="content-page">
-		    <div class="hidden-xs content-carousel">
-		    	<div id="carousel-phonestore" class="carousel slide" data-ride="carousel" style="margin-top:0;">
-				  <ol class="carousel-indicators">
-				    <li data-target="#carousel-phonestore" data-slide-to="0" class="active"></li>
-				    <li data-target="#carousel-phonestore" data-slide-to="1"></li>
-				    <li data-target="#carousel-phonestore" data-slide-to="2"></li>
-				  </ol>
-				  <div class="carousel-inner">
-				    <div class="item active">
-				      <img src="../../assets/img/slide 1.jpg" alt="">
-				      <div class="carousel-caption">
-				        <h2>Windows Phone</h2>
-				      </div>
-				    </div>
-				    <div class="item">
-				      <img src="../../assets/img/slide 2.jpg" alt="">
-				      <div class="carousel-caption">
-				        <h2>iPhone 5</h2>
-				      </div>
-				    </div>
-				    <div class="item">
-				      <img src="../../assets/img/slide 3.jpg" alt="">
-				      <div class="carousel-caption">
-				        <h2>Sony Xperia Z</h2>
-				      </div>
-				    </div>
-				  </div>
-				  <a class="left carousel-control" href="#carousel-phonestore" role="button" data-slide="prev">
-				    <span class="glyphicon glyphicon-chevron-left"></span>
-				  </a>
-				  <a class="right carousel-control" href="#carousel-phonestore" role="button" data-slide="next">
-				    <span class="glyphicon glyphicon-chevron-right"></span>
-				  </a>
-				</div>
-		    </div>
-		    <div class="visible-xs static-image-carousel">
-		    	<img src="../../assets/img/image-carousel.jpg"  alt="" class="img-responsive">
-		    </div>
-		    <section id="prod-container section">
+    <div class="page-container">
+        <div class="content-page cover-background font-content-services">
+            <section class="all-services section">
+                <div class="container">
+                    <div class="row">
+                    <section id="prod-container section">
 		    	<div class="container-fluid">
 		    		<div class="row">
 						<br>
@@ -484,46 +449,73 @@ $ejecuta1 =($c-> query($query1));
 		    		</div>
 		    	</div>
 		    </section>
-	    </div>
-		<footer class="footer">
-    		<div class="container-fluid">
-    			<div class="col-xs-12 text-center">
-    				<h3>Siguenos en</h3>
-    				<ul class="list-unstyled list-social-icons">
-    					<li >
-    						<a href="#!">
+                        <div class="col-xs-12">
+                            <h2 class="text-center tittles-pages">Nuestros Servicios</h2>
+                            <div class="principal-container-services">
+                                <a href="#!">
+                                    <p class="icon-service"><i class="fa fa-briefcase"></i></p>
+                                    <p class="tittle-service">Título Servicio</p>
+                                    <p class="description-service">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga dolores ea nostrum in at, sequi quae dicta praesentium ad veritatis, saepe a commodi assumenda nobis corporis voluptates officiis ipsa illo?
+                                    </p>
+                                </a>
+                                <a href="#!">
+                                    <p class="icon-service"><i class="fa fa-envelope"></i></p>
+                                    <p class="tittle-service">Título Servicio</p>
+                                    <p class="description-service">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga dolores ea nostrum in at, sequi quae dicta praesentium ad veritatis, saepe a commodi assumenda nobis corporis voluptates officiis ipsa illo?
+                                    </p>
+                                </a>
+                                <a href="#!">
+                                    <p class="icon-service"><i class="fa fa-wrench"></i></p>
+                                    <p class="tittle-service">Título Servicio</p>
+                                    <p class="description-service">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga dolores ea nostrum in at, sequi quae dicta praesentium ad veritatis, saepe a commodi assumenda nobis corporis voluptates officiis ipsa illo?
+                                    </p>
+                                </a>
+                                <a href="#!">
+                                    <p class="icon-service"><i class="fa fa-truck"></i></p>
+                                    <p class="tittle-service">Título Servicio</p>
+                                    <p class="description-service">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga dolores ea nostrum in at, sequi quae dicta praesentium ad veritatis, saepe a commodi assumenda nobis corporis voluptates officiis ipsa illo?
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+        </div>
+    	<footer class="footer">
+            <div class="container-fluid">
+                <div class="col-xs-12 text-center">
+                    <h3>Siguenos en</h3>
+                    <ul class="list-unstyled list-social-icons">
+                        <li >
+                            <a href="#!">
                                <i class="fa fa-facebook" style="background-color: #3B5998;"></i> 
                             </a>
-    					</li>
-    					<li>
-    						<a href="#!">
+                        </li>
+                        <li>
+                            <a href="#!">
                                 <i class="fa fa-google-plus" style="background-color: #DD4B39;"></i>
                             </a>
-    					</li>
-    					<li>
-    						<a href="#!">
+                        </li>
+                        <li>
+                            <a href="#!">
                                 <i class="fa fa-twitter"  style="background-color: #56A3D9;"></i>
                             </a>
-    					</li>
-    					<li>
-    						<a href="#!">
+                        </li>
+                        <li>
+                            <a href="#!">
                                 <i class="fa fa-youtube" style="background-color: #BF221F;"></i>
                             </a>
-    					</li>
-    				</ul>
-    				<h4>Tienda Tecnologica &copy; 2023</h4>
-    			</div>
-    		</div>
-    	</footer>
-	</div>
-	<script>
-	  $(function () {
-	    $('#TabProducts a:first').tab('show')
-	  });
-	  $('#TabProducts a').click(function (e) {
-		  e.preventDefault()
-		  $(this).tab('show')
-		});
-	</script>
+                        </li>
+                    </ul>
+                    <h4>Tienda Tecnologica &copy; 2023</h4>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

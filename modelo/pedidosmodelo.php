@@ -1,45 +1,56 @@
 <?php
-     class pedidos{
-    
-                         public $id_pedido;
-                         public $id_cliente_pedido;
-                         public $direccion_pedido;
-                         public $fecha_pedido;
-                         public $id_producto_detalle_pedido;
-                         public $cantidad_producto_detalle_pedido;
-                         public $valor_iva_detalle_pedido;
-                         public $precio_venta_detalle_pedido;
-                         public $estado_pedido;
-
-                         function agregar(){
-                                             $conet = new conexion();
-                                             $c = $conet->conectando();
-                                             $query= "select * from pedidos where id_pedido = '$this->id_pedido'";
-                                             $ejecuta = mysqli_query($c,$query);
-                                             if(mysqli_fetch_array($ejecuta)){
-                                                 echo "<script> alert('El Id pedido ya existe en el sistema')</script>";
-                                             }else{
-                                                 $insertar = "insert into pedidos values(
-                                                                                         '$this->id_pedido',
-                                                                                         '$this->id_cliente_pedido',
-                                                                                         '$this->direccion_pedido',
-                                                                                         '$this->fecha_pedido',
-                                                                                         '$this->estado_pedido'
-                                              )";
-                                              $insertar2 = "insert into detalle_pedidos values(
-                                                '$this->id_producto_detalle_pedido ',
-                                                '$this->cantidad_producto_detalle_pedido',
-                                                '$this->valor_iva_detalle_pedido',
-                                                '$this->precio_venta_detalle_pedido'
-                                               )";                
-                                              echo $insertar;
-                                              echo $insertar2;
-                                              mysqli_query($c,$insertar);
-                                              mysqli_query($c,$insertar2);
-                                              echo "<script> alert('El pedido fue creado exitosamente en el sistema')</script>";
-                                             }
-                        }
-
+class pedidos{
+  public $id_pedido;
+  public $id_cliente_pedido;
+  public $direccion_pedido;
+  public $fecha_pedido;
+  public $estado_pedido;
+  public $id_producto_detalle_pedido;
+  public $cantidad_producto_detalle_pedido;
+  public $valor_iva_detalle_pedido;
+  public $precio_venta_detalle_pedido;
+                       
+  function agregar(){
+      $conet = new conexion();
+      $c = $conet->conectando();
+      $query = "SELECT * FROM pedidos WHERE id_pedido = ?";
+      $stmtVerificar = mysqli_prepare($c, $query);
+      mysqli_stmt_bind_param($stmtVerificar, 'i', $this->id_pedido);
+      mysqli_stmt_execute($stmtVerificar);
+      mysqli_stmt_store_result($stmtVerificar);
+      $numFilas = mysqli_stmt_num_rows($stmtVerificar);
+      if ($numFilas > 0) {
+          echo "<script> alert('El Id pedido ya existe en el sistema')</script>";
+      } else {
+          $insertar = "INSERT INTO pedidos VALUES (
+              '$this->id_pedido',
+              '$this->id_cliente_pedido',
+              '$this->direccion_pedido',
+              '$this->fecha_pedido',
+              '$this->estado_pedido'
+          )";
+          $stmtPedido = mysqli_prepare($c, $insertar);
+          mysqli_stmt_execute($stmtPedido);
+  
+          $insertar2 = "INSERT INTO detalle_pedidos VALUES (
+              '$this->id_pedido',
+              '$this->id_producto_detalle_pedido',
+              '$this->cantidad_producto_detalle_pedido',
+              '$this->valor_iva_detalle_pedido',
+              '$this->precio_venta_detalle_pedido'
+          )";
+          $stmtDetalle = mysqli_prepare($c, $insertar2);
+          mysqli_stmt_execute($stmtDetalle);
+  
+          echo "<script> alert('El pedido fue creado exitosamente en el sistema')</script>";
+      }
+  
+      // Cerrar las consultas preparadas y la conexión a la base de datos
+      mysqli_stmt_close($stmtVerificar);
+      mysqli_stmt_close($stmtPedido);
+      mysqli_stmt_close($stmtDetalle);
+      mysqli_close($c);
+  }
                         function modificar(){
                                            $conet = new conexion();
                                            $c = $conet->conectando();

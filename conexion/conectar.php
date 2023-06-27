@@ -22,6 +22,7 @@ $obj = new Conexion();
 ?>
 
 <?php
+
     class Conexion{
         
         private static $instance;

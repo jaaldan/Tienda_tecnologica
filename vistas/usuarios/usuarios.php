@@ -149,13 +149,20 @@ if ($arreglo2 == 0) {
                             <button id="ver" name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
                                     </a>
                                     <a href="<?php if ($arreglo2[0] != '') {
-            echo 'modificar_usuario.php?key=' . urlencode($arreglo2[0]);
-        }
-        ?>"
-        data-toggle="tooltip" data-placement="top" title="Modificar">
-        <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        echo 'modificar_usuario.php?key=' . urlencode($arreglo2[0]);
+                                        }
+                                        ?>"
+                                        data-toggle="tooltip" data-placement="top" title="Modificar">
+                                        <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                     </a>
-                                    </center>
+                                    <a href="<?php if ($arreglo2[0] != "") {
+                                        echo 'categorias_eliminar.php?key=' . urlencode($arreglo2[0]);
+                                            }
+                                            ?>"
+                                            data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                            <button name="eliminar"type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </a>
+                                  </center>
                                 </td>
                             </tr>
 
@@ -165,8 +172,8 @@ if ($arreglo2 == 0) {
 ?>
                 </table>
                 <br>
-                <P align="right"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
-                    <a href="agregar_usuario.php" target="marco">
+                <P align="right"><a href="../login/framework.php" target="marco" class="full-width"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
+                            <a href="categorias_agregar.php" target="marco">
                         <button name="agregar" class="btn btn-success"><i class="fa fa-address-book-o" aria-hidden="true">Agregar usuario</i></button>
                     </a>
                 </P>
