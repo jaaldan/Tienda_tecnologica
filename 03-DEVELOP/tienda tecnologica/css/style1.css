@@ -351,7 +351,7 @@ html, body {
     /*Estilos css aquí*/
 }
 
-#productos{
+#cajon124{
 	width: auto;
 	max-width: auto;
 	height: auto;
@@ -360,13 +360,13 @@ html, body {
 	justify-content: center;
 	overflow: hidden;
 }
-#pro{
+#cajon123{
 	width: 275px;
 	height: auto;
 	border-radius: 8px;
 	box-shadow:0 2px 2px rgba(0,0,0,0.2);
 	overflow: hidden;
-	margin: 20px;
+	margin: 05px;
 	text-align: center;
 	transition: all 0.25s;
 	float: left;

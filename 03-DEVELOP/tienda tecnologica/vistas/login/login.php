@@ -44,7 +44,7 @@
 					Registrarse
 				</button>
 			</form>
-			<a href="../vistas_clientes/product.php">
+			<a href="../vistas_clientes/inicio.php">
 				<button>
 					cliente vista
 				</button>

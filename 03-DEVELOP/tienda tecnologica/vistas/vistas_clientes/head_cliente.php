@@ -37,9 +37,9 @@
 						<img src="../../assets/img/usuario.png" alt="Avatar" class="img-responsive">
 					</figure>
 				</li>
-                <li><a href="../vistas_clientes/product.php">Inicio</a></li>
+                <li><a href="../vistas_clientes/inicio.php">Inicio</a></li>
                 <li><a href="../vistas_clientes/news.php">Noticias</a></li>
-                <li><a href="../vistas_clientes/services.php">Promociones</a></li>
+                <li><a href="../vistas_clientes/promociones.php">Promociones</a></li>
                 <li><a href="../vistas_clientes/contact.php">Contactenos</a></li>  
              </ul>
             <i class="fa fa-bars visible-xs btn-mobile"></i>

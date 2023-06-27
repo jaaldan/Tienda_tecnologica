@@ -17,12 +17,12 @@ if ($key > 0) {
     $c = $conet->conectando();
     $query = "select * from pedidos where id_pedido = '$key'";
     $resultado = mysqli_query($c, $query);
-    $arreglo = mysqli_fetch_array($resultado);
-    $obj->id_pedido = $arreglo[0];
-    $obj->id_cliente_pedido = $arreglo[1];
-    $obj->direccion_pedido = $arreglo[2];
-    $obj->fecha_pedido = $arreglo[3];
-    $obj->estado_pedido = $arreglo[4];
+    $arreglo2 = mysqli_fetch_array($resultado);
+    $obj->id_pedido = $arreglo2[0];
+    $obj->id_cliente_pedido = $arreglo2[1];
+    $obj->direccion_pedido = $arreglo2[2];
+    $obj->fecha_pedido = $arreglo2[3];
+    $obj->estado_pedido = $arreglo2[4];
 
 } else {
     $obj->id_pedido = "";
@@ -44,55 +44,95 @@ if ($key > 0) {
     <title>Pedidos</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Eliminar pedido</h2>
-        <br>
-        <br>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+         <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center>
+         <br>
+         <br>
+         <h2>Eliminar Pedido</h2>
+        </div>
         <form action="" name="eliminar_pedido" method="POST">
-        <table class="table-light table table-striped table table-bordered border-success table table-hover">
-            <tr>
-            <th>
-            <center>Id Pedido</center>
-            </th>
-            <td>
-            <center><input class="form-control form-control-sm" type="number" name="id_pedido" id="id_pedido" value="<?php echo $obj->id_pedido  ?>" aria-label=".form-control-sm example" readOnly></center>
-            </td>
-            </tr>
-            <tr>
-            <th>
-            <center>Id Cliente</center>
-            </th>
-            <td>
-            <center><input class="form-control form-control-sm" type="number" name="id_cliente_pedido" id="id_cliente_pedido" value="<?php echo $obj->id_cliente_pedido  ?>" aria-label=".form-control-sm example" readOnly></center>
-            </td>
-            </tr>
-            <tr>
-            <th>
-             <center>Direccion</center>
-             </th>
-             <td>
-             <center><input class="form-control form-control-sm" type="text" name="direccion_pedido" id="direccion_pedido" value="<?php echo $obj->direccion_pedido  ?>" aria-label=".form-control-sm example" readOnly></center>
-             </td>
-             </tr>
-             <tr>
-             <th>
-             <center>Fecha</center>            
-             </th>
-             <td>
-             <center><input class="form-control form-control-sm" type="date" name="fecha_pedido" id="fecha_pedido" value="<?php echo $obj->fecha_pedido  ?>" aria-label=".form-control-sm example" readOnly></center>
-             </td>
-             </tr>
-             <tr>
-             <th><center>Estado</center></th>
-             <td><center><select name="estado_pedido" id="estado_pedido" value="<?php echo $obj->estado_pedido  ?>" readonly>
-             <option value="Activo">ACTIVO</option>
-             <option value="Inactivo">INACTIVO</option>
-             </tr>
-             </table>
-        <P align="right"><a href="pedidos.php"><button type="button" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true">Cerrar</i></button></a>
+        <center>
+        <table class="table table-striped table-hover table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                    <th class="text-center">
+                        <center>Código</center>
+                    </th>
+                    <td class="text-center">
+                    <input type="text" name="id_pedido" id="id_pedido"  value="<?php echo $arreglo2[0]?>" readonly>
+                    </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                    <th class= "text-center">
+                        <center>Cliente</center>
+                    </th>
+                    <td class="text-center">
+                    <center><input type="text" name="id_cliente_pedido" id="id_cliente_pedido" value="<?php 
+                        $query3="select nombres_cliente, apellidos_cliente from clientes where id_cliente = '$arreglo2[1]'";
+                        $resultado3=mysqli_query($c,$query3);
+                        $arreglo3 = mysqli_fetch_array($resultado3);
+                        echo $arreglo3[0] . " "; 
+                        echo $arreglo3[1]; ?>" readonly></center>
+                    </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                    <th class= "text-center">
+                        <center>Dirección</center>
+                    </th>
+                    <td class="text-center">
+                    <input type="text" name="direccion_pedido" id="direccion_pedido"  value="<?php echo $arreglo2[2]?>" readonly>
+                    </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                    <th class= "text-center">
+                        <center>Fecha</center>
+                        </th>
+                    <td class="text-center">
+                    <input type="text" name="fecha_pedido" id="fecha_pedido"  value="<?php echo $arreglo2[3]?>" readonly>
+                    </td>
+                    </tr>    
+                    <tr class="text-center align-middle">
+                    <th class= "text-center">
+                        <center>Producto</center>
+                    </th>
+                    <td class="text-center">
+                    <input type="text" name="marca_producto" id="marca_producto"  value="<?php echo $arreglo2[3]?>" readonly>
+                    </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                    <th class= "text-center"> 
+                        <center>Cantidad</center>
+                    </th>
+                    <td class="text-center">
+                    <input type="text" name="marca_producto" id="marca_producto"  value="<?php echo $arreglo2[3]?>" readonly>
+                    </td>
+                    </tr> 
+                    <tr class="text-center align-middle">
+                    <th class= "text-center">
+                        <center>Valor IVA</center>
+                    </th>
+                    <td class="text-center">
+                    <input type="text" name="marca_producto" id="marca_producto"  value="<?php echo $arreglo2[3]?>" readonly>
+                    </td>
+                    </tr> 
+                    <tr class="text-center align-middle">
+                    <th class= "text-center">
+                        <center>Precio de venta</center>
+                    </th>
+                    <td class="text-center">
+                    <input type="text" name="marca_producto" id="marca_producto"  value="<?php echo $arreglo2[3]?>" readonly>
+                    </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                    <th class= "text-center">
+                        <center>Estado</center>
+                    </th>
+                    <td class="text-center">
+                    <input type="text" name="estado_pedido" id="estado_pedido"  value="<?php echo $arreglo2[4]?>" readonly>
+                    </td>
+                    </tr> 
+                    </table>
+        <P align="right"><a href="pedidos.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
         <button type="submit" class="btn btn-success" name="elimina"><i class="fa fa-check" aria-hidden="true">Eliminar</i></button></P>
         </form>
     </div>

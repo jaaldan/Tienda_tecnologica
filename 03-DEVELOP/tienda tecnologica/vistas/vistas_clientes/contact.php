@@ -30,57 +30,31 @@ include "head_cliente.php";
                             <div class="well">
                                 <h3 class="text-center" style="font-family: 'Lobster', cursive; font-size: 27px;">Dirección</h3>
                                 <address>
-                                  <strong>Pais:</strong> Tu país<br>
-                                  <strong>Dirección:</strong> Tu dirección<br>
-                                  <strong>Ciudad:</strong> Tu ciudad<br>
-                                  <strong>Email:</strong> tucorreo@info.com
+                                  <strong>Numero De Telefono:</strong> 3216758754<br>
+                                  <strong>Dirección:</strong> Dg. 57c Sur #62-60, Cdad. Bolívar<br>
+                                  <strong>Ciudad:</strong> Bogota<br>
+                                  <strong>Email:</strong> tecno@info.com
                                 </address>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-7">
                             <div class="well">
-                                <h3 class="tittles-pages text-center">Más info de contacto</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta velit ducimus aut tempore blanditiis assumenda totam eius optio id minima labore natus ex ratione maxime, iusto fuga omnis dolorum libero?
-                                </p>
+                                <h3 class="tittles-pages text-center">Mejoramos Para Tu Servicio</h3>
+                                  
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-4 col-md-push-8">
-                            <h2 class="tittles-pages text-center">Info pedidos</h2>
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quidem ipsum atque numquam, sint odio nesciunt laborum repellat tenetur commodi beatae a, officia praesentium eius fuga illum totam veniam velit.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, nam ipsum dolores ut nesciunt sequi iste vitae iusto, unde placeat veniam quis earum atque omnis optio praesentium! Officia, ipsum, neque.
-                            </p>
+                            <h2 class="tittles-pages text-center"></h2>
+                            <img src="../../assets/img/images (1).jfif" alt="windows-phone" class="img-responsive img-rounded center-box-content">
                         </div>
                         <div class="col-xs-12 col-md-8 col-md-pull-4">
-                            <h2 class="tittles-pages text-center">Formulario de contacto</h2>
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Tu nombre</label>
-                                    <div class="col-sm-10">	
-                                        <input type="text" class="form-control input-form-contact" placeholder="Escribe tu nombre">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Tu Email</label>
-                                    <div class="col-sm-10">	
-                                        <input type="email" class="form-control input-form-contact" placeholder="Escribe tu Email">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Asunto</label>
-                                    <div class="col-sm-10">	
-                                        <input type="text" class="form-control input-form-contact" placeholder="Asunto">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Tu mensaje</label>
-                                    <div class="col-sm-10">	
-                                        <textarea class="form-control input-form-contact" rows="3" placeholder="Escribe tu mensaje"></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                            <div class="well">
+                                <h3 class="text-center" style="font-family: 'Lobster', cursive; font-size: 27px;">Sobre Nosotros:</h3>
+                                <p>Somos una tienda virtual líder en el mercado de accesorios para celulares, venta de celulares y una amplia gama de productos tecnológicos. Nuestro compromiso es brindar a nuestros clientes la mejor experiencia de compra, ofreciendo productos de alta calidad, marcas reconocidas y precios competitivos. Ya sea que estés buscando una funda elegante, un cargador rápido o el último modelo de teléfono inteligente, en nuestra tienda encontrarás todo lo que necesitas para estar conectado y disfrutar de la tecnología en su máximo esplendor.
+                                </p>
+                            </div>
                             </form>
                         </div>
                     </div>
