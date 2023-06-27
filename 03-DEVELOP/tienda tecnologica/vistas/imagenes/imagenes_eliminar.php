@@ -47,28 +47,28 @@ $r = mysqli_fetch_assoc($query);
     <title>Imagenes</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Eliminar imagen</h2>
-        <br>
-        <br>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+         <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center>
+         <br>
+         <br>
+         <h2>Eliminar Imagen</h2>
+        </div>
         <form action="" name="imagenes_eliminar" method="POST">
-                            <table class="table table-striped table table-bordered border-success table table-hover">
-                                <tr>
-                                    <th>
+                            <table class="table table-striped table-hover table-bordered table-sm shadow">
+                                <tr class="text-center align-middle">
+                                    <th class="text-center">
                                         <center>Código</center>
                                     </th>
-                                    <td>
+                                    <td class="text-center">
                                         <center><input type="text" name="id_imagen" id="id_imagen" value="<?php echo $obj->id_imagen  ?>" readOnly></center>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>
+                                <tr class="text-center align-middle">
+                                    <th class="text-center">
                                         <center>Nombre producto</center>
                                     </th>
-                                    <td>
+                                    <td class="text-center">
                                         <center><input type="text" name="id_producto" id="id_producto" value="<?php 
                                         $query3="select nombre_producto from productos where id_producto = '$arreglo2[1]'";
                                         $resultado3=mysqli_query($c,$query3);
@@ -76,11 +76,11 @@ $r = mysqli_fetch_assoc($query);
                                         echo $arreglo3[0]; ?>" readOnly></center>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>
+                                <tr class="text-center align-middle">
+                                    <th class="text-center">
                                         <center>Imagen</center>
                                     </th>
-                                    <td>
+                                    <td class="text-center">
                                     <center><input type="image" name="imagen_producto" id="imagen_producto" value= <img src="<?php echo $obj->imagen_producto; ?>" width="250" height="250" readOnly></center>
                                     </td>
                                 </tr>

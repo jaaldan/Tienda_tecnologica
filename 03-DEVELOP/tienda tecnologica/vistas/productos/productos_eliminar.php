@@ -30,7 +30,7 @@ if ($key > 0) {
     $obj->pvp_con_iva_producto = $arreglo2[5];
     $obj->salidas_producto = $arreglo2[6];
     $obj->cantidad_stock_producto = $arreglo2[7];
-    $obj->descripcion_producto = $arreglo2[7];
+    $obj->descripcion_producto = $arreglo2[8];
 
 } else {
     $obj->id_producto = "";
@@ -65,36 +65,36 @@ $r = mysqli_fetch_assoc($query);
     <title>Productos</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Eliminar producto</h2>
-        <br>
-        <br>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+         <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center>
+         <br>
+         <br>
+         <h2>Eliminar Producto</h2>
+        </div>
         <form action="" name="productos_eliminar" method="POST">
-                            <table class="table table-striped table table-bordered border-success table table-hover">
-                            <tr>
-                            <th>
+                            <table class="table table-striped table-hover table-bordered table-sm shadow">
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Código</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input class="form-control form-control-sm" type="number" name="id_producto" id="id_producto" value="<?php echo $obj->id_producto  ?>" placerholder="El Codigo es Asignado por el Sistema" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Nombre producto</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input class="form-control form-control-sm" type="text" name="nombre_producto" id="nombre_producto" value="<?php echo $obj->nombre_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Nombre categoría</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input class="form-control form-control-sm" type="text" name="id_categoria_producto" id="id_categoria_producto" value="<?php 
                                         $query3="select nombre_categoria from categorias where id_categoria = '$arreglo2[2]'";
                                         $resultado3=mysqli_query($c,$query3);
@@ -102,51 +102,51 @@ $r = mysqli_fetch_assoc($query);
                                         echo $arreglo3[0]; ?>" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Marca</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input class="form-control form-control-sm" type="text" name="marca_producto" id="marca_producto" value="<?php echo $obj->marca_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Color</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input class="form-control form-control-sm" type="text" name="color_producto" id="color_producto" value="<?php echo $obj->color_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>PVP con IVA</center>
                             </th>
-                            <td>
-                            <center><input class="form-control form-control-sm" type="text" name="pvp_con_iva_producto" id="pvp_con_iva_producto" value="<?php echo number_format($obj->pvp_con_iva_producto, 2, '.', ','); ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
+                            <td class="text-center">
+                            <center><input class="form-control form-control-sm" name="pvp_con_iva_producto" id="pvp_con_iva_producto" value="$<?php echo number_format($arreglo2[5], 2, '.', ',');?>" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Salidas</center>
                             </th>
-                            <td>
-                            <center><input class="form-control form-control-sm" type="text" name="salidas_producto" id="salidas_producto" value="<?php echo $obj->salidas_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
+                            <td class="text-center">
+                            <center><input class="form-control form-control-sm" type="number" name="salidas_producto" id="salidas_producto" value="<?php echo $obj->salidas_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Cantidad(Stock)</center>
                             </th>
-                            <td>
-                            <center><input class="form-control form-control-sm" type="text" name="cantidad_stock_producto" id="cantidad_stock_producto" value="<?php echo $obj->cantidad_stock_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
+                            <td class="text-center">
+                            <center><input class="form-control form-control-sm" type="number" name="cantidad_stock_producto" id="cantidad_stock_producto" value="<?php echo $obj->cantidad_stock_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>
-                            <tr>
-                            <th>
+                            <tr class="text-center align-middle">
+                            <th class="text-center">
                             <center>Descripción</center>
                             </th>
-                            <td>
+                            <td class="text-center">
                             <center><input class="form-control form-control-sm" type="text" name="descripcion_producto" id="descripcion_producto" value="<?php echo $obj->descripcion_producto  ?>" placerholder="Digite el nombre del metodo de pago" aria-label=".form-control-sm example" readOnly></center>
                             </td>
                             </tr>

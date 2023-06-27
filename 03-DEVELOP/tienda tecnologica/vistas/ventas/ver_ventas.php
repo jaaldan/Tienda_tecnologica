@@ -10,7 +10,7 @@ if ($_POST) {
     $obj->id_pedido_venta = $_POST['id_pedido_venta'];
     $obj->fecha_venta = $_POST['fecha_venta'];
     $obj->hora_venta = $_POST['hora_venta'];
-    $obj->valor_total = $_POST['valor_total_venta'];
+    $obj->valor_total_venta = $_POST['valor_total_venta'];
     $obj->estado_venta = $_POST['estado_venta'];
 }
 $key = $_GET['key'];
@@ -36,82 +36,87 @@ $arreglo2 = mysqli_fetch_array($ejecuta2);
 </head>
 
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-        <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
-        <br>
-        <br>
-        <h2>Ver transportadora</h2>
-        <br>
-        <br>
-        <br>
+    <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+           <center><img src="../../img/logo_3_T_T.jpg" width="550px" height="110px" alt=""></center>
+         <br>
+         <br>
+         <h2>Ver transportadora</h2>
+        </div>
         <form action="" name="ver_ventas" method="POST">
             <center>
-                <table class="table table-striped table table-bordered border-success table table-hover">
-                    <tr class="table-striped table table-bordered border-success table table-hover">
-                    <tr>
-                        <th>
-                            <center>Id venta</center>
-                            <center>
-                        <td><input type="text" name="id_venta" id="id_venta" value="<?php echo $arreglo2[0] ?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
+                <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Id venta
+                        </th>   
+                        <td class="text-center">
+                            <input type="text" name="id_venta" id="id_venta"
+                            value="<?php echo $arreglo2[0] ?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20">
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Id pago
+                        </th>
+                        <td class="text-center">
+                            <input type="text" name="id_pago_venta" id="id_pago_ventas"
+                            value="<?php echo $arreglo2[1]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Id pedido
+                        </th>
+                        <td class="text-center">
+                            <input type="text" name="id_pedido_venta" id="id_pedido_venta" 
+                            value="<?php echo $arreglo2[2]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Fecha
+                        </th>
+                        <td class="text-center">
+                            <input type="text" name="fecha_venta" id="fecha_venta"
+                            value="<?php echo $arreglo2[3]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Hora
+                        </th>    
+                        <td class="text-center">
+                            <input type="text" name="hora_venta" id="hora_venta"
+                            value="<?php echo $arreglo2[4]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Valor total
+                        </th>  
+                        <td class="text-center">
+                            <input type="text" name="valor_total_venta" id="valor_total_venta"
+                            value="<?php echo $arreglo2[5]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">
+                            Estado
+                        </th>    
+                        <td class="text-center">
+                            <input type="text" name="estado_venta" id="estado_venta"
+                            value="<?php echo $arreglo2[6]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
+                        </td>
+                    </tr>
+                </table>
             </center>
-            </tr>
-            <tr>
-                <th>
-                    <center>Id pago</center>
-                    <center>
-                <td><input type="text" name="id_pago" id="id_pago" value="<?php echo $arreglo2[1]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
-                </center>
-                </th>
+                <a href="ventas.php" target="marco">
+                 <P align="right"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa fa-times" aria-hidden="true">Cerrar</i></button>
+                </a>
 
-            </tr>
-            <tr>
-                <th>
-                    <center>Id pedido</center>
-                    <center>
-                <td><input type="text" name="id_pedido" id="id_pedido" value="<?php echo $arreglo2[2]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
-                </center>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <center>Fecha</center>
-                    <center>
-                <td><input type="text" name="fecha" id="fecha" value="<?php echo $arreglo2[3]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
-                </center>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <center>Hora</center>
-                    <center>
-                <td><input type="text" name="hora" id="hora" value="<?php echo $arreglo2[4]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
-                </center>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <center>Valor total</center>
-                    <center>
-                <td><input type="text" name="valor_total" id="valor_total" value="<?php echo $arreglo2[5]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
-                </center>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <center>Estado</center>
-                    <center>
-                <td><input type="text" name="estado" id="estado" value="<?php echo $arreglo2[6]?>" placeholder="El Codigo es Asignado por el Sistema" readonly maxlength="50" size="20"></td>
-                </center>
-                </th>
-            </tr>
-            </table>
-            <br>
-            <a href="ventas.php" target="marco">
-                <P align="center"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="fa fa-times" aria-hidden="true">Cerrar</i></button></P>
-            </a>
-            </P>
-            </center>
+                <button type="button" class="btn btn-primary" name="imprimir" onClick="window.print()"><i class="fa fa-check" aria-hidden="true">Imprimir</i></button>
+                </P>
         </form>
     </div>
 </body>

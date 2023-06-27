@@ -44,28 +44,28 @@ $p = mysqli_fetch_assoc($quer);
     <title>Agregar Pedido</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-            <center><img src="../../img/logo_2_T_T.jpg" width="400" height="150" alt=""></center>
-            <br>
-            <br>
-            <h2>Agregar Pedido</h2>
-            <br>
-            <br>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+         <center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center>
+         <br>
+         <br>
+         <h2>Agregar Pedido</h2>
+        </div>
         <form action="" name="agregar_pedido" method="POST">
-        <table class="table-light table table-striped table table-bordered border-success table table-hover">
-            <tr>
-            <th>
+            <table class="table table-striped table-hover table-bordered table-sm shadow">
+            <tr class="text-center align-middle">
+            <th class="text-center">
             <center>Código</center>
             </th>
-            <td>
+            <td class="text-center">
             <center><input type="number" name="id_pedido" id="id_pedido" placerholder="El Codigo es Asignado por el Sistema" aria-label=".form-control-sm example" required readOnly></center>
             </td>
             </tr>
-            <tr>
-            <th>
+            <tr class="text-center align-middle">
+            <th class="text-center">
             <center>Cliente</center>
             </th>
-            <td>
+            <td class="text-center">
             <center><select name="id_cliente_pedido" id="id_cliente_pedido">
             <option>
             Seleccione el cliente
@@ -92,61 +92,84 @@ $p = mysqli_fetch_assoc($quer);
             </center>
             </td>
             </tr>
-            <tr>
-            <th>
+            <tr class="text-center align-middle">
+            <th class="text-center">
              <center>Dirección</center>
              </th>
-             <td>
+             <td class="text-center">
              <center><input type="text" name="direccion_pedido" id="direccion_pedido" placerholder="Digite la direccion del domicilio" aria-label=".form-control-sm example"></center>
              </td>
              </tr>
-             <tr>
-             <th>
+             <tr class="text-center align-middle">
+             <th class="text-center">
              <center>Fecha</center>            
              </th>
-             <td>
-             <center><input type="date" name="fecha_pedido" id="fecha_pedido" placerholder="Digite la fecha del pedido" aria-label=".form-control-sm example"></center>
+             <td class="text-center">
+             <center><input type="datetime-local" name="fecha_pedido" id="fecha_pedido" placerholder="Digite la fecha del pedido" aria-label=".form-control-sm example"></center>
              </td>
              </tr>
-             <tr>
-            <th>
-            <center>Producto(s)</center>
+             <tr class="text-center align-middle">
+            <th class="text-center">
+            <center>Producto</center>
             </th>
+            <td class="text-center">
+            <center><select name="id_producto_detalle_pedido" id="id_producto_detalle_pedido">
+            <option>
+            Seleccione el producto
+            <?php
+            do {
+            $producto = $p['id_producto'];
+            $nombre_producto = $p['nombre_producto'];
+            if ($producto == $obj->id_producto_detalle_pedido) {
+            echo "<option value=$producto=>$nombre_producto";
+            } else {
+            echo "<option value=$producto>$nombre_producto";
+            }
+            } while ($p = mysqli_fetch_assoc($quer));
+            $row = mysqli_num_rows($quer);
+            $rows = 0;
+            if ($rows > 0) {
+            mysqli_data_seek($p, 0);
+            $p = mysqli_fetch_assoc($quer);
+            }
+            ?>
+            </option>
+            </select>
+            </td>
             </tr>
-            <tr>
-            <th>
+            </center>
+            <tr class="text-center align-middle">
+            <th class="text-center"> 
              <center>Cantidad</center>
              </th>
-             <td>
+             <td class="text-center">
              <center><input type="number" name="cantidad_producto_detalle_pedido" id="cantidad_producto_detalle_pedido" placerholder="Digite la cantidad del producto" aria-label=".form-control-sm example"></center>
              </td>
              </tr>
-             <tr>
-            <th>
+             <tr class="text-center align-middle">
+            <th class="text-center">
              <center>Valor IVA</center>
              </th>
-             <td>
+             <td class="text-center">
              <center><input type="number" name="valor_iva_detalle_pedido" id="valor_iva_detalle_pedido" placerholder="Digite el valor IVA del producto" aria-label=".form-control-sm example"></center>
              </td>
              </tr>
-             <tr>
-            <th>
+             <tr class="text-center align-middle">
+            <th class="text-center">
              <center>Precio de venta</center>
              </th>
-             <td>
+             <td class="text-center">
              <center><input type="number" name="precio_venta_detalle_pedido" id="precio_venta_detalle_pedido" placerholder="Digite el precio de venta del producto" aria-label=".form-control-sm example"></center>
              </td>
              </tr>
-             <tr>
-             <th><center>Estado</center></th>
-             <td><center><select name="estado_pedido" id="estado_pedido">
-             <option value="Activo">Activo</option>
-             <option value="Inactivo">Inactivo</option>
+             <tr class="text-center align-middle">
+             <th class="text-center"><center>Estado</center></th>
+             <td class="text-center"><center><select name="estado_pedido" id="estado_pedido">
+             <option value="ACTIVO">ACTIVO</option>
+             <option value="INACTIVO">INACTIVO</option>
              </tr>
              </table>
         <P align="right"><a href="pedidos.php"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
-        <button name="agregar_producto" class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#Modalproducto"><i class="fa fa-address-book-o"
-        aria-hidden="true">Agregar Producto</i></button>
         <button type="submit" class="btn btn-success" name="guarda"><i class="fa fa-check" aria-hidden="true">Guardar</i></button></P>
         </form>
     </div>

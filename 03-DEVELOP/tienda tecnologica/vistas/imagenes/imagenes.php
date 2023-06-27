@@ -19,7 +19,7 @@ if (empty($_GET['pagina'])) {
 }
 $desde = ($pagina - 1) * $maximoRegistros;
 $totalPaginas = ceil($totalRegistros / $maximoRegistros);
-echo $totalPaginas;
+//echo $totalPaginas;
 
 if (isset($_POST['search'])) {
     $query2 = "select * from imagenes where id_imagen like '%$obj->id_imagen%' and id_producto_imagen = '$key' limit $desde, $maximoRegistros";
@@ -56,29 +56,35 @@ $paso = $key;
     <title>Imagenes del Producto</title>
 </head>
 <body>
-    <div class="container shadow p-3 mb-5 bg-body rounded">
-        <head>
-            <center><img src="../../img/logo_2_T_T.jpg" width="750px" height="225px" alt=""></center>
-            <br>
-            <br>
-            <h2>Imagenes del Producto</h2>
-        </head>
+<div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+        <div>
+            <table class="table ">
+                <thead>
+                    <head>
+                        <tr>
+                        <th><center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center></th>
+                        </tr>
+                    </head>
+                    <tr>
+                        <th><h2><i class="fa fa-file-image-o fa-2x" aria-hidden="true"></i> Imagenes</h2></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <form action="" name="productos_imagen" method="POST">
         <div class="campo" id="filtropro">
-        <nav class="navbar navbar-expand-lg bg-">
-                <div class="container-fluid">
-                    <form class="d-flex" role="search">
+        <nav class="navbar navbar-expand-lg bg-light">
+                    <form class="d-flex" id="search" role="search">
                         <input class="form-control me-2" type="search" name="id_imagen" placeholder="Digite el código de la imagen" aria-label="Search">
-                        <button type="submit" class="btn btn-primary" name="search"><i class="fa fa-search" aria-hidden="true">Buscar</button></i>
+                        <button type="submit" name="search" id="search" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
                     </form>
-                </div>
-            </nav>
+        </nav>
             <div class="marco" align="left">
-            <button type="submit" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true">Listar</i></button>
-        </div>
-        </div>
-            <table class="table-light table table-striped table table-bordered border-success table table-hover">
-                <tr class="table-info table table-striped table table-bordered border-success table table-hover">
+                <button type="submit" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true"></i> Listar</button>
+            </div>
+            <section>
+            <table class="table table-striped table-hover table table-bordered table-sm shadow">
+                <tr>
                     <th>
                         <center>Código</center>
                     </th>
@@ -125,20 +131,23 @@ $paso = $key;
                                         <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'imagenes_ver.php?key='.urlencode($arreglo2[0]);
                                             } 
-                                            ?>">
-                                            <button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true">Ver</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Ver">
+                                            <button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
                                             </a>
                                             <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'imagenes_modificar.php?key='.urlencode($arreglo2[0]);
                                             } 
-                                            ?>">                                    
-                                                <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true">Modificar</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Modificar">                                    
+                                                <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                             </a>
                                             <a href="<?php if( $arreglo2[0]<>''){
                                                 echo 'imagenes_eliminar.php?key='.urlencode($arreglo2[0]);
                                             } 
-                                            ?>">
-                                            <button name="button" class="btn btn-danger" type="button"><i class="fa fa-trash" aria-hidden="true">Eliminar</i></button>
+                                            ?>"
+                                            data-togle="tooltip" data-placement="top" title="Eliminar">
+                                            <button name="button" class="btn btn-danger" type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                             </a>
                                         </center>
                                         </td>
@@ -154,27 +163,23 @@ $paso = $key;
                             <a href="../productos/productos.php" target="marco">
                             <P align="right"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
                             </a>
-                            
-                            
                             <a href="<?php if( $paso >= 0){
                                                 echo 'imagenes_agregar.php?key='.urlencode($paso);
                                             } 
                                            ?>">
-                                <button name="button" class="btn btn-success"><i class="fa fa-address-book-o" aria-hidden="true">Agregar imagen</i></button>
-                            </a>
-                          
+                                <button name="button" type="button" class="btn btn-success"><i class="fa fa-address-book-o" aria-hidden="true">Agregar Imagen</i></button>
+                            </a>  
                         </P>
                         <br>
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
                     <?php 
                     if($pagina!=1){
                     ?>
                     <li class="page-item">
                         <a class="page-link" href="?pagina=<?php echo 1; ?>"><<</a>
                     </li>
-                    <li class="page-item ">
+                    <li class="page-item">
                         <a class="page-link" href="?pagina=<?php echo $pagina-1; ?>"><</a>
                     </li>
                     <?php
@@ -200,7 +205,7 @@ $paso = $key;
                     ?>
                 </ul>
             </nav>
-            </div>
+            </section>
           </div>
         </form>
     </div>

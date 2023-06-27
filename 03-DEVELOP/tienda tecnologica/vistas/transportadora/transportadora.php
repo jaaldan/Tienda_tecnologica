@@ -46,32 +46,38 @@ if (isset($_POST['buscar'])) {
 </head>
 
 <body>
-  <div class="container shadow p-3 mb-5 bg-body rounded">
-
-    <head>
-      <center><img src="../../img/logo_3_T_T.jpg" width="1000" height="150" alt=""></center>
-      <br>
-      <br>
-      <h2>Transportadora</h2>
-      <br>
-      <br>
-    </head>
+  <div class="container-fluid p-3 mb-5 bg-body rounded container shadow">
+    <div>
+      <table class="table ">
+        <thead>
+           <head>
+            <tr>
+               <th><center><img src="../../img/logo_2_T_T.jpg" width="550px" height="175px" alt=""></center></th>
+            </tr>
+           </head>
+               <tr>
+                 <th><h2><i class="fa fa-truck fa-2x" aria-hidden="true"></i>   Transportadora</h2></th>
+               </tr>
+        </thead>
+      </table>
+    </div>
+    
     <form action="" name="transportadoras" method="POST">
       <div class="campo" id="filtropro">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" name="nombre_transportadora" id="nombre_transportadora" placeholder="Digite el Nombre o Código de la Transportadora" aria-label="Search" />
-          <button type="submit" name="buscar" id="buscar" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
-        </form>
-
-      </div>
+        <nav class="navbar navbar-expand-lg bg-light">
+          <form class="d-flex" role="search">
+             <input class="form-control me-2" type="search" name="nombre_transportadora" id="nombre_transportadora" placeholder="Digite el Nombre o Código de la Transportadora" aria-label="Search" />
+             <button type="submit" name="buscar" id="buscar" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true">Buscar</i></button>
+          </form>
+        </nav>
       <div class="marco" align="left">
         <button type="submit" class="btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true"></i> Listar</button>
       </div>
       <section>
-        <table class="table-light table table-striped table table-bordered border-success table table-hover">
-          <tr class="table-info table table-striped table table-bordered border-success table table-hover">
+        <table class="table table-striped table-hover table table-bordered table-sm shadow">
+          <tr>
             <th>
-              <center>Id transportadora</center>
+              <center>Codigo transportadora</center>
             </th>
             <th>
               <center>Nombre transportadora</center>
@@ -86,16 +92,16 @@ if (isset($_POST['buscar'])) {
               <center>Acciones</center>
             </th>
           </tr>
-          <?php
-          if ($arreglo2 == 0) {
-            //echo "no hay registros";
-          ?>
+           <?php
+             if ($arreglo2 == 0) {
+             //echo "no hay registros";
+            ?>
             <div class="alert alert-warning" role="alert">
               <?php echo "No hay registros" ?>
             </div>
             <?php
-          } else {
-            do {
+             } else {
+             do {
             ?>
               <tr>
                 <td><?php echo $arreglo2[0] ?></td>
@@ -103,36 +109,46 @@ if (isset($_POST['buscar'])) {
                 <td><?php echo $arreglo2[2] ?></td>
                 <td><?php echo $arreglo2[3] ?></td>
                 <td>
-                  <a href="<?php if ($arreglo2[0] <> '') {
+                  <center>
+                    <a href="<?php if ($arreglo2[0] <> '') {
                               echo 'ver_transportadora.php?key=' . urlencode($arreglo2[0]);
                             }
-
-                            ?>" <center><button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true">Ver</i></button>
-                  </a>
-                  <a href="<?php if ($arreglo2[0] <> '') {
+                            ?>"
+                            data-toggle="tooltip" data-placement="top" title="Ver">
+                            <button name="ver" class="btn btn-primary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </a>
+                    <a href="<?php if ($arreglo2[0] <> '') {
                               echo 'modificar_transportadora.php?key=' . urlencode($arreglo2[0]);
                             }
-
-                            ?>" <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true">Modificar</i></button>
-                  </a>
+                            ?>"
+                             data-toggle="tooltip" data-placement="top" title="Modificar">
+                             <button name="modificar" class="btn btn-warning" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    </a>
+                    <a href="<?php if ($arreglo2[0] != "") {
+                                              echo 'transportadora_eliminar.php?key=' . urlencode($arreglo2[0]);
+                                              }
+                                              ?>"
+                                              data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                              <button name="eliminar"type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </a>
                   </center>
                 </td>
               </tr>
 
-          <?php
-            } while ($arreglo2 = mysqli_fetch_array($ejecuta2));
-          }
-          ?>
+               <?php
+                 } while ($arreglo2 = mysqli_fetch_array($ejecuta2));
+                 }
+                ?>
         </table>
-        <br>
-        <P align="right"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button>
+        <div>
+           <P align="right"><a href="../login/framework.php" target="marco" class="full-width"><button name="atras" class="btn btn-primary" type="button"><i class="fa fa-arrow-left" aria-hidden="true">Atras</i></button></a>
           <a href="agregar_transportadora.php" target="marco">
             <button name="agregar" class="btn btn-success" type="button"><i class="fa fa-address-book-o" aria-hidden="true">Agregar Transportadora</i></button>
           </a>
-        </P>
-        <br>
+           </P>
+        </div>
         <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-end">
+          <ul class="pagination justify-content-center">
             <?php
             if ($pagina != 1) {
             ?>

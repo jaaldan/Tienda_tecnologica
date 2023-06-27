@@ -49,22 +49,22 @@ class Usuarios
     {
         $conet = new conexion();
         $c = $conet->conectando();
-        $query = "select * from usuario where nombres = '$this->nombres'";
+        $query = "select * from usuario where nombres_usuario = '$this->nombres_usuario'";
         $ejecuta = mysqli_query($c, $query);
         if (mysqli_fetch_array($ejecuta)) {
             echo "<script> alert('el usuario ya Existe en el Sistema')</script>";
         } else {
             $update = "update usuario set id_usuario='$this->id_usuario',
-                            id_rol='$this->id_rol',
-                            nombres='$this->nombres',
-                            apellidos='$this->apellidos',
-                            id_tipo_documento='$this->id_tipo_documento',
-                            numero_documento='$this->numero_documento',
-                            correo='$this->correo',
-                            numero_celular='$this->numero_celular',
-                            direccion='$this->direccion',
-                            clave='$this->clave',
-                            estado='$this->estado',
+                            id_rol_usuario='$this->id_rol_usuario',
+                            nombres_usuario='$this->nombres_usuario',
+                            apellidos_usuario='$this->apellidos_usuario',
+                            id_tipo_documento_usuario='$this->id_tipo_documento_usuario',
+                            numero_documento_usuario='$this->numero_documento_usuario',
+                            correo_usuario='$this->correo_usuario',
+                            numero_celular_usuario='$this->numero_celular_usuario',
+                            direccion_usuario='$this->direccion_usuario',
+                            clave_usuario='$this->clave_usuario',
+                            estado_usuario='$this->estado_usuario',
                             imagen_usuario='$this->imagen_usuario' where id_usuario='$this->id_usuario'";
 
             echo $update;

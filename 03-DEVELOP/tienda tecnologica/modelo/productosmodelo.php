@@ -31,7 +31,7 @@
                                                                                          '$this->descripcion_producto'
                                                                                          
                                               )";
-                                              echo $insertar;
+                                              //echo $insertar;
                                               mysqli_query($c,$insertar);
                                               echo "<script> alert('El Producto fue creado en el sistema')</script>";
                                              }
@@ -52,14 +52,13 @@
                                            if(mysqli_fetch_array($ejecuta)){
                                               echo "<script> alert('No se ha realizado una modificación en el producto')</script>";
                                             }else{
-                                               $update = "update productos set id_producto='$this->id_producto', 
-                                               nombre_producto='$this->nombre_producto', 
+                                               $update = "update productos set nombre_producto='$this->nombre_producto', 
                                                id_categoria_producto='$this->id_categoria_producto', 
                                                marca_producto='$this->marca_producto', 
                                                color_producto='$this->color_producto', 
                                                pvp_con_iva_producto='$this->pvp_con_iva_producto', 
                                                salidas_producto='$this->salidas_producto', 
-                                               cantidad_stock_producto='$this->cantidad_stock_producto'  
+                                               cantidad_stock_producto='$this->cantidad_stock_producto',  
                                                descripcion_producto= '$this->descripcion_producto'
                                                where id_producto='$this->id_producto'";
                                                echo $update;
@@ -70,22 +69,17 @@
 
                         }
                         function eliminar(){
-                                           try{  
-                                           $conet = new conexion();
-                                           $c = $conet->conectando();
-                                           $delete = "delete from productos where id_producto='$this->id_producto'";
-                                           $d=mysqli_query($c,$delete);
-                                           echo "<script> alert('El producto fue eliminado en el Sistema')</script>"; 
-                                          }
-                                           catch(Exception $e){
-                                           
-                                                                                    
-                                           //if(mysqli_errno()==1451){
-                                                      echo "<script> alert('El producto no fue eliminado en el sistema porque tiene registros asociados')</script>";
-                                            //}else{
-                                               
-                                           // }
-                                          }
+                            $conet = new conexion();
+                            $c = $conet->conectando();
+                            $delete = "delete from productos where id_producto='$this->id_producto'";
+                            $d = mysqli_query($c,$delete);
+
+                            if($d){
+                               header("Location: productos.php");
+                             }else{
+                               echo "<script> alert('El producto no se puede eliminar')</script>";
+
+                           }
 
                         }
 

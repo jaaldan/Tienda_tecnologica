@@ -33,7 +33,7 @@
     {
         $conet = new conexion();
         $c = $conet->conectando();
-        $query = "select * from entradas_productos where proveedor_producto_entrada = '$this->proveedor_producto_entrada'";
+        $query = "select * from entradas_productos where '' = '$this->id_entrada_producto'";
         $ejecuta = mysqli_query($c, $query);
         if (mysqli_fetch_array($ejecuta)) {
             echo "<script> alert('La entrada ya Existe en el Sistema')</script>";

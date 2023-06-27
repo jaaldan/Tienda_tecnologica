@@ -1,17 +1,17 @@
 <?php
-     class envios{
+     class Envios{
                         public $id_envio;
                         public $id_transportadora_envio;
                         public $direccion_envio;
                         public $estado_envio;
 
-      function agregar(){
+                         Public function agregar(){
                           $cone= new Conexion();
                           $c = $cone->conectando();
-                          $query= "select * from  envios where id_envio = '$this->id_envio'";
+                          $query= "select * from  envios where '' = '$this->id_envio'";
                           $ejecuta = mysqli_query($c,$query);
                           if(mysqli_fetch_array($ejecuta)){
-                              echo "<script> alert('El documento ya existe en el sistema')</script>";
+                              echo "<script> alert('El envio ya existe en el sistema')</script>";
                           }else{
                               $insertar = "insert into envios values(
                                                                       '$this->id_envio',
@@ -25,28 +25,31 @@
                           }
      }
 
-     function modificar(){
+    public function modificar(){
                         $conet = new conexion();
                         $c = $conet->conectando();
-                        $query = "select * from envios where id_envio = '$this->id_envio'";
+                        $query = "select * from envios where '' = '$this->id_envio'";
                         $ejecuta = mysqli_query($c, $query);
                         if(mysqli_fetch_array($ejecuta)){
                            echo "<script> alert('El envio ya Existe en el Sistema')</script>";
                          }else{
                             $update = "update envios set id_envio='$this->id_envio',
-                                                        nombre_categoria='$this->nombre_categoria' where id_categoria='$this->id_categoria'";
+                                                        id_transportadora_envio='$this->id_transportadora_envio',
+                                                        direccion_envio='$this->direccion_envio'
+                                                        where estado_envio='$this->estado_envio'";
                             echo $update;
                             mysqli_query($c,$update);
-                            echo "<script> alert('La Categoria fue Modificada en el Sistema')</script>";
+                            echo "<script> alert('El envio fue Modificada en el Sistema')</script>";
                        
                          }
 
      }
 
+     /*
      function eliminar(){
                         $conet = new conexion();
                         $c = $conet->conectando();
-                        $delete = "delete from categorias where id_categoria='$this->id_categoria'";
+                        $delete = "delete from transportadora where id_transportadora_envio='$this->id_transportadora_envio'";
                         $d=mysqli_query($c,$delete);
                      
                     
@@ -58,10 +61,11 @@
                          }
 
      }
-
+     
      function limpiar(){
 
       }
+      */
                         
 
      }
