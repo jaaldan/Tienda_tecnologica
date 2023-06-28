@@ -39,7 +39,7 @@ $obj = new Conexion();
             $conn = mysqli_init(); 
             mysqli_ssl_set($conn, NULL, NULL, $ssl, NULL, NULL);
             mysqli_real_connect($conn, $host, $username, $password, $db_name, $port);
-
+            $mysqli->set_charset("utf8");
             if ($conn->connect_error) {
                 die('Error de Conexión (' . $conn->connect_errno . ') ' . $conn->connect_error);
             }
@@ -51,10 +51,12 @@ $obj = new Conexion();
             if (!self::$instance) {
                 self::$instance = self::conectar();
             }
-            $mysqli->set_charset("utf8");
+            
             return self::$instance;  
         }
+        
     }
+    
 ?>
 
  
