@@ -51,8 +51,8 @@ $obj = new Conexion();
             if (!self::$instance) {
                 self::$instance = self::conectar();
             }
-            return self::$instance;
             $mysqli->set_charset("utf8");
+            return self::$instance;  
         }
     }
 ?>
