@@ -2,6 +2,8 @@
 include "../../conexion/conectar.php";
 include "head_cliente.php";
 
+$mysqli->set_charset("utf8");
+
 $cone = new Conexion();
 $c = $cone->conectando();
 $query = "select nombre_categoria from categorias";
